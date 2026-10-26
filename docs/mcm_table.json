@@ -1,0 +1,2690 @@
+{
+ "pages": {
+  "0": "Features",
+  "1": "Tweaks",
+  "2": "Enable",
+  "3": "Hotkeys",
+  "4": "Stats",
+  "5": "Monster Hunter",
+  "6": "Compatibility",
+  "7": "Profile"
+ },
+ "options": [
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "text",
+   "label_key": "$_DS_HB_Version",
+   "label": "Version",
+   "value_expr": "GetHBVersion()",
+   "args": [
+    "\"$_DS_HB_Version\"",
+    "GetHBVersion()",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_Time",
+   "label": "Time",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_Time\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleDressTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_DressTimed",
+   "label": "Field dressing takes time",
+   "value_expr": "dsGlobals.gDressTimed",
+   "args": [
+    "\"$_DS_HB_DressTimed\"",
+    "dsGlobals.gDressTimed",
+    "disableFlag"
+   ],
+   "global": "gDressTimed",
+   "hint": "When enabled, field dressing a kill takes game time (depending on animal size).",
+   "default": "True",
+   "default_global": "gDressTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSkinTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_SkinTimed",
+   "label": "Skinning takes time",
+   "value_expr": "dsGlobals.gSkinTimed",
+   "args": [
+    "\"$_DS_HB_SkinTimed\"",
+    "dsGlobals.gSkinTimed",
+    "disableFlag"
+   ],
+   "global": "gSkinTimed",
+   "hint": "When enabled, skinning a kill for its pelt takes game time (depending on animal size).",
+   "default": "True",
+   "default_global": "gSkinTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleHarvestTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_HarvestTimed",
+   "label": "Harvesting takes time",
+   "value_expr": "dsGlobals.gHarvestTimed",
+   "args": [
+    "\"$_DS_HB_HarvestTimed\"",
+    "dsGlobals.gHarvestTimed",
+    "disableFlag"
+   ],
+   "global": "gHarvestTimed",
+   "hint": "When enabled, harvesting a kill for bones and organs takes game time (depending on animal size).",
+   "default": "True",
+   "default_global": "gHarvestTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleButcherTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ButcherTimed",
+   "label": "Butchering takes time",
+   "value_expr": "dsGlobals.gButcherTimed",
+   "args": [
+    "\"$_DS_HB_ButcherTimed\"",
+    "dsGlobals.gButcherTimed",
+    "disableFlag"
+   ],
+   "global": "gButcherTimed",
+   "hint": "When enabled, butchering a kill for meat takes game time (depending on animal size).",
+   "default": "True",
+   "default_global": "gButcherTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleForageTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ForageTimed",
+   "label": "Foraging takes time",
+   "value_expr": "dsGlobals.gForageTimed",
+   "args": [
+    "\"$_DS_HB_ForageTimed\"",
+    "dsGlobals.gForageTimed",
+    "disableFlag"
+   ],
+   "global": "gForageTimed",
+   "hint": "When enabled, foraging takes 1 hour of game time.",
+   "default": "True",
+   "default_global": "gForageTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleActionsTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ActionsTimed",
+   "label": "Scavenging takes time",
+   "value_expr": "dsGlobals.gActionsTimed",
+   "args": [
+    "\"$_DS_HB_ActionsTimed\"",
+    "dsGlobals.gActionsTimed",
+    "disableFlag"
+   ],
+   "global": "gActionsTimed",
+   "hint": "When enabled, Scavenging takes game time (depending on item).",
+   "default": "True",
+   "default_global": "gActionsTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleTrackingTime_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_TrackingTimed",
+   "label": "Tracking takes time",
+   "value_expr": "dsGlobals.gTrackingTimed",
+   "args": [
+    "\"$_DS_HB_TrackingTimed\"",
+    "dsGlobals.gTrackingTimed",
+    "disableFlag"
+   ],
+   "global": "gTrackingTimed",
+   "hint": "When enabled, tracking takes 15 minutes of game time.",
+   "default": "True",
+   "default_global": "gTrackingTimed",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_sliderAlterTime_OID_S",
+   "type": "slider",
+   "label_key": "$_DS_HB_AlterTime",
+   "label": "Global time multiplier",
+   "value_expr": "dsGlobals.gAlterTime",
+   "args": [
+    "\"$_DS_HB_AlterTime\"",
+    "dsGlobals.gAlterTime",
+    "\"{2}\"",
+    "disableFlag"
+   ],
+   "global": "gAlterTime",
+   "hint": "Modifies the amount of game time all Hunterborn skills take.",
+   "default": "1.0",
+   "min": "0.0",
+   "max": "10",
+   "step": "0.01",
+   "format": "{2}",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"$_DS_HB_ExitToStart\"",
+   "args": [
+    "\"\"",
+    "\"$_DS_HB_ExitToStart\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"$_DS_HB_ExitToStop\"",
+   "args": [
+    "\"\"",
+    "\"$_DS_HB_ExitToStop\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleActive_OID_B",
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"$_DS_HB_StopHB\"",
+   "args": [
+    "\"\"",
+    "\"$_DS_HB_StopHB\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleActive_OID_B",
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"$_DS_HB_StartHB\"",
+   "args": [
+    "\"\"",
+    "\"$_DS_HB_StartHB\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "select_side_effects": [
+    "return",
+    "_HunterbornStopping = true",
+    "_HunterbornStarting = true"
+   ],
+   "select_lines": 7,
+   "side_effects": [
+    "return",
+    "_HunterbornStopping = true",
+    "_HunterbornStarting = true"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_SmallGame",
+   "label": "Small game",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_SmallGame\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Chicken_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Chickens",
+   "label": "Include chickens",
+   "value_expr": "dsGlobals.gIncludeChicken",
+   "args": [
+    "\"$_DS_HB_Chickens\"",
+    "dsGlobals.gIncludeChicken",
+    "disableFlag"
+   ],
+   "global": "gIncludeChicken",
+   "hint": "Chickens require plucking in order to butcher for meat.",
+   "default": "True",
+   "default_global": "gIncludeChicken",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Dog_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Dogs",
+   "label": "Include dogs",
+   "value_expr": "dsGlobals.gIncludeDog",
+   "args": [
+    "\"$_DS_HB_Dogs\"",
+    "dsGlobals.gIncludeDog",
+    "disableFlag"
+   ],
+   "global": "gIncludeDog",
+   "hint": "Dogs require dressing in order to harvest and butcher.",
+   "default": "True",
+   "default_global": "gIncludeDog",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Hare_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Hares",
+   "label": "Include hares",
+   "value_expr": "dsGlobals.gIncludeHare",
+   "args": [
+    "\"$_DS_HB_Hares\"",
+    "dsGlobals.gIncludeHare",
+    "disableFlag"
+   ],
+   "global": "gIncludeHare",
+   "hint": "Hares require dressing in order to harvest and butcher.",
+   "default": "True",
+   "default_global": "gIncludeHare",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Mudcrab_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Mudcrabs",
+   "label": "Include mudcrabs",
+   "value_expr": "dsGlobals.gIncludeMudcrab",
+   "args": [
+    "\"$_DS_HB_Mudcrabs\"",
+    "dsGlobals.gIncludeMudcrab",
+    "disableFlag"
+   ],
+   "global": "gIncludeMudcrab",
+   "hint": "Mudcrabs require gutting to harvest. Gut them. Gut them all!",
+   "default": "True",
+   "default_global": "gIncludeMudcrab",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Skeever_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Skeevers",
+   "label": "Include skeevers",
+   "value_expr": "dsGlobals.gIncludeSkeever",
+   "args": [
+    "\"$_DS_HB_Skeevers\"",
+    "dsGlobals.gIncludeSkeever",
+    "disableFlag"
+   ],
+   "global": "gIncludeSkeever",
+   "hint": "Skin Skyrim's skeevers!",
+   "default": "True",
+   "default_global": "gIncludeSkeever",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 0,
+   "page_name": "Features",
+   "oid": "_toggleSmall_Slaughterfish_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Slaughterfish",
+   "label": "Include slaughterfish",
+   "value_expr": "dsGlobals.gIncludeSlaughterfish",
+   "args": [
+    "\"$_DS_HB_Slaughterfish\"",
+    "dsGlobals.gIncludeSlaughterfish",
+    "disableFlag"
+   ],
+   "global": "gIncludeSlaughterfish",
+   "hint": "Slaughterfish require gutting to harvest and butcher.",
+   "default": "True",
+   "default_global": "gIncludeSlaughterfish",
+   "select_side_effects": [
+    "_ToggleSmallGame = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSmallGame = True"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_DefaultActions",
+   "label": "Default actions",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_DefaultActions\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_ActionFreshKill_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_ClickOnFreshKill",
+   "label": "Click on fresh kill",
+   "value_expr": "FreshActionStrings[dsGlobals.gActionFreshCarcass]",
+   "args": [
+    "\"$_DS_HB_ClickOnFreshKill\"",
+    "FreshActionStrings[dsGlobals.gActionFreshCarcass]",
+    "disableFlag"
+   ],
+   "global": "gActionFreshCarcass",
+   "hint": "Action to take when \"activating\" a fresh kill.",
+   "menu_array": "FreshActionStrings",
+   "default": "0",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_ActionFreshKillSneak_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_ClickOnFreshKillSneak",
+   "label": "Click fresh kill (sneaking)",
+   "value_expr": "FreshActionStrings[dsGlobals.gActionFreshCarcassSneak]",
+   "args": [
+    "\"$_DS_HB_ClickOnFreshKillSneak\"",
+    "FreshActionStrings[dsGlobals.gActionFreshCarcassSneak]",
+    "disableFlag"
+   ],
+   "global": "gActionFreshCarcassSneak",
+   "hint": "Action to take, while sneaking, when \"activating\" on a fresh kill.",
+   "menu_array": "FreshActionStrings",
+   "default": "1",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_ActionCleanKill_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_ClickOnCleanKill",
+   "label": "Click on dressed kill",
+   "value_expr": "CleanActionStrings[dsGlobals.gActionCleanCarcass]",
+   "args": [
+    "\"$_DS_HB_ClickOnCleanKill\"",
+    "CleanActionStrings[dsGlobals.gActionCleanCarcass]",
+    "disableFlag"
+   ],
+   "global": "gActionCleanCarcass",
+   "hint": "Action to take when \"activating\" a dressed (cleaned) kill.",
+   "menu_array": "CleanActionStrings",
+   "default": "0",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_ActionCleanKillSneak_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_ClickOnCleanKillSneak",
+   "label": "Click dressed kill (sneaking)",
+   "value_expr": "CleanActionStrings[dsGlobals.gActionCleanCarcassSneak]",
+   "args": [
+    "\"$_DS_HB_ClickOnCleanKillSneak\"",
+    "CleanActionStrings[dsGlobals.gActionCleanCarcassSneak]",
+    "disableFlag"
+   ],
+   "global": "gActionCleanCarcassSneak",
+   "hint": "Action to take, while sneaking, when \"activating\" on a dressed (cleaned) kill.",
+   "menu_array": "CleanActionStrings",
+   "default": "0",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_Presets",
+   "label": "Presets",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_Presets\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_PresetPeltValue_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_PeltValues",
+   "label": "Pelt values",
+   "value_expr": "PeltValueStrings[dsGlobals.gPeltValue]",
+   "args": [
+    "\"$_DS_HB_PeltValues\"",
+    "PeltValueStrings[dsGlobals.gPeltValue]",
+    "disableFlag"
+   ],
+   "global": "gPeltValue",
+   "hint": "How valuable (to merchants) are the pelts you skin from animals?",
+   "menu_array": "PeltValueStrings",
+   "default": "1",
+   "accept_side_effects": [
+    "_TogglePeltValue = True"
+   ],
+   "side_effects": [
+    "_TogglePeltValue = True"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_PresetMatAmount_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_MatAmount",
+   "label": "Material yield",
+   "value_expr": "MatAmountStrings[dsGlobals.gMatAmount]",
+   "args": [
+    "\"$_DS_HB_MatAmount\"",
+    "MatAmountStrings[dsGlobals.gMatAmount]",
+    "disableFlag"
+   ],
+   "global": "gMatAmount",
+   "hint": "How many material components (like teeth, claws) should animals yield?",
+   "menu_array": "MatAmountStrings",
+   "default": "0",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_PresetMeatYield_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_MeatYield",
+   "label": "Meat yield",
+   "value_expr": "\"$_DS_HB_MeatYield_Hungerborn\"",
+   "args": [
+    "\"$_DS_HB_MeatYield\"",
+    "\"$_DS_HB_MeatYield_Hungerborn\"",
+    "disableFlag"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_PresetMeatYield_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_MeatYield",
+   "label": "Meat yield",
+   "value_expr": "MeatYieldStrings[dsGlobals.gMeatYield]",
+   "args": [
+    "\"$_DS_HB_MeatYield\"",
+    "MeatYieldStrings[dsGlobals.gMeatYield]",
+    "disableFlag"
+   ],
+   "global": "gMeatYield",
+   "hint": "How much meat should animals yield?",
+   "menu_array": "MeatYieldStrings",
+   "default": "2",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_sliderMeatYield_OID_S",
+   "type": "slider",
+   "label_key": "$_DS_HB_CustomMeatYield",
+   "label": "Custom meat yield",
+   "value_expr": "dsGlobals.gMeatYieldCustom",
+   "args": [
+    "\"$_DS_HB_CustomMeatYield\"",
+    "dsGlobals.gMeatYieldCustom",
+    "\"{0}%\"",
+    "subFlag"
+   ],
+   "global": "gMeatYieldCustom",
+   "hint": "As a percentage of animal weight; 12 = Conservative, 50 = Realistic.\\nAnimals will always drop at least one meat.",
+   "default": "25",
+   "min": "1",
+   "max": "200",
+   "step": "1",
+   "format": "{0}%",
+   "accept_side_effects": [
+    "If a_value > 100"
+   ],
+   "side_effects": [
+    "If a_value > 100"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_PresetKnifeSales_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_KnifeSales",
+   "label": "Knives at merchants",
+   "value_expr": "KnifeSaleStrings[dsGlobals.gKnifeSales]",
+   "args": [
+    "\"$_DS_HB_KnifeSales\"",
+    "KnifeSaleStrings[dsGlobals.gKnifeSales]",
+    "disableFlag"
+   ],
+   "global": "gKnifeSales",
+   "hint": "How readily available are hunting knives at merchants around Skyrim?\\nChanging this setting will restock merchants.",
+   "menu_array": "KnifeSaleStrings",
+   "default": "0",
+   "accept_side_effects": [
+    "_ToggleKnifeSales = True"
+   ],
+   "side_effects": [
+    "_ToggleKnifeSales = True"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_Realism",
+   "label": "Realism",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_Realism\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleRemoveManualLoot_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_RemoveManualLoot",
+   "label": "Remove Manual Loot option",
+   "value_expr": "dsGlobals.gRemoveManualLoot",
+   "args": [
+    "\"$_DS_HB_RemoveManualLoot\"",
+    "dsGlobals.gRemoveManualLoot",
+    "disableFlag"
+   ],
+   "global": "gRemoveManualLoot",
+   "hint": "The option for Manual Loot will be removed from the first menu on an animal carcass. Does not apply to Monster Hunter.",
+   "default": "False",
+   "default_global": "gRemoveManualLoot",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_togglePreventBearStash_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_PreventBearStash",
+   "label": "Prevent oversize stashing",
+   "value_expr": "dsGlobals.gPreventBearStash",
+   "args": [
+    "\"$_DS_HB_PreventBearStash\"",
+    "dsGlobals.gPreventBearStash",
+    "disableFlag"
+   ],
+   "global": "gPreventBearStash",
+   "hint": "Large animals cannot be stored in containers. Because, c'mon, a bear in a barrel?",
+   "default": "True",
+   "default_global": "gPreventBearStash",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_togglePreventOverburden_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_PreventOverburden",
+   "label": "Prevent overburden pickup",
+   "value_expr": "dsGlobals.gPreventOverburden",
+   "args": [
+    "\"$_DS_HB_PreventOverburden\"",
+    "dsGlobals.gPreventOverburden",
+    "disableFlag"
+   ],
+   "global": "gPreventOverburden",
+   "hint": "You cannot carry much more carcass weight than your encumbrance limit.",
+   "default": "True",
+   "default_global": "gPreventOverburden",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_togglePreventInCombat_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_PreventInCombat",
+   "label": "Prevent use in combat",
+   "value_expr": "dsGlobals.gPreventInCombat",
+   "args": [
+    "\"$_DS_HB_PreventInCombat\"",
+    "dsGlobals.gPreventInCombat",
+    "disableFlag"
+   ],
+   "global": "gPreventInCombat",
+   "hint": "You cannot work on animal carcasses or use other Hunterborn actions (such as Forage) when in combat.",
+   "default": "True",
+   "default_global": "gPreventInCombat",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleRequireHuntingKnife_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_RequireHuntingKnife",
+   "label": "Require hunting knife",
+   "value_expr": "dsGlobals.gRequireHuntingKnife",
+   "args": [
+    "\"$_DS_HB_RequireHuntingKnife\"",
+    "dsGlobals.gRequireHuntingKnife",
+    "disableFlag"
+   ],
+   "global": "gRequireHuntingKnife",
+   "hint": "You will need to buy or craft a hunting knife to effectively skin, harvest, and butcher a carcass; as well as for Scrimshaw.",
+   "default": "False",
+   "default_global": "gRequireHuntingKnife",
+   "select_side_effects": [
+    "_ToggleKnife = True"
+   ],
+   "select_lines": 7,
+   "side_effects": [
+    "_ToggleKnife = True"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleClawsAsHuntingKnife_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ClawsAsHuntingKnife",
+   "label": "Claws work as hunting knife",
+   "value_expr": "dsGlobals.gClawsAsHuntingKnife",
+   "args": [
+    "\"$_DS_HB_ClawsAsHuntingKnife\"",
+    "dsGlobals.gClawsAsHuntingKnife",
+    "subFlag"
+   ],
+   "global": "gClawsAsHuntingKnife",
+   "hint": "Create hunter's caches as permanent storage. Uses Scrimshaw. See Readme for instructions.",
+   "default": "False",
+   "default_global": "gClawsAsHuntingKnife",
+   "select_side_effects": [
+    "_ToggleKnife = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleKnife = True"
+   ]
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleShowScreenBlood_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ShowScreenBlood",
+   "label": "Show screen blood",
+   "value_expr": "dsGlobals.gShowScreenBlood",
+   "args": [
+    "\"$_DS_HB_ShowScreenBlood\"",
+    "dsGlobals.gShowScreenBlood",
+    "disableFlag"
+   ],
+   "global": "gShowScreenBlood",
+   "hint": "Adds a blood splatter effect to the screen after working on a carcass.",
+   "default": "True",
+   "default_global": "gShowScreenBlood",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleUseAnimation_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseAnimation",
+   "label": "Use animation for actions",
+   "value_expr": "dsGlobals.gUseAnimation",
+   "args": [
+    "\"$_DS_HB_UseAnimation\"",
+    "dsGlobals.gUseAnimation",
+    "disableFlag"
+   ],
+   "global": "gUseAnimation",
+   "hint": "Plays a 3rd-person animation for actions taken on a carcass.",
+   "default": "True",
+   "default_global": "gUseAnimation",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": "_toggleFadeouts_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_Fadeouts",
+   "label": "Use screen fadeouts for actions",
+   "value_expr": "dsGlobals.gFadeOuts",
+   "args": [
+    "\"$_DS_HB_Fadeouts\"",
+    "dsGlobals.gFadeOuts",
+    "disableFlag"
+   ],
+   "global": "gFadeOuts",
+   "hint": "Screen fades to black for actions taken.",
+   "default": "True",
+   "default_global": "gFadeOuts",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 1,
+   "page_name": "Tweaks",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_SpellPower",
+   "label": "Spells and Powers",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_SpellPower\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableConfig_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableConfig",
+   "label": "Enable Hunterborn Config Power",
+   "value_expr": "dsGlobals.gEnableConfig",
+   "args": [
+    "\"$_DS_HB_EnableConfig\"",
+    "dsGlobals.gEnableConfig",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "gEnableConfig",
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableConfig_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableConfig",
+   "label": "Enable Hunterborn Config Power",
+   "value_expr": "dsGlobals.gEnableConfig",
+   "args": [
+    "\"$_DS_HB_EnableConfig\"",
+    "dsGlobals.gEnableConfig",
+    "disableFlag"
+   ],
+   "global": "gEnableConfig",
+   "hint": "Enables the Hunterborn Config Power. Uncheck to remove from Powers menu.",
+   "default": "False",
+   "default_global": "gEnableConfig",
+   "select_side_effects": [
+    "_ToggleConfig = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleConfig = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableForaging_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableForaging",
+   "label": "Enable Foraging",
+   "value_expr": "dsGlobals.gEnableForaging",
+   "args": [
+    "\"$_DS_HB_EnableForaging\"",
+    "dsGlobals.gEnableForaging",
+    "disableFlag"
+   ],
+   "global": "gEnableForaging",
+   "hint": "Searches the surrounding terrain for useful materials. Level Foraging to unlock Bounty and Botany perks and improve Sense Direction.",
+   "default": "False",
+   "default_global": "gEnableForaging",
+   "select_side_effects": [
+    "_ToggleForaging = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleForaging = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableScrimshaw_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableScrimshaw",
+   "label": "Enable Scrimshaw",
+   "value_expr": "dsGlobals.gEnableScrimshaw",
+   "args": [
+    "\"$_DS_HB_EnableScrimshaw\"",
+    "dsGlobals.gEnableScrimshaw",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "gEnableScrimshaw",
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableScrimshaw_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableScrimshaw",
+   "label": "Enable Scrimshaw",
+   "value_expr": "dsGlobals.gEnableScrimshaw",
+   "args": [
+    "\"$_DS_HB_EnableScrimshaw\"",
+    "dsGlobals.gEnableScrimshaw",
+    "disableFlag"
+   ],
+   "global": "gEnableScrimshaw",
+   "hint": "A crafting system unique to Hunterborn intended to provide multiple uses for the bones you harvest from animal (or monster) carcasses.",
+   "default": "False",
+   "default_global": "gEnableScrimshaw",
+   "select_side_effects": [
+    "_ToggleScrimshaw = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleScrimshaw = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnablePrimitiveCooking_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnablePrimitiveCooking",
+   "label": "Enable Primitive Cooking",
+   "value_expr": "dsGlobals.gEnablePrimitiveCooking",
+   "args": [
+    "\"$_DS_HB_EnablePrimitiveCooking\"",
+    "dsGlobals.gEnablePrimitiveCooking",
+    "disableFlag"
+   ],
+   "global": "gEnablePrimitiveCooking",
+   "hint": "A new crafting skill allowing the player to sear meat over an open flame.",
+   "default": "False",
+   "default_global": "gEnablePrimitiveCooking",
+   "select_side_effects": [
+    "_TogglePrimCooking = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_TogglePrimCooking = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableSenseDirection_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableSenseDirection",
+   "label": "Enable Sense Direction",
+   "value_expr": "dsGlobals.gEnableSenseDirection",
+   "args": [
+    "\"$_DS_HB_EnableSenseDirection\"",
+    "dsGlobals.gEnableSenseDirection",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "gEnableSenseDirection",
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableTracking_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableTracking",
+   "label": "Enable Tracking",
+   "value_expr": "dsGlobals.gEnableTracking",
+   "args": [
+    "\"$_DS_HB_EnableTracking\"",
+    "dsGlobals.gEnableTracking",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "gEnableTracking",
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableSenseDirection_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableSenseDirection",
+   "label": "Enable Sense Direction",
+   "value_expr": "dsGlobals.gEnableSenseDirection",
+   "args": [
+    "\"$_DS_HB_EnableSenseDirection\"",
+    "dsGlobals.gEnableSenseDirection",
+    "disableFlag"
+   ],
+   "global": "gEnableSenseDirection",
+   "hint": "Immersively discover the direction you are facing. Accuracy improves as you level your Foraging skill.",
+   "default": "False",
+   "default_global": "gEnableSenseDirection",
+   "select_side_effects": [
+    "_ToggleSenseDir = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSenseDir = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableTracking_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableTracking",
+   "label": "Enable Tracking",
+   "value_expr": "dsGlobals.gEnableTracking",
+   "args": [
+    "\"$_DS_HB_EnableTracking\"",
+    "dsGlobals.gEnableTracking",
+    "disableFlag"
+   ],
+   "global": "gEnableTracking",
+   "hint": "Searches the surrounding terrain for game.",
+   "default": "False",
+   "default_global": "gEnableTracking",
+   "select_side_effects": [
+    "_ToggleTracking = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleTracking = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleAddTaxonomy_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_AddTaxonomy",
+   "label": "Enable Taxonomy",
+   "value_expr": "dsGlobals.gAddTaxonomy",
+   "args": [
+    "\"$_DS_HB_AddTaxonomy\"",
+    "dsGlobals.gAddTaxonomy",
+    "disableFlag"
+   ],
+   "global": "gAddTaxonomy",
+   "hint": "Enable to add the Taxonomy ability to your spellbook. Taxonomy allows you to classify animals Hunterborn does not recognize. See the Readme for more information.",
+   "default": "False",
+   "default_global": "gAddTaxonomy",
+   "select_side_effects": [
+    "_ToggleTaxonomy = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleTaxonomy = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_PerkCrafting",
+   "label": "Perks and Crafting",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_PerkCrafting\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableBotany_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableBotanyPerk",
+   "label": "Enable Botany perk of Foraging",
+   "value_expr": "dsGlobals.gEnableBotanyPerk",
+   "args": [
+    "\"$_DS_HB_EnableBotanyPerk\"",
+    "dsGlobals.gEnableBotanyPerk",
+    "disableFlag"
+   ],
+   "global": "gEnableBotanyPerk",
+   "hint": "Allows the player to learn extra effects from ingredients by consuming them. This works identically to the Alchemy perk Experimenter. Improve Forage to level 4 to unlock the first rank.",
+   "default": "False",
+   "default_global": "gEnableBotanyPerk",
+   "select_side_effects": [
+    "_ToggleBotany = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleBotany = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableBounty_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableBountyPerk",
+   "label": "Enable Bounty perk of Foraging",
+   "value_expr": "dsGlobals.gEnableBountyPerk",
+   "args": [
+    "\"$_DS_HB_EnableBountyPerk\"",
+    "dsGlobals.gEnableBountyPerk",
+    "disableFlag"
+   ],
+   "global": "gEnableBountyPerk",
+   "hint": "Higher levels in the Forage skill add a chance to gather more ingredients from plants.",
+   "default": "False",
+   "default_global": "gEnableBountyPerk",
+   "select_side_effects": [
+    "_ToggleBounty = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleBounty = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableSavageArrows_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableSavageArrows",
+   "label": "Enable Savage Arrows",
+   "value_expr": "dsGlobals.gEnableSavageArrows",
+   "args": [
+    "\"$_DS_HB_EnableSavageArrows\"",
+    "dsGlobals.gEnableSavageArrows",
+    "disableFlag"
+   ],
+   "global": "gEnableSavageArrows",
+   "hint": "Attacks with bone arrows cause extra bleeding damage.",
+   "default": "False",
+   "default_global": "gEnableSavageArrows",
+   "select_side_effects": [
+    "_ToggleSavageArrows = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleSavageArrows = True"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_toggleEnableSoupsStews_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableSoupsStews",
+   "label": "Enable Soups and Stews Crafting",
+   "value_expr": "dsGlobals.gEnableSoupsStews",
+   "args": [
+    "\"$_DS_HB_EnableSoupsStews\"",
+    "dsGlobals.gEnableSoupsStews",
+    "disableFlag"
+   ],
+   "global": "gEnableSoupsStews",
+   "hint": "Adds a new dynamic crafting system that lets you mix and match your ingredients in whatever combination, instead of needing specific ingredients for specific recipes. Requires patch from installer.",
+   "default": "False",
+   "default_global": "gEnableSoupsStews",
+   "select_side_effects": [
+    "If dsGlobals.gEnableSoupsStews",
+    "bool token = Game.GetFormFromFile(0x800, \"Hunterborn - Soups and Stews.esp\")",
+    "If token == False",
+    "ShowMessage(\"This feature requires an activated ESP that could not be loaded.\\n\\nYou may need to reinstall Hunterborn, or check that Hunterborn - Soups and Stews is enabled.\",false,\"$Yes\",\"$No\")",
+    "dsGlobals.gEnableSoupsStews = False",
+    "bool token2 = Game.GetFormFromFile(0x801, \"Hunterborn - iNeed Patch.esp\")",
+    "If token2 == False",
+    "ShowMessage(\"iNeed was detected, but the iNeed patch is not enabled. This patch is needed to turn iNeed waterskins into the water used for soups and stews.\\n\\nYou may need to reinstall Hunterborn, or check that Hunterborn - iNeed Patch is enabled.\",false,\"$Yes\",\"$No\")",
+    "dsGlobals.gEnableSoupsStews = False"
+   ],
+   "select_lines": 13,
+   "side_effects": [
+    "If dsGlobals.gEnableSoupsStews",
+    "bool token = Game.GetFormFromFile(0x800, \"Hunterborn - Soups and Stews.esp\")",
+    "If token == False",
+    "ShowMessage(\"This feature requires an activated ESP that could not be loaded.\\n\\nYou may need to reinstall Hunterborn, or check that Hunterborn - Soups and Stews is enabled.\",false,\"$Yes\",\"$No\")",
+    "dsGlobals.gEnableSoupsStews = False",
+    "bool token2 = Game.GetFormFromFile(0x801, \"Hunterborn - iNeed Patch.esp\")",
+    "If token2 == False",
+    "ShowMessage(\"iNeed was detected, but the iNeed patch is not enabled. This patch is needed to turn iNeed waterskins into the water used for soups and stews.\\n\\nYou may need to reinstall Hunterborn, or check that Hunterborn - iNeed Patch is enabled.\",false,\"$Yes\",\"$No\")",
+    "dsGlobals.gEnableSoupsStews = False"
+   ]
+  },
+  {
+   "page": 2,
+   "page_name": "Enable",
+   "oid": "_sliderSoupLifetime_OID_S",
+   "type": "slider",
+   "label_key": "$_DS_HB_SoupLifetime",
+   "label": "How long soup stays warm",
+   "value_expr": "dsGlobals.gSoupLifetime",
+   "args": [
+    "\"$_DS_HB_SoupLifetime\"",
+    "dsGlobals.gSoupLifetime",
+    "\"{0} Hours\"",
+    "disableFlag"
+   ],
+   "global": "gSoupLifetime",
+   "hint": "Lets you set how long soup stays hot. Set to 0 for soup staying hot forever!",
+   "default": "2",
+   "min": "0",
+   "max": "168",
+   "step": "1",
+   "format": "{0} Hours",
+   "accept_side_effects": [],
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_HotkeysAnimals",
+   "label": "Animals",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_HotkeysAnimals\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyDress_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyDress",
+   "label": "Field dress",
+   "value_expr": "dsGlobals.gHotkeyDress",
+   "args": [
+    "\"$_DS_HB_HotkeyDress\"",
+    "dsGlobals.gHotkeyDress",
+    "subFlag"
+   ],
+   "global": "gHotkeyDress",
+   "hint": "Optional. Map a key to field dress the targeted carcass.",
+   "default": "0",
+   "default_global": "gHotkeyDress",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeySkin_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeySkin",
+   "label": "Skin",
+   "value_expr": "dsGlobals.gHotkeySkin",
+   "args": [
+    "\"$_DS_HB_HotkeySkin\"",
+    "dsGlobals.gHotkeySkin",
+    "subFlag"
+   ],
+   "global": "gHotkeySkin",
+   "hint": "Optional. Map a key to skin the targeted carcass.",
+   "default": "0",
+   "default_global": "gHotkeySkin",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyHarvest_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyHarvest",
+   "label": "Harvest",
+   "value_expr": "dsGlobals.gHotkeyHarvest",
+   "args": [
+    "\"$_DS_HB_HotkeyHarvest\"",
+    "dsGlobals.gHotkeyHarvest",
+    "subFlag"
+   ],
+   "global": "gHotkeyHarvest",
+   "hint": "Optional. Map a key to harvest the targeted carcass for ingredients.",
+   "default": "0",
+   "default_global": "gHotkeyHarvest",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyButcher_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyButcher",
+   "label": "Butcher",
+   "value_expr": "dsGlobals.gHotkeyButcher",
+   "args": [
+    "\"$_DS_HB_HotkeyButcher\"",
+    "dsGlobals.gHotkeyButcher",
+    "subFlag"
+   ],
+   "global": "gHotkeyButcher",
+   "hint": "Optional. Map a key to butcher the targeted carcass.",
+   "default": "0",
+   "default_global": "gHotkeyButcher",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyProcess_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyProcess",
+   "label": "Process",
+   "value_expr": "dsGlobals.gHotkeyProcess",
+   "args": [
+    "\"$_DS_HB_HotkeyProcess\"",
+    "dsGlobals.gHotkeyProcess",
+    "subFlag"
+   ],
+   "global": "gHotkeyProcess",
+   "hint": "Optional. Map a key to process the targeted carcass: skin it, harvest it, and butcher it all at once.",
+   "default": "0",
+   "default_global": "gHotkeyProcess",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_HotkeysSettings",
+   "label": "Settings",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_HotkeysSettings\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_toggleHotkeysHideAbilities_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_HotkeysHideAbilities",
+   "label": "Hide abilities in spellbook",
+   "value_expr": "dsGlobals.gHotkey_HideAbilities",
+   "args": [
+    "\"$_DS_HB_HotkeysHideAbilities\"",
+    "dsGlobals.gHotkey_HideAbilities",
+    "disableFlag"
+   ],
+   "global": "gHotkey_HideAbilities",
+   "hint": "Hides the Hunterborn abilities from your spellbook. Useful if you have mapped keys to them instead.",
+   "default": "False",
+   "default_global": "gHotkey_HideAbilities",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_toggleHotkeysHideMenu_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_HotkeysHideMenu",
+   "label": "Hide Hunterborn menu completely",
+   "value_expr": "dsGlobals.gHotkey_HideMenu",
+   "args": [
+    "\"$_DS_HB_HotkeysHideMenu\"",
+    "dsGlobals.gHotkey_HideMenu",
+    "disableFlag"
+   ],
+   "global": "gHotkey_HideMenu",
+   "hint": "This setting hides the Hunterborn menu from appearing on any animal carcass at all. Useful if you have mapped keys for every action. This currently does not disable the Monster Hunter menu.",
+   "default": "False",
+   "default_global": "gHotkey_HideMenu",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_HotkeysAbilities",
+   "label": "Abilities",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_HotkeysAbilities\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyForage_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyForage",
+   "label": "Forage",
+   "value_expr": "dsGlobals.gHotkeyForage",
+   "args": [
+    "\"$_DS_HB_HotkeyForage\"",
+    "dsGlobals.gHotkeyForage",
+    "subFlag"
+   ],
+   "global": "gHotkeyForage",
+   "hint": "Optional. Map a key to forage.",
+   "default": "0",
+   "default_global": "gHotkeyForage",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyScrimshaw_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyScrimshaw",
+   "label": "Scrimshaw",
+   "value_expr": "dsGlobals.gHotkeyScrimshaw",
+   "args": [
+    "\"$_DS_HB_HotkeyScrimshaw\"",
+    "dsGlobals.gHotkeyScrimshaw",
+    "subFlag"
+   ],
+   "global": "gHotkeyScrimshaw",
+   "hint": "Optional. Map a key to open the Scrimshaw crafting menu.",
+   "default": "0",
+   "default_global": "gHotkeyScrimshaw",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyTaxonomy_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyTaxonomy",
+   "label": "Taxonomy",
+   "value_expr": "dsGlobals.gHotkeyTaxonomy",
+   "args": [
+    "\"$_DS_HB_HotkeyTaxonomy\"",
+    "dsGlobals.gHotkeyTaxonomy",
+    "subFlag"
+   ],
+   "global": "gHotkeyTaxonomy",
+   "hint": "Optional. Map a key to invoke Taxonomy on the targeted carcass.\\nSee Compatibility for tooltip, more information in the Readme.",
+   "default": "0",
+   "default_global": "gHotkeyTaxonomy",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeySenseDirection_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeySenseDirection",
+   "label": "Sense direction",
+   "value_expr": "dsGlobals.gHotkeySenseDirection",
+   "args": [
+    "\"$_DS_HB_HotkeySenseDirection\"",
+    "dsGlobals.gHotkeySenseDirection",
+    "subFlag"
+   ],
+   "global": "gHotkeySenseDirection",
+   "hint": "Use this feature if you hide the compass with iHUD, and end up getting lost all the damn time. Does not work indoors, due to technical limitations. Accuracy increases with your skill in foraging.",
+   "default": "0",
+   "default_global": "gHotkeySenseDirection",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyTracking_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyTracking",
+   "label": "Tracking",
+   "value_expr": "dsGlobals.gHotkeyTracking",
+   "args": [
+    "\"$_DS_HB_HotkeyTracking\"",
+    "dsGlobals.gHotkeyTracking",
+    "subFlag"
+   ],
+   "global": "gHotkeyTracking",
+   "hint": "Optional. Map a key to track.",
+   "default": "0",
+   "default_global": "gHotkeyTracking",
+   "side_effects": []
+  },
+  {
+   "page": 3,
+   "page_name": "Hotkeys",
+   "oid": "_hotkeyPrimitiveCooking_OID",
+   "type": "keymap",
+   "label_key": "$_DS_HB_HotkeyPrimitiveCooking",
+   "label": "Primitive cooking",
+   "value_expr": "dsGlobals.gHotkeyPrimitiveCooking",
+   "args": [
+    "\"$_DS_HB_HotkeyPrimitiveCooking\"",
+    "dsGlobals.gHotkeyPrimitiveCooking",
+    "subFlag"
+   ],
+   "global": "gHotkeyPrimitiveCooking",
+   "hint": "Optional. Map a key to begin primitive cooking.",
+   "default": "0",
+   "default_global": "gHotkeyPrimitiveCooking",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_Proficiency",
+   "label": "Proficiency",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_Proficiency\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textTotalCleans_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_TotalCleans",
+   "label": "Total cleans",
+   "value_expr": "dsGlobals.gTotalCleans",
+   "args": [
+    "\"$_DS_HB_TotalCleans\"",
+    "dsGlobals.gTotalCleans",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gTotalCleans",
+   "hint": "How many animals you have dressed. You become faster at field dressing, skinning, harvesting, and butchering, as this amount goes up.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textSkinningLevel_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_SkinningLevel",
+   "label": "Skinning level",
+   "value_expr": "dsGlobals.gSkinLevel",
+   "args": [
+    "\"$_DS_HB_SkinningLevel\"",
+    "dsGlobals.gSkinLevel",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gSkinLevel",
+   "hint": "Proficiency: Novice\\nYou're still learning how to make the right cuts at the right angles, letting the knife do the work and not mere brute strength. Many of the pelts you take will be of poor quality or even ruined, but even these are still of use in making leather strips for bindings and wrappings.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textHarvestingLevel_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_HarvestingLevel",
+   "label": "Harvesting level",
+   "value_expr": "dsGlobals.gHarvestLevel",
+   "args": [
+    "\"$_DS_HB_HarvestingLevel\"",
+    "dsGlobals.gHarvestLevel",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gHarvestLevel",
+   "hint": "Proficiency: Novice\\nOnly the crudest elements of the carcass are accessible to you, mostly bones. You're able to shape these bones into some simple, but useful, Scrimshaw artifacts.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textForagingLevel_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_ForagingLevel",
+   "label": "Foraging level",
+   "value_expr": "dsGlobals.gForageLevel",
+   "args": [
+    "\"$_DS_HB_ForagingLevel\"",
+    "dsGlobals.gForageLevel",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gForageLevel",
+   "hint": "Proficiency: Novice\\nYou're still learning to orient yourself in unfamiliar wilderness, and distinguishing useful forage from scrap. Much of your time is wasted even trying to pick out tinder that adequately burns.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_StatsTime",
+   "label": "Times (for a deer, in minutes)",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_StatsTime\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textStatsDress_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_StatsDress",
+   "label": "Dress",
+   "value_expr": "Math.Ceiling(time_dress)",
+   "args": [
+    "\"$_DS_HB_StatsDress\"",
+    "Math.Ceiling(time_dress)",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "hint": "Example of how long it will take you to field dress a deer. This time goes down as your total cleans goes up. Smaller / larger animals take less / more time.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textStatsSkin_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_StatsSkin",
+   "label": "Skin",
+   "value_expr": "Math.Ceiling(time_skin)",
+   "args": [
+    "\"$_DS_HB_StatsSkin\"",
+    "Math.Ceiling(time_skin)",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "hint": "Example of how long it will take you to skin a deer. This time goes down as your total cleans and skinning level go up. Smaller / larger animals take less / more time.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textStatsHarvest_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_StatsHarvest",
+   "label": "Harvest",
+   "value_expr": "Math.Ceiling(time_harvest)",
+   "args": [
+    "\"$_DS_HB_StatsHarvest\"",
+    "Math.Ceiling(time_harvest)",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "hint": "Example of how long it will take you to harvest from a deer. This time goes down as your total cleans and harvesting level go up. Smaller / larger animals take less / more time.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textStatsButcher_OID",
+   "type": "text",
+   "label_key": "$_DS_HB_StatsButcher",
+   "label": "Butcher",
+   "value_expr": "Math.Ceiling(time_butcher)",
+   "args": [
+    "\"$_DS_HB_StatsButcher\"",
+    "Math.Ceiling(time_butcher)",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "hint": "Example of how long it will take you to butcher a deer. This time is based on the animal's size (and weight) and your current Meat Yield setting.",
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_Experience",
+   "label": "Experience",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_Experience\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_Experience_OID_M",
+   "type": "menu",
+   "label_key": "$_DS_HB_ExpReset",
+   "label": "Reset to",
+   "value_expr": "ExperienceStrings[_ExpResetTo]",
+   "args": [
+    "\"$_DS_HB_ExpReset\"",
+    "ExperienceStrings[_ExpResetTo]",
+    "disableFlag"
+   ],
+   "global": null,
+   "hint": "Use this option to manually adjust your prior experience as a hunter. This will set your total cleans, skinning, and harvesting levels.",
+   "menu_array": "ExperienceStrings",
+   "default": "0",
+   "accept_side_effects": [
+    "_ToggleExpReset = True",
+    "_ExpResetTo = a_index",
+    "_ToggleExpReset = False"
+   ],
+   "side_effects": [
+    "_ToggleExpReset = True",
+    "_ExpResetTo = a_index",
+    "_ToggleExpReset = False"
+   ]
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textExpReset_OID",
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"$_DS_HB_ExpResetExitNow\"",
+   "args": [
+    "\"\"",
+    "\"$_DS_HB_ExpResetExitNow\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 4,
+   "page_name": "Stats",
+   "oid": "_textExpReset_OID",
+   "type": "text",
+   "label_key": "",
+   "label": "",
+   "value_expr": "\"\"",
+   "args": [
+    "\"\"",
+    "\"\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonsterHunter_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_EnableMonsters",
+   "label": "Enable Monster Hunter",
+   "value_expr": "dsGlobals.gMonsterHunter",
+   "args": [
+    "\"$_DS_HB_EnableMonsters\"",
+    "dsGlobals.gMonsterHunter",
+    "disableFlag"
+   ],
+   "global": "gMonsterHunter",
+   "hint": "Monster Hunter adds options to take skins, materials, meat, as well as venom, blood, and treasure, from the monsters selected below.",
+   "default": "False",
+   "default_global": "gMonsterHunter",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 4,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_MonsterList",
+   "label": "Monster list",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_MonsterList\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Chaurus_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterChaurus",
+   "label": "Chaurus",
+   "value_expr": "dsGlobals.gIncludeMonsterChaurus",
+   "args": [
+    "\"$_DS_HB_MonsterChaurus\"",
+    "dsGlobals.gIncludeMonsterChaurus",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterChaurus",
+   "hint": "Chaurus provide venom, chitin, eggs, and meat.",
+   "default": "True",
+   "default_global": "gIncludeMonsterChaurus",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Spiders_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterSpiders",
+   "label": "Spiders",
+   "value_expr": "dsGlobals.gIncludeMonsterSpiders",
+   "args": [
+    "\"$_DS_HB_MonsterSpiders\"",
+    "dsGlobals.gIncludeMonsterSpiders",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterSpiders",
+   "hint": "Spiders provide venom, eggs, and meat.",
+   "default": "True",
+   "default_global": "gIncludeMonsterSpiders",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Spriggans_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterSpriggans",
+   "label": "Spriggans",
+   "value_expr": "dsGlobals.gIncludeMonsterSpriggans",
+   "args": [
+    "\"$_DS_HB_MonsterSpriggans\"",
+    "dsGlobals.gIncludeMonsterSpriggans",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterSpriggans",
+   "hint": "Spriggans provide taproot... not much else.",
+   "default": "True",
+   "default_global": "gIncludeMonsterSpriggans",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Trolls_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterTrolls",
+   "label": "Trolls",
+   "value_expr": "dsGlobals.gIncludeMonsterTrolls",
+   "args": [
+    "\"$_DS_HB_MonsterTrolls\"",
+    "dsGlobals.gIncludeMonsterTrolls",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterTrolls",
+   "hint": "Trolls can be skinned and butchered; their blood extracted; their fat, eyes, and hearts can be harvested; and they may carry treasure.",
+   "default": "True",
+   "default_global": "gIncludeMonsterTrolls",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Werewolves_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterWerewolves",
+   "label": "Werewolves",
+   "value_expr": "dsGlobals.gIncludeMonsterWerewolves",
+   "args": [
+    "\"$_DS_HB_MonsterWerewolves\"",
+    "dsGlobals.gIncludeMonsterWerewolves",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterWerewolves",
+   "hint": "Werewolves can be skinned and butchered; their blood extracted; their eyes and hearts can be harvested; and they may carry treasure.",
+   "default": "True",
+   "default_global": "gIncludeMonsterWerewolves",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleMonster_Dragons_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_MonsterDragons",
+   "label": "Dragons",
+   "value_expr": "dsGlobals.gIncludeMonsterDragons",
+   "args": [
+    "\"$_DS_HB_MonsterDragons\"",
+    "dsGlobals.gIncludeMonsterDragons",
+    "subFlag"
+   ],
+   "global": "gIncludeMonsterDragons",
+   "hint": "Dragons can be harvested for their scales, bones, and some optional parts; they often carry treasure.",
+   "default": "True",
+   "default_global": "gIncludeMonsterDragons",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 4,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_MonsterOptions",
+   "label": "Options",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_MonsterOptions\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 5,
+   "page_name": "Monster Hunter",
+   "oid": "_toggleDragonsCorporeal_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_DragonsCorporeal",
+   "label": "Corporeal dragons",
+   "value_expr": "dsGlobals.gDragonsCorporeal",
+   "args": [
+    "\"$_DS_HB_DragonsCorporeal\"",
+    "dsGlobals.gDragonsCorporeal",
+    "subFlag"
+   ],
+   "global": "gDragonsCorporeal",
+   "hint": "Dragons can also provide blood, eyes, hearts, and meat.",
+   "select_side_effects": [
+    "_ToggleMonsterHunter = True"
+   ],
+   "select_lines": 3,
+   "side_effects": [
+    "_ToggleMonsterHunter = True"
+   ]
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_CompatibilityOptions",
+   "label": "Options",
+   "value_expr": "OPTION_FLAG_NONE",
+   "args": [
+    "\"$_DS_HB_CompatibilityOptions\"",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCustomPelts_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCustomPelts",
+   "label": "Use custom pelts",
+   "value_expr": "dsGlobals.gUseCustomPelts",
+   "args": [
+    "\"$_DS_HB_UseCustomPelts\"",
+    "dsGlobals.gUseCustomPelts",
+    "disableFlag"
+   ],
+   "global": "gUseCustomPelts",
+   "hint": "Enable to use the custom pelts added by another mod, when skinning.\\nSee the Readme for details and troubleshooting.",
+   "default": "False",
+   "default_global": "gUseCustomPelts",
+   "select_side_effects": [],
+   "select_lines": 6,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCombinedCustomPelts_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCombinedCustomPelts",
+   "label": "Combine with Hunterborn pelts",
+   "value_expr": "dsGlobals.gUseCombinedCustomPelts",
+   "args": [
+    "\"$_DS_HB_UseCombinedCustomPelts\"",
+    "dsGlobals.gUseCombinedCustomPelts",
+    "subFlag"
+   ],
+   "global": "gUseCombinedCustomPelts",
+   "hint": "Skinning supplies the custom pelts, AND Hunterborn's pelt.",
+   "default": "False",
+   "default_global": "gUseCombinedCustomPelts",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCustomMats_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCustomMats",
+   "label": "Use custom materials",
+   "value_expr": "dsGlobals.gUseCustomMats",
+   "args": [
+    "\"$_DS_HB_UseCustomMats\"",
+    "dsGlobals.gUseCustomMats",
+    "disableFlag"
+   ],
+   "global": "gUseCustomMats",
+   "hint": "Enable to use the custom materials added by another mod, when harvesting.\\nSee the Readme for details and troubleshooting.",
+   "default": "False",
+   "default_global": "gUseCustomMats",
+   "select_side_effects": [],
+   "select_lines": 6,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCombinedCustomMats_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCombinedCustomMats",
+   "label": "Combine with Hunterborn materials",
+   "value_expr": "dsGlobals.gUseCombinedCustomMats",
+   "args": [
+    "\"$_DS_HB_UseCombinedCustomMats\"",
+    "dsGlobals.gUseCombinedCustomMats",
+    "subFlag"
+   ],
+   "global": "gUseCombinedCustomMats",
+   "hint": "Harvesting supplies the custom materials, AND Hunterborn's materials.",
+   "default": "False",
+   "default_global": "gUseCombinedCustomMats",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCustomMeats_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCustomMeats",
+   "label": "Use custom meats",
+   "value_expr": "dsGlobals.gUseCustomMeats",
+   "args": [
+    "\"$_DS_HB_UseCustomMeats\"",
+    "dsGlobals.gUseCustomMeats",
+    "disableFlag"
+   ],
+   "global": "gUseCustomMeats",
+   "hint": "Enable to use the custom meats added by another mod, when butchering.\\nSee the Readme for details and troubleshooting.",
+   "default": "False",
+   "default_global": "gUseCustomMeats",
+   "select_side_effects": [],
+   "select_lines": 6,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCombinedCustomMeats_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCombinedCustomMeats",
+   "label": "Combine with Hunterborn meats",
+   "value_expr": "dsGlobals.gUseCombinedCustomMeats",
+   "args": [
+    "\"$_DS_HB_UseCombinedCustomMeats\"",
+    "dsGlobals.gUseCombinedCustomMeats",
+    "subFlag"
+   ],
+   "global": "gUseCombinedCustomMeats",
+   "hint": "Butchering supplies the custom meats, AND Hunterborn's meats.",
+   "default": "False",
+   "default_global": "gUseCombinedCustomMeats",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseHiSCompatibility_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseHiSCompatibility",
+   "label": "Enable Hunting in Skyrim Full Compatibility",
+   "value_expr": "dsGlobals.gUseHiSCompatibility",
+   "args": [
+    "\"$_DS_HB_UseHiSCompatibility\"",
+    "dsGlobals.gUseHiSCompatibility",
+    "disableFlag"
+   ],
+   "global": "gUseHiSCompatibility",
+   "hint": "Disables Hunting in Skyrim's Skinning system, but allows you to still gain experience and the perks associated with HiS skinning.",
+   "default": "True",
+   "default_global": "gUseHiSCompatibility",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseHiSTextures_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseHiSTextures",
+   "label": "Use Hunting in Skyrim textures",
+   "value_expr": "dsGlobals.gUseHiSTextures",
+   "args": [
+    "\"$_DS_HB_UseHiSTextures\"",
+    "dsGlobals.gUseHiSTextures",
+    "disableFlag"
+   ],
+   "global": "gUseHiSTextures",
+   "hint": "Skinned animals will use the alternate textures from Hunting in Skyrim. Requires HiS 1.3.7+.",
+   "default": "True",
+   "default_global": "gUseHiSTextures",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleUseCustomTextures_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_UseCustomTextures",
+   "label": "Use custom textures",
+   "value_expr": "dsGlobals.gUseCustomTextures",
+   "args": [
+    "\"$_DS_HB_UseCustomTextures\"",
+    "dsGlobals.gUseCustomTextures",
+    "disableFlag"
+   ],
+   "global": "gUseCustomTextures",
+   "hint": "Enable if you use a mod that dynamically assigns creature textures, such as Automatic Variants. This prevents custom textures from disappearing after you Field Dress animals.",
+   "default": "False",
+   "default_global": "gUseCustomTextures",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "empty",
+   "label_key": "",
+   "label": "",
+   "value_expr": "",
+   "args": [],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleReapplyTemplates_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_ReapplyTemplates",
+   "label": "Reapply templates",
+   "value_expr": "dsGlobals.gDoInitStuff",
+   "args": [
+    "\"$_DS_HB_ReapplyTemplates\"",
+    "dsGlobals.gDoInitStuff",
+    "disableFlag"
+   ],
+   "global": "gDoInitStuff",
+   "hint": "Reapplies the changes Hunterborn makes when first started, including animals. This may help if adding another mod has broken Hunterborn. You won't lose your Hunterborn items or experience, but it is not as thorough as a clean save.",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleDebugMode_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_DebugMode",
+   "label": "Debug mode",
+   "value_expr": "dsGlobals.gDebugMode",
+   "args": [
+    "\"$_DS_HB_DebugMode\"",
+    "dsGlobals.gDebugMode",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gDebugMode",
+   "hint": "Adds debugging information to Papyrus.0.log. Use only for detailed troubleshooting, this can impact game performance.",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "header",
+   "label_key": "$_DS_HB_CompatibilityChecks",
+   "label": "Checks",
+   "value_expr": "",
+   "args": [
+    "\"$_DS_HB_CompatibilityChecks\""
+   ],
+   "global": null,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_SKSELoaded",
+   "label": "SKSE detected",
+   "value_expr": "dsGlobals.isSKSELoaded",
+   "args": [
+    "\"$_DS_HB_SKSELoaded\"",
+    "dsGlobals.isSKSELoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isSKSELoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_HiSLoaded",
+   "label": "Hunting in Skyrim loaded",
+   "value_expr": "dsGlobals.isHiSLoaded",
+   "args": [
+    "\"$_DS_HB_HiSLoaded\"",
+    "dsGlobals.isHiSLoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isHiSLoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_SkillsOfTheWildLoaded",
+   "label": "Skills of the Wild loaded",
+   "value_expr": "dsGlobals.isSkillsOfTheWildLoaded",
+   "args": [
+    "\"$_DS_HB_SkillsOfTheWildLoaded\"",
+    "dsGlobals.isSkillsOfTheWildLoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isSkillsOfTheWildLoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleSkillsOfTheWildSupport_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_SkillsOfTheWildSupport",
+   "label": "(SOTW) Enable Spells and Powers",
+   "value_expr": "dsGlobals.gToggleSkillsOfTheWildSupport",
+   "args": [
+    "\"$_DS_HB_SkillsOfTheWildSupport\"",
+    "dsGlobals.gToggleSkillsOfTheWildSupport",
+    "OPTION_FLAG_NONE"
+   ],
+   "global": "gToggleSkillsOfTheWildSupport",
+   "hint": "Checking this box enables the Spells and Powers disabled due to Skills of the Wilds leveling system.\\nSkills of the Wild will unlock these powers when appropriate Campfire perk is purchased.",
+   "select_side_effects": [],
+   "select_lines": 2,
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_toggleSkyReRemoveGatherer_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_SkyReRemoveGatherer",
+   "label": "(SkyRe) Remove Gatherer perk",
+   "value_expr": "False",
+   "args": [
+    "\"$_DS_HB_SkyReRemoveGatherer\"",
+    "False",
+    "subFlag"
+   ],
+   "global": null,
+   "hint": "Checking this box removes the Gatherer perk, which currently doesn't work with Hunterborn.\\nSee the Readme for important notes about compatibility with SkyRe.",
+   "select_side_effects": [
+    "_ToggleSkyReGatherer = !_ToggleSkyReGatherer"
+   ],
+   "select_lines": 2,
+   "side_effects": [
+    "_ToggleSkyReGatherer = !_ToggleSkyReGatherer"
+   ]
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_PerMaLoaded",
+   "label": "PerMa loaded",
+   "value_expr": "dsGlobals.isPerMaLoaded",
+   "args": [
+    "\"$_DS_HB_PerMaLoaded\"",
+    "dsGlobals.isPerMaLoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isPerMaLoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": "_togglePerMaRemoveGatherer_OID_B",
+   "type": "toggle",
+   "label_key": "$_DS_HB_PerMaRemoveGatherer",
+   "label": "(PerMa) Remove Gatherer perk",
+   "value_expr": "False",
+   "args": [
+    "\"$_DS_HB_PerMaRemoveGatherer\"",
+    "False",
+    "subFlag"
+   ],
+   "global": null,
+   "hint": "Checking this box removes the Gatherer perk, which currently doesn't work with Hunterborn.\\nSee the Readme for important notes about compatibility with PerMa.",
+   "select_side_effects": [
+    "_TogglePerMaGatherer = !_TogglePerMaGatherer"
+   ],
+   "select_lines": 2,
+   "side_effects": [
+    "_TogglePerMaGatherer = !_TogglePerMaGatherer"
+   ]
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_RequiemLoaded",
+   "label": "Requiem loaded",
+   "value_expr": "dsGlobals.isRequiemLoaded",
+   "args": [
+    "\"$_DS_HB_RequiemLoaded\"",
+    "dsGlobals.isRequiemLoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isRequiemLoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_IALoaded",
+   "label": "Immersive Armors loaded",
+   "value_expr": "dsGlobals.isIALoaded",
+   "args": [
+    "\"$_DS_HB_IALoaded\"",
+    "dsGlobals.isIALoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isIALoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_DawnguardLoaded",
+   "label": "Dawnguard loaded",
+   "value_expr": "dsGlobals.isDLC1Loaded",
+   "args": [
+    "\"$_DS_HB_DawnguardLoaded\"",
+    "dsGlobals.isDLC1Loaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isDLC1Loaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_HearthfireLoaded",
+   "label": "Hearthfire loaded",
+   "value_expr": "dsGlobals.isBYOHLoaded",
+   "args": [
+    "\"$_DS_HB_HearthfireLoaded\"",
+    "dsGlobals.isBYOHLoaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isBYOHLoaded",
+   "side_effects": []
+  },
+  {
+   "page": 6,
+   "page_name": "Compatibility",
+   "oid": null,
+   "type": "toggle",
+   "label_key": "$_DS_HB_DragonbornLoaded",
+   "label": "Dragonborn loaded",
+   "value_expr": "dsGlobals.isDLC2Loaded",
+   "args": [
+    "\"$_DS_HB_DragonbornLoaded\"",
+    "dsGlobals.isDLC2Loaded",
+    "OPTION_FLAG_DISABLED"
+   ],
+   "global": "isDLC2Loaded",
+   "side_effects": []
+  },
+  {
+   "page": 7,
+   "page_name": "Profile",
+   "oid": null,
+   "type": "header",
+   "label_key": "Profile Settings:",
+   "label": "Profile Settings:",
+   "value_expr": "",
+   "args": [
+    "\"Profile Settings:\""
+   ],
+   "global": null,
+   "side_effects": []
+  }
+ ]
+}
