@@ -1,0 +1,332 @@
+/*
+ * Hunterborn 2026
+ * Copyright (c) 2026 CageTV
+ *
+ * Released under the MIT License; see LICENSE.txt.
+ */
+#include "PCH.h"
+#include "Actions.h"
+#include "Settings.h"
+
+namespace Settings
+{
+	namespace
+	{
+		using namespace Actions;
+
+		constexpr const char* kPlugin = "Hunterborn.esp";
+		constexpr const char* kSoupsPlugin = "Hunterborn - Soups and Stews.esp";
+		constexpr const char* kFile = "Data/SKSE/Plugins/HunterbornNative/settings.ini";
+		constexpr float       kWriteDelay = 0.6f;
+
+		// ---- the pages (generated) -----------------------------------------------------------------------------------------------------
+#define HEADER(l) { nullptr, l, "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 }
+#define TOG(id, l, tip, loc, d, aft) { id, l, tip, Kind::Toggle, loc, d, 0, 1, 1, "", nullptr, 0, aft, 0 }
+#define SLD(id, l, tip, loc, d, mn, mx, st, f, aft) { id, l, tip, Kind::Slider, loc, d, mn, mx, st, f, nullptr, 0, aft, 0 }
+#define CMB(id, l, tip, loc, d, opts, aft) { id, l, tip, Kind::Combo, loc, d, 0, 0, 1, "", opts, static_cast<int>(std::size(opts)), aft, 0 }
+#define KEY(id, l, tip, loc, sl) { id, l, tip, Kind::Key, loc, 0, 0, 0, 0, "", nullptr, 0, 0, sl }
+#include "Tables.inc"
+#undef HEADER
+#undef TOG
+#undef SLD
+#undef CMB
+#undef KEY
+
+#include "Globals.inc"
+
+		std::map<std::string, float> file;  // settings.ini as read, plus what has been written since
+		std::mutex                   mu;
+		std::atomic<bool>            applyOnLoad{ true };
+		bool                         dirty = false;
+		float                        timer = -1.0f;
+		bool                         fileRead = false;
+
+		RE::TESGlobal* Lookup(unsigned a_local)
+		{
+			auto* dh = RE::TESDataHandler::GetSingleton();
+			return dh ? dh->LookupForm<RE::TESGlobal>(a_local, kPlugin) : nullptr;
+		}
+
+		RE::TESGlobal* Glob(const Def& a_d) { return Lookup(a_d.local); }
+
+		// Callers hold mu.
+		void ReadFile()
+		{
+			if (fileRead) {
+				return;
+			}
+			fileRead = true;
+			std::ifstream in(kFile);
+			std::string   line;
+			while (std::getline(in, line)) {
+				if (line.empty() || line[0] == '#' || line[0] == ';') {
+					continue;
+				}
+				const auto eq = line.find('=');
+				if (eq == std::string::npos) {
+					continue;
+				}
+				std::string key = line.substr(0, eq);
+				std::string val = line.substr(eq + 1);
+				while (!val.empty() && (val.back() == '\r' || val.back() == ' ')) {
+					val.pop_back();
+				}
+				if (key == "apply_on_load") {
+					applyOnLoad = val != "0";
+				} else {
+					file[key] = std::strtof(val.c_str(), nullptr);
+				}
+			}
+		}
+
+		void WriteFile()
+		{
+			std::error_code ec;
+			std::filesystem::create_directories(std::filesystem::path(kFile).parent_path(), ec);
+			std::ofstream out(kFile, std::ios::trunc);
+			if (!out) {
+				SKSE::log::warn("Cannot write {}", kFile);
+				return;
+			}
+			out << "# Hunterborn 2026 settings. Edited by the SKSE Menu Framework pages; applied to the game on every load\n";
+			out << "# while apply_on_load=1. Delete a line to let the game's current value take its place on the next load.\n";
+			out << "apply_on_load=" << (applyOnLoad ? 1 : 0) << "\n";
+			for (const auto& [k, v] : file) {
+				char buf[48];
+				std::snprintf(buf, sizeof(buf), "%g", static_cast<double>(v));
+				out << k << "=" << buf << "\n";
+			}
+			SKSE::log::info("Wrote {} ({} settings)", kFile, file.size());
+		}
+
+		void Touch()
+		{
+			dirty = true;
+			timer = kWriteDelay;
+		}
+
+		float Clamp(const Def& a_d, float a_v)
+		{
+			if (a_d.kind == Kind::Slider) {
+				if (a_d.step > 0.0f) {
+					a_v = a_d.min + std::round((a_v - a_d.min) / a_d.step) * a_d.step;
+				}
+				return std::clamp(a_v, a_d.min, a_d.max);
+			}
+			if (a_d.kind == Kind::Combo) {
+				return std::clamp(a_v, 0.0f, static_cast<float>(std::max(a_d.optionCount - 1, 0)));
+			}
+			if (a_d.kind == Kind::Toggle) {
+				return a_v > 0.5f ? 1.0f : 0.0f;
+			}
+			return a_v;
+		}
+
+		float Current(const Def& a_d)
+		{
+			auto* g = Glob(a_d);
+			return g ? g->value : a_d.def;
+		}
+
+		// Writes one setting to the game (not to the file). Returns true when the value changed.
+		bool Apply(const Def& a_d, float a_v)
+		{
+			const float before = Current(a_d);
+			// Soups and Stews crafting needs its own plugin: the MCM checks for its token and refuses the switch otherwise.
+			if (a_d.id && std::string_view(a_d.id) == "gEnableSoupsStews" && a_v > 0.5f) {
+				auto* dh = RE::TESDataHandler::GetSingleton();
+				if (!dh || !dh->LookupModByName(kSoupsPlugin)) {
+					Notify("Hunterborn - Soups and Stews.esp is not active: Soups and Stews stays off.");
+					a_v = 0.0f;
+				}
+			}
+			if (auto* g = Glob(a_d)) {
+				g->value = a_v;
+			}
+			if (std::abs(before - a_v) > 1e-6f) {
+				if (a_d.kind == Kind::Key) {
+					Actions::RebindKey(static_cast<int>(before), static_cast<int>(a_v));
+				}
+				Actions::Queue(a_d.after);
+				return true;
+			}
+			return false;
+		}
+
+		template <class F>
+		void ForEachDef(F&& a_f)
+		{
+			for (int p = 0; p < kPageTotal; ++p) {
+				for (int i = 0; i < kPages[p].count; ++i) {
+					a_f(kPages[p].defs[i]);
+				}
+			}
+		}
+	}
+
+	int         PageCount() { return kPageTotal; }
+	const Page& PageAt(int a_index) { return kPages[std::clamp(a_index, 0, kPageTotal - 1)]; }
+	bool        IsHeader(const Def& a_d) { return a_d.id == nullptr; }
+
+	bool Loaded()
+	{
+		auto* dh = RE::TESDataHandler::GetSingleton();
+		return dh && dh->LookupModByName(kPlugin);
+	}
+
+	const Def* Find(std::string_view a_id)
+	{
+		const Def* found = nullptr;
+		ForEachDef([&](const Def& d) {
+			if (!found && d.id && a_id == d.id) {
+				found = &d;
+			}
+		});
+		return found;
+	}
+
+	bool Available(const Def& a_d) { return a_d.id && Glob(a_d) != nullptr; }
+
+	float Get(const Def& a_d)
+	{
+		std::lock_guard lock(mu);
+		return Current(a_d);
+	}
+
+	void Set(const Def& a_d, float a_value)
+	{
+		a_value = Clamp(a_d, a_value);
+		std::lock_guard lock(mu);
+		ReadFile();
+		Apply(a_d, a_value);
+		if (a_d.id) {
+			file[a_d.id] = Current(a_d);
+			Touch();
+		}
+	}
+
+	int  KeyOf(const Def& a_d) { return static_cast<int>(Get(a_d)); }
+	void SetKey(const Def& a_d, int a_key) { Set(a_d, static_cast<float>(a_key)); }
+
+	float GetByName(std::string_view a_name)
+	{
+		for (const auto& g : kGlobals) {
+			if (a_name == g.name) {
+				auto* gl = Lookup(g.id);
+				return gl ? gl->value : std::numeric_limits<float>::quiet_NaN();
+			}
+		}
+		return std::numeric_limits<float>::quiet_NaN();
+	}
+
+	bool SetByName(std::string_view a_name, float a_value)
+	{
+		for (const auto& g : kGlobals) {
+			if (a_name == g.name) {
+				if (auto* gl = Lookup(g.id)) {
+					gl->value = a_value;
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
+	}
+
+	bool ApplyOnLoad() { return applyOnLoad.load(); }
+
+	void SetApplyOnLoad(bool a_on)
+	{
+		std::lock_guard lock(mu);
+		ReadFile();
+		applyOnLoad = a_on;
+		Touch();
+	}
+
+	void OnGameLoaded()
+	{
+		std::lock_guard lock(mu);
+		ReadFile();
+		int applied = 0, adopted = 0;
+		ForEachDef([&](const Def& d) {
+			if (!d.id || !Available(d)) {
+				return;
+			}
+			const auto it = file.find(d.id);
+			if (it == file.end()) {
+				file[d.id] = Current(d);  // first time: keep what the game has, so nothing resets
+				++adopted;
+				dirty = true;
+			} else if (applyOnLoad) {
+				if (Apply(d, Clamp(d, it->second))) {
+					++applied;
+				}
+			}
+		});
+		if (dirty) {
+			timer = kWriteDelay;
+		}
+		SKSE::log::info("Game loaded: {} setting(s) applied from settings.ini, {} adopted from the game", applied, adopted);
+	}
+
+	void SaveNow()
+	{
+		std::lock_guard lock(mu);
+		ReadFile();
+		ForEachDef([&](const Def& d) {
+			if (d.id && Available(d)) {
+				file[d.id] = Current(d);
+			}
+		});
+		WriteFile();
+		dirty = false;
+		timer = -1.0f;
+	}
+
+	void LoadNow()
+	{
+		std::lock_guard lock(mu);
+		fileRead = false;
+		file.clear();
+		ReadFile();
+		ForEachDef([&](const Def& d) {
+			if (d.id && Available(d)) {
+				const auto it = file.find(d.id);
+				if (it != file.end()) {
+					Apply(d, Clamp(d, it->second));
+				}
+			}
+		});
+	}
+
+	void ResetDefaults()
+	{
+		std::lock_guard lock(mu);
+		ReadFile();
+		ForEachDef([&](const Def& d) {
+			if (d.id && Available(d) && d.kind != Kind::Key) {  // hotkeys are your own choice; they stay
+				Apply(d, d.def);
+				file[d.id] = d.def;
+			}
+		});
+		Touch();
+	}
+
+	void Tick(float a_dt)
+	{
+		if (timer < 0.0f) {
+			return;
+		}
+		timer -= a_dt;
+		if (timer <= 0.0f) {
+			std::lock_guard lock(mu);
+			timer = -1.0f;
+			if (dirty) {
+				WriteFile();
+				dirty = false;
+			}
+		}
+	}
+
+	const char* FilePath() { return kFile; }
+}

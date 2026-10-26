@@ -1,0 +1,1312 @@
+{
+ "gEnableConfig": {
+  "backing": "_DS_Hunterborn_EnableConfig",
+  "formid": "2BA6D6",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableConfig",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseHiSCompatibility": {
+  "backing": "_DS_Hunterborn_HiSCompatibility",
+  "formid": "2BA6D7",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HiSCompatibility",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHunterbornActive": {
+  "backing": "_DS_Hunterborn__Active",
+  "formid": "007421",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn__Active",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gActionCrouch": {
+  "backing": "_DS_Hunterborn_Action_Crouch",
+  "formid": "1C7367",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Action_Crouch",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gActionCleanCarcass": {
+  "backing": "_DS_Hunterborn_ActionCleanCarcass",
+  "formid": "0256A2",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ActionCleanCarcass",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gActionCleanCarcassSneak": {
+  "backing": "_DS_Hunterborn_ActionCleanCarcassSneak",
+  "formid": "0256A3",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ActionCleanCarcassSneak",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gActionFreshCarcass": {
+  "backing": "_DS_Hunterborn_ActionFreshCarcass",
+  "formid": "0038CA",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ActionFreshCarcass",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gActionFreshCarcassSneak": {
+  "backing": "_DS_Hunterborn_ActionFreshCarcassSneak",
+  "formid": "0038CB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ActionFreshCarcassSneak",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gActionsTimed": {
+  "backing": "_DS_Hunterborn_ActionsTimed",
+  "formid": "1C7363",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ActionsTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gAddTaxonomy": {
+  "backing": "_DS_Hunterborn_AddTaxonomy",
+  "formid": "0215D9",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_AddTaxonomy",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gAlterTime": {
+  "backing": "_DS_Hunterborn_AlterTime",
+  "formid": "DDD9D5",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_AlterTime",
+  "record": "GlobalFloat",
+  "data": "1",
+  "type": "float",
+  "set": "float"
+ },
+ "gBlockSkyRe": {
+  "backing": "_DS_Hunterborn_BlockSkyRe",
+  "formid": "023BB2",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_BlockSkyRe",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gBrewLevel": {
+  "backing": "_DS_Hunterborn_BrewLevel",
+  "formid": "00CFFB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_BrewLevel",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gButcheringDone": {
+  "backing": "_DS_Hunterborn_ButcheringDone",
+  "formid": "0063ED",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ButcheringDone",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gButcherTimed": {
+  "backing": "_DS_Hunterborn_ButcherTimed",
+  "formid": "0038D0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ButcherTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gCarcassYield": {
+  "backing": "_DS_Hunterborn_CarcassYield",
+  "formid": "1C7366",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_CarcassYield",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "int",
+  "set": "int"
+ },
+ "gClawsAsHuntingKnife": {
+  "backing": "_DS_Hunterborn_ClawsAsHuntingKnife",
+  "formid": "035B21",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ClawsAsHuntingKnife",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gCookbookRead": {
+  "backing": "_DS_Hunterborn_CookbookRead",
+  "formid": "017E5A",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_CookbookRead",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gDebugMode": {
+  "backing": "_DS_Hunterborn_DebugMode",
+  "formid": "0B5B14",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_DebugMode",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gDLCEnabled": {
+  "backing": "_DS_Hunterborn_DLCEnabled",
+  "formid": "0215E3",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_DLCEnabled",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gDoInitStuff": {
+  "backing": "_DS_Hunterborn_DoInitStuff",
+  "formid": "045F0B",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_DoInitStuff",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gDragonsCorporeal": {
+  "backing": "_DS_Hunterborn_DragonsCorporeal",
+  "formid": "02984B",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_DragonsCorporeal",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gDressTimed": {
+  "backing": "_DS_Hunterborn_DressTimed",
+  "formid": "0038CE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_DressTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableBotanyPerk": {
+  "backing": "_DS_Hunterborn_EnableBotanyPerk",
+  "formid": "1DB7BB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableBotanyPerk",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableBountyPerk": {
+  "backing": "_DS_Hunterborn_EnableBountyPerk",
+  "formid": "14DA0F",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableBountyPerk",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableForaging": {
+  "backing": "_DS_Hunterborn_EnableForaging",
+  "formid": "1DB7BC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableForaging",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableHuntersCache": {
+  "backing": "_DS_Hunterborn_EnableHuntersCache",
+  "formid": "03AC27",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableHuntersCache",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnablePrimitiveCooking": {
+  "backing": "_DS_Hunterborn_EnablePrimitiveCooking",
+  "formid": "1DB7BD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnablePrimitiveCooking",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableSavageArrows": {
+  "backing": "_DS_Hunterborn_EnableSavageArrows",
+  "formid": "1DB7BF",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableSavageArrows",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableSenseDirection": {
+  "backing": "_DS_Hunterborn_EnableSenseDirection",
+  "formid": "1DB7C0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableSenseDirection",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableScrimshaw": {
+  "backing": "_DS_Hunterborn_EnableScrimshaw",
+  "formid": "1DB7BE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableScrimshaw",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableSoupsStews": {
+  "backing": "_DS_Hunterborn_EnableSoupsStews",
+  "formid": "28CD33",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableSoupsStews",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableTracking": {
+  "backing": "_DS_Hunterborn_EnableTracking",
+  "formid": "DAAF9F",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableTracking",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gFadeOuts": {
+  "backing": "_DS_Hunterborn_FadeOuts",
+  "formid": "21D555",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_FadeOuts",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gFakeUpdate": {
+  "backing": "_DS_Hunterborn_FakeUpdate",
+  "formid": "0DE361",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_FakeUpdate",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gForageExp": {
+  "backing": "_DS_Hunterborn_ForageExp",
+  "formid": "02DEC9",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ForageExp",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gForageLevel": {
+  "backing": "_DS_Hunterborn_ForageLevel",
+  "formid": "02DECA",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ForageLevel",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gForageTimed": {
+  "backing": "_DS_Hunterborn_ForageTimed",
+  "formid": "005926",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ForageTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gTrackingTimed": {
+  "backing": "_DS_Hunterborn_TrackingTimed",
+  "formid": "DB51A3",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_TrackingTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gFrostfallAdded": {
+  "backing": "_DS_Hunterborn_Frostfall_Added",
+  "formid": "03FD66",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Frostfall_Added",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gFrostfallRemoved": {
+  "backing": "_DS_Hunterborn_Frostfall_Removed",
+  "formid": "03FD67",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Frostfall_Removed",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIdeaAlkahest": {
+  "backing": "_DS_Hunterborn_GrimeyIdea_Alkahest",
+  "formid": "25F35E",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_GrimeyIdea_Alkahest",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIdeaRubyluce": {
+  "backing": "_DS_Hunterborn_GrimeyIdea_Rubyluce",
+  "formid": "2737CF",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_GrimeyIdea_Rubyluce",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIdeaStrawGold": {
+  "backing": "_DS_Hunterborn_GrimeyIdea_StrawGold",
+  "formid": "2737D0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_GrimeyIdea_StrawGold",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHarvestingDone": {
+  "backing": "_DS_Hunterborn_HarvestingDone",
+  "formid": "0063EC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HarvestingDone",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHarvestExp": {
+  "backing": "_DS_Hunterborn_HarvestExp",
+  "formid": "01997F",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HarvestExp",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHarvestLevel": {
+  "backing": "_DS_Hunterborn_HarvestLevel",
+  "formid": "0089BB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HarvestLevel",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHarvestTimed": {
+  "backing": "_DS_Hunterborn_HarvestTimed",
+  "formid": "0089BC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HarvestTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHotkey_HideAbilities": {
+  "backing": "_DS_Hunterborn_Hotkey_HideAbilities",
+  "formid": "044EC4",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Hotkey_HideAbilities",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHotkey_HideMenu": {
+  "backing": "_DS_Hunterborn_Hotkey_HideMenu",
+  "formid": "044EC5",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Hotkey_HideMenu",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHotkeyButcher": {
+  "backing": "_DS_Hunterborn_HotkeyButcher",
+  "formid": "044EBE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyButcher",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyDress": {
+  "backing": "_DS_Hunterborn_HotkeyDress",
+  "formid": "041E22",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyDress",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyForage": {
+  "backing": "_DS_Hunterborn_HotkeyForage",
+  "formid": "044EC0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyForage",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyHarvest": {
+  "backing": "_DS_Hunterborn_HotkeyHarvest",
+  "formid": "044EBD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyHarvest",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyPrimitiveCooking": {
+  "backing": "_DS_Hunterborn_HotkeyPrimitiveCooking",
+  "formid": "08D2BD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyPrimitiveCooking",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyProcess": {
+  "backing": "_DS_Hunterborn_HotkeyProcess",
+  "formid": "044EBF",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyProcess",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyScrimshaw": {
+  "backing": "_DS_Hunterborn_HotkeyScrimshaw",
+  "formid": "044EC1",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyScrimshaw",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeySenseDirection": {
+  "backing": "_DS_Hunterborn_HotkeySenseDirection",
+  "formid": "044EC3",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeySenseDirection",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeySkin": {
+  "backing": "_DS_Hunterborn_HotkeySkin",
+  "formid": "044EBC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeySkin",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyTaxonomy": {
+  "backing": "_DS_Hunterborn_HotkeyTaxonomy",
+  "formid": "044EC2",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyTaxonomy",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHotkeyTracking": {
+  "backing": "_DS_Hunterborn_HotkeyTracking",
+  "formid": "DAAFA0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HotkeyTracking",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gHuntersCacheEmpty": {
+  "backing": "_DS_Hunterborn_HuntersCacheEmpty",
+  "formid": "03AC25",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HuntersCacheEmpty",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gHuntingKnife": {
+  "backing": "_DS_Hunterborn_HuntingKnife",
+  "formid": "035B22",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_HuntingKnife",
+  "record": "GlobalShort",
+  "data": "-1",
+  "type": "int",
+  "set": "int"
+ },
+ "gIncludeChicken": {
+  "backing": "_DS_Hunterborn_IncludeChicken",
+  "formid": "017893",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeChicken",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeDog": {
+  "backing": "_DS_Hunterborn_IncludeDog",
+  "formid": "017894",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeDog",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeHare": {
+  "backing": "_DS_Hunterborn_IncludeHare",
+  "formid": "017895",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeHare",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterChaurus": {
+  "backing": "_DS_Hunterborn_IncludeMonsterChaurus",
+  "formid": "0292CA",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterChaurus",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterDragons": {
+  "backing": "_DS_Hunterborn_IncludeMonsterDragons",
+  "formid": "0292CB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterDragons",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterSpiders": {
+  "backing": "_DS_Hunterborn_IncludeMonsterSpiders",
+  "formid": "0292CC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterSpiders",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterSpriggans": {
+  "backing": "_DS_Hunterborn_IncludeMonsterSpriggans",
+  "formid": "0292CD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterSpriggans",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterTrolls": {
+  "backing": "_DS_Hunterborn_IncludeMonsterTrolls",
+  "formid": "0292CE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterTrolls",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMonsterWerewolves": {
+  "backing": "_DS_Hunterborn_IncludeMonsterWerewolves",
+  "formid": "0292CF",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMonsterWerewolves",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeMudcrab": {
+  "backing": "_DS_Hunterborn_IncludeMudcrab",
+  "formid": "017896",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeMudcrab",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeSkeever": {
+  "backing": "_DS_Hunterborn_IncludeSkeever",
+  "formid": "017897",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeSkeever",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gIncludeSlaughterfish": {
+  "backing": "_DS_Hunterborn_IncludeSlaughterfish",
+  "formid": "017898",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_IncludeSlaughterfish",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gKenHunted_Active": {
+  "backing": "_DS_Hunterborn_KenHunted_Active",
+  "formid": "0423A1",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_KenHunted_Active",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gKnifeSales": {
+  "backing": "_DS_Hunterborn_KnifeSales",
+  "formid": "036605",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_KnifeSales",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gMatAmount": {
+  "backing": "_DS_Hunterborn_MatAmount",
+  "formid": "01CF95",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MatAmount",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gMeatValue": {
+  "backing": "_DS_Hunterborn_MeatValue",
+  "formid": "01997E",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MeatValue",
+  "record": "GlobalShort",
+  "data": "2",
+  "type": "int",
+  "set": "int"
+ },
+ "gMeatYield": {
+  "backing": "_DS_Hunterborn_MeatYield",
+  "formid": "0038CD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MeatYield",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "int",
+  "set": "int"
+ },
+ "gMeatYieldCustom": {
+  "backing": "_DS_Hunterborn_MeatYieldCustom",
+  "formid": "020B11",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MeatYieldCustom",
+  "record": "GlobalShort",
+  "data": "25",
+  "type": "int",
+  "set": "int"
+ },
+ "gMonsterCanDispose": {
+  "backing": "_DS_Hunterborn_MonsterCanDispose",
+  "formid": "110DA8",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterCanDispose",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHasBlood": {
+  "backing": "_DS_Hunterborn_MonsterHasBlood",
+  "formid": "027773",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHasBlood",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHasMats": {
+  "backing": "_DS_Hunterborn_MonsterHasMats",
+  "formid": "027775",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHasMats",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHasMeat": {
+  "backing": "_DS_Hunterborn_MonsterHasMeat",
+  "formid": "027776",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHasMeat",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHasSkin": {
+  "backing": "_DS_Hunterborn_MonsterHasSkin",
+  "formid": "027774",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHasSkin",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHasVenom": {
+  "backing": "_DS_Hunterborn_MonsterHasVenom",
+  "formid": "027772",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHasVenom",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gMonsterHunter": {
+  "backing": "_DS_Hunterborn_MonsterHunter",
+  "formid": "024115",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_MonsterHunter",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPeltValue": {
+  "backing": "_DS_Hunterborn_PeltValue",
+  "formid": "0038CC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PeltValue",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "int",
+  "set": "int"
+ },
+ "gPerMaAddLeather": {
+  "backing": "_DS_Hunterborn_PerMaAddLeather",
+  "formid": "14DA10",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PerMaAddLeather",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPerMaGathererWarned": {
+  "backing": "_DS_Hunterborn_PerMaGathererWarned",
+  "formid": "14DA11",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PerMaGathererWarned",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPerMaLevelWayfarer": {
+  "backing": "_DS_Hunterborn_PerMaLevelWayfarer",
+  "formid": "14DA12",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PerMaLevelWayfarer",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gToggleSkillsOfTheWildSupport": {
+  "backing": "_DS_Hunterborn_ToggleSkillsOfTheWildSupport",
+  "formid": "DECD9F",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ToggleSkillsOfTheWildSupport",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPreventBearStash": {
+  "backing": "_DS_Hunterborn_PreventBearStash",
+  "formid": "017899",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PreventBearStash",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPreventInCombat": {
+  "backing": "_DS_Hunterborn_PreventInCombat",
+  "formid": "01997D",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PreventInCombat",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gPreventOverburden": {
+  "backing": "_DS_Hunterborn_PreventOverburden",
+  "formid": "01789A",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_PreventOverburden",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gRegionIndex": {
+  "backing": "_DS_Hunterborn_RegionIndex",
+  "formid": "02CE9E",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RegionIndex",
+  "record": "GlobalShort",
+  "data": "-1",
+  "type": "int",
+  "set": "int"
+ },
+ "gRemoveManualLoot": {
+  "backing": "_DS_Hunterborn_RemoveManualLoot",
+  "formid": "0355BD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RemoveManualLoot",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gRequireCookbook": {
+  "backing": "_DS_Hunterborn_RequireCookbook",
+  "formid": "017E06",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RequireCookbook",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gRequireHuntingKnife": {
+  "backing": "_DS_Hunterborn_RequireHuntingKnife",
+  "formid": "035B20",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RequireHuntingKnife",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gReweighMeat": {
+  "backing": "_DS_Hunterborn_ReweighMeat",
+  "formid": "01789B",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ReweighMeat",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gRiteRing_Wearing": {
+  "backing": "_DS_Hunterborn_RiteRing_Wearing",
+  "formid": "041E27",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RiteRing_Wearing",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gRiteStage_Elm": {
+  "backing": "_DS_Hunterborn_RiteStage_Elm",
+  "formid": "041E24",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RiteStage_Elm",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gRiteStage_Oak": {
+  "backing": "_DS_Hunterborn_RiteStage_Oak",
+  "formid": "041E25",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RiteStage_Oak",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gRiteStage_Yew": {
+  "backing": "_DS_Hunterborn_RiteStage_Yew",
+  "formid": "041E23",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_RiteStage_Yew",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gShowScreenBlood": {
+  "backing": "_DS_Hunterborn_ShowScreenBlood",
+  "formid": "0256A0",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_ShowScreenBlood",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSkinningDone": {
+  "backing": "_DS_Hunterborn_SkinningDone",
+  "formid": "0063EB",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkinningDone",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSkinExp": {
+  "backing": "_DS_Hunterborn_SkinExp",
+  "formid": "019980",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkinExp",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gSkinLevel": {
+  "backing": "_DS_Hunterborn_SkinLevel",
+  "formid": "007422",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkinLevel",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gSkinTimed": {
+  "backing": "_DS_Hunterborn_SkinTimed",
+  "formid": "0038CF",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkinTimed",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSkyReAddLeather": {
+  "backing": "_DS_Hunterborn_SkyReAddLeather",
+  "formid": "03865F",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkyReAddLeather",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSkyReGathererWarned": {
+  "backing": "_DS_Hunterborn_SkyReGathererWarned",
+  "formid": "038666",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkyReGathererWarned",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSkyReLevelWayfarer": {
+  "backing": "_DS_Hunterborn_SkyReLevelWayfarer",
+  "formid": "0256A4",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SkyReLevelWayfarer",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSmallGame": {
+  "backing": "_DS_Hunterborn_SmallGame",
+  "formid": "1C7379",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SmallGame",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSoupLifetime": {
+  "backing": "_DS_Hunterborn_SoupLifetime",
+  "formid": "2B04BE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SoupLifetime",
+  "record": "GlobalFloat",
+  "data": "2",
+  "type": "float",
+  "set": "float"
+ },
+ "gSoupReturnBowl": {
+  "backing": "_DS_Hunterborn_SoupReturnBowl",
+  "formid": "2B04BC",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SoupReturnBowl",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gSoupStayHot": {
+  "backing": "_DS_Hunterborn_SoupStayHot",
+  "formid": "2B04BD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_SoupStayHot",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gStartupPrompted": {
+  "backing": "_DS_Hunterborn_StartupPrompted",
+  "formid": "1B2F49",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_StartupPrompted",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gTotalCleans": {
+  "backing": "_DS_Hunterborn_TotalCleans",
+  "formid": "0063EE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_TotalCleans",
+  "record": "GlobalInt",
+  "data": "0",
+  "type": "int",
+  "set": "int"
+ },
+ "gUseAnimation": {
+  "backing": "_DS_Hunterborn_UseAnimation",
+  "formid": "0256A1",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseAnimation",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCampfireWood": {
+  "backing": "_DS_Hunterborn_UseCampfireWood",
+  "formid": "1CC491",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCampfireWood",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCombinedCustomMats": {
+  "backing": "_DS_Hunterborn_UseCombinedCustomMats",
+  "formid": "0215E7",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCombinedCustomMats",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCombinedCustomMeats": {
+  "backing": "_DS_Hunterborn_UseCombinedCustomMeats",
+  "formid": "0215E8",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCombinedCustomMeats",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCombinedCustomPelts": {
+  "backing": "_DS_Hunterborn_UseCombinedCustomPelts",
+  "formid": "0215E9",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCombinedCustomPelts",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCustomMats": {
+  "backing": "_DS_Hunterborn_UseCustomMats",
+  "formid": "020B12",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCustomMats",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gEnableFurPlate": {
+  "backing": "_DS_Hunterborn_EnableFurPlate",
+  "formid": "17B399",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_EnableFurPlate",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCustomMeats": {
+  "backing": "_DS_Hunterborn_UseCustomMeats",
+  "formid": "0215D8",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCustomMeats",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCustomPelts": {
+  "backing": "_DS_Hunterborn_UseCustomPelts",
+  "formid": "0215D7",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCustomPelts",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseCustomTextures": {
+  "backing": "_DS_Hunterborn_UseCustomTextures",
+  "formid": "0292BE",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseCustomTextures",
+  "record": "GlobalShort",
+  "data": "0",
+  "type": "bool",
+  "set": "int"
+ },
+ "gUseHiSTextures": {
+  "backing": "_DS_Hunterborn_UseHiSTextures",
+  "formid": "176297",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_UseHiSTextures",
+  "record": "GlobalShort",
+  "data": "1",
+  "type": "bool",
+  "set": "int"
+ },
+ "gVersion": {
+  "backing": "_DS_Hunterborn_Version",
+  "formid": "00EAFD",
+  "plugin": "Hunterborn.esp",
+  "editor_id": "_DS_Hunterborn_Version",
+  "record": "GlobalFloat",
+  "data": "0",
+  "type": "float",
+  "set": "float"
+ }
+}

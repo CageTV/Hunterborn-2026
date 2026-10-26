@@ -1,0 +1,187 @@
+FormKey: 001D89:Hunterborn.esp
+EditorID: _DS_HunterbornMCM
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _DS_HB_MCM
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BotanyPerk
+      Object: 14DA0E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BountyPerk
+      Object: 14DA0D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CACO_CACOIsInstalled
+      Object: CCA025:Update.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassMonsterPerk
+      Object: 024BDB:Hunterborn.esp
+    - MutagenObjectType: ScriptStringListProperty
+      Name: CleanActionStrings
+      Data:
+      - $_DS_HB_Actions_Prompt
+      - $_DS_HB_Actions_Process
+      - $_DS_HB_Actions_Skin
+      - $_DS_HB_Actions_Harvest
+      - $_DS_HB_Actions_Butcher
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ConfigSpell
+      Object: 1B2F4B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsActions
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsAnimals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsCarcassArray
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsKnives
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsMain
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsMonsters
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptStringListProperty
+      Name: ExperienceStrings
+      Data:
+      - $_DS_HB_ExpReset_None
+      - $_DS_HB_ExpReset_Novice
+      - $_DS_HB_ExpReset_Apprentice
+      - $_DS_HB_ExpReset_Adept
+      - $_DS_HB_ExpReset_Expert
+      - $_DS_HB_ExpReset_Master
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteSpells
+      Object: 0423A5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ForagingSpell
+      Object: 014225:Hunterborn.esp
+    - MutagenObjectType: ScriptStringListProperty
+      Name: FreshActionStrings
+      Data:
+      - $_DS_HB_Actions_Prompt
+      - $_DS_HB_Actions_PickUp
+      - $_DS_HB_Actions_Dress
+      - $_DS_HB_Actions_Manual
+    - MutagenObjectType: ScriptStringProperty
+      Name: HBVersion
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkButcher
+      Object: 044ECD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkFieldDress
+      Object: 044EC6:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkHarvest
+      Object: 044ECB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkProcess
+      Object: 044ECF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkSkin
+      Object: 044EC9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HunterLootLItem
+      Object: 10D9D1:Skyrim.esm
+    - MutagenObjectType: ScriptStringListProperty
+      Name: KnifeSaleStrings
+      Data:
+      - $_DS_HB_KnifeSales_None
+      - $_DS_HB_KnifeSales_Rare
+      - $_DS_HB_KnifeSales_Uncommon
+      - $_DS_HB_KnifeSales_Common
+      - $_DS_HB_KnifeSales_Abundant
+      - $_DS_HB_KnifeSales_Ubiquitous
+    - MutagenObjectType: ScriptStringListProperty
+      Name: MatAmountStrings
+      Data:
+      - $_DS_HB_MatAmount_Low
+      - $_DS_HB_MatAmount_Moderate
+      - $_DS_HB_MatAmount_High
+    - MutagenObjectType: ScriptStringListProperty
+      Name: MeatValueStrings
+      Data:
+      - $_DS_HB_MeatValues_Worthless
+      - $_DS_HB_MeatValues_Low
+      - $_DS_HB_MeatValues_Default
+      - $_DS_HB_MeatValues_Valuable
+    - MutagenObjectType: ScriptStringListProperty
+      Name: MeatYieldStrings
+      Data:
+      - $_DS_HB_MeatYield_Single
+      - $_DS_HB_MeatYield_Conservative
+      - $_DS_HB_MeatYield_Generous
+      - $_DS_HB_MeatYield_Realistic
+      - $_DS_HB_MeatYield_Custom
+    - MutagenObjectType: ScriptStringProperty
+      Name: modName
+      Data: Hunterborn
+    - MutagenObjectType: ScriptStringListProperty
+      Name: Pages
+      Data:
+      - $_DS_HB_Page0
+      - $_DS_HB_Page1
+      - $_DS_HB_Page2
+      - $_DS_HB_Page3
+      - $_DS_HB_Page4
+      - $_DS_HB_Page5
+    - MutagenObjectType: ScriptStringListProperty
+      Name: PeltValueStrings
+      Data:
+      - $_DS_HB_PeltValues_Worthless
+      - $_DS_HB_PeltValues_Default
+      - $_DS_HB_PeltValues_Valuable
+      - $_DS_HB_PeltValues_Treasured
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PrimCookingSpell
+      Object: 073D95:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SavageArrowsPerk
+      Object: 1D1597:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrimshawSpell
+      Object: 025C0C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SenseDirSpell
+      Object: 044ED1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StrangeBrew
+      Object: 00B504:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TaxonomySpell
+      Object: 0215DA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrackingSpell
+      Object: DA5E9B:Hunterborn.esp
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 001D89:Hunterborn.esp
+      Alias: 0
+    Scripts:
+    - Name: SKI_PlayerLoadGameAlias
+Name:
+  TargetLanguage: English
+  Value: Hunterborn MCM
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null
