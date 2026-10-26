@@ -164,8 +164,11 @@ namespace Actions
 			if (a_flags & ActPerkSavage) {
 				Perk(kSavagePerk, On("gEnableSavageArrows"));
 			}
-			if (a_flags & ActInit) {
+			if (a_flags & (ActInit | ActReapply)) {
 				Notify("Hunterborn is reapplying its templates...");
+				if (a_flags & ActReapply) {
+					Settings::SetByName("gDoInitStuff", 1.0f);  // the extra resets in DoInitStuff only run while this is set; the script clears it
+				}
 				Call(main, "_DS_HB_MAIN", "DoInitStuff");
 			}
 		}
@@ -283,6 +286,7 @@ namespace Actions
 		if (a_flags & (ActSpellConfig | ActSpellForaging | ActSpellScrimshaw | ActSpellPrimCooking | ActSpellSenseDir | ActSpellTracking | ActSpellTaxonomy | ActHideAbilities)) add("add or remove powers");
 		if (a_flags & (ActPerkBotany | ActPerkBounty | ActPerkSavage)) add("add or remove perks");
 		if (a_flags & ActInit) add("reapply the value presets");
+		if (a_flags & ActReapply) add("reapply Hunterborn's templates");
 		std::snprintf(a_buffer, a_size, "%s", s.c_str());
 		return a_buffer;
 	}

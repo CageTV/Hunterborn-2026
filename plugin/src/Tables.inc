@@ -38,8 +38,8 @@ constexpr Def kPage1[] = {
 	CMB("gPeltValue", "Pelt values", "How valuable (to merchants) are the pelts you skin from animals?", 0x0038cc, 1.0f, kMenu4, ActInit),
 	CMB("gMatAmount", "Material yield", "How many material components (like teeth, claws) should animals yield?", 0x01cf95, 0.0f, kMenu5, 0),
 	CMB("gMeatYield", "Meat yield", "How much meat should animals yield?", 0x0038cd, 2.0f, kMenu6, 0),
-	SLD("gMeatYieldCustom", "Custom meat yield", "As a percentage of animal weight; 12 = Conservative, 50 = Realistic.\\nAnimals will always drop at least one meat.", 0x020b11, 25.0f, 1.0f, 200.0f, 1.0f, "%.0f%%", 0),
-	CMB("gKnifeSales", "Knives at merchants", "How readily available are hunting knives at merchants around Skyrim?\\nChanging this setting will restock merchants.", 0x036605, 0.0f, kMenu7, ActKnifeSales),
+	SLD("gMeatYieldCustom", "Custom meat yield", "As a percentage of animal weight; 12 = Conservative, 50 = Realistic. Animals will always drop at least one meat.", 0x020b11, 25.0f, 1.0f, 200.0f, 1.0f, "%.0f%%", 0),
+	CMB("gKnifeSales", "Knives at merchants", "How readily available are hunting knives at merchants around Skyrim? Changing this setting will restock merchants.", 0x036605, 0.0f, kMenu7, ActKnifeSales),
 	HEADER("Realism"),
 	TOG("gRemoveManualLoot", "Remove Manual Loot option", "The option for Manual Loot will be removed from the first menu on an animal carcass. Does not apply to Monster Hunter.", 0x0355bd, 0.0f, 0),
 	TOG("gPreventBearStash", "Prevent oversize stashing", "Large animals cannot be stored in containers. Because, c'mon, a bear in a barrel?", 0x017899, 1.0f, 0),
@@ -82,7 +82,7 @@ constexpr Def kPage3[] = {
 	HEADER("Abilities"),
 	KEY("gHotkeyForage", "Forage", "Optional. Map a key to forage.", 0x044ec0, 5),
 	KEY("gHotkeyScrimshaw", "Scrimshaw", "Optional. Map a key to open the Scrimshaw crafting menu.", 0x044ec1, 6),
-	KEY("gHotkeyTaxonomy", "Taxonomy", "Optional. Map a key to invoke Taxonomy on the targeted carcass.\\nSee Compatibility for tooltip, more information in the Readme.", 0x044ec2, 7),
+	KEY("gHotkeyTaxonomy", "Taxonomy", "Optional. Map a key to invoke Taxonomy on the targeted carcass. See Compatibility for tooltip, more information in the Readme.", 0x044ec2, 7),
 	KEY("gHotkeySenseDirection", "Sense direction", "Use this feature if you hide the compass with iHUD, and end up getting lost all the damn time. Does not work indoors, due to technical limitations. Accuracy increases with your skill in foraging.", 0x044ec3, 8),
 	KEY("gHotkeyTracking", "Tracking", "Optional. Map a key to track.", 0xdaafa0, 9),
 	KEY("gHotkeyPrimitiveCooking", "Primitive cooking", "Optional. Map a key to begin primitive cooking.", 0x08d2bd, 10),
@@ -109,19 +109,18 @@ constexpr Def kPage5[] = {
 
 constexpr Def kPage6[] = {
 	HEADER("Options"),
-	TOG("gUseCustomPelts", "Use custom pelts", "Enable to use the custom pelts added by another mod, when skinning.\\nSee the Readme for details and troubleshooting.", 0x0215d7, 0.0f, 0),
+	TOG("gUseCustomPelts", "Use custom pelts", "Enable to use the custom pelts added by another mod, when skinning. See the Readme for details and troubleshooting.", 0x0215d7, 0.0f, 0),
 	TOG("gUseCombinedCustomPelts", "Combine with Hunterborn pelts", "Skinning supplies the custom pelts, AND Hunterborn's pelt.", 0x0215e9, 0.0f, 0),
-	TOG("gUseCustomMats", "Use custom materials", "Enable to use the custom materials added by another mod, when harvesting.\\nSee the Readme for details and troubleshooting.", 0x020b12, 0.0f, 0),
+	TOG("gUseCustomMats", "Use custom materials", "Enable to use the custom materials added by another mod, when harvesting. See the Readme for details and troubleshooting.", 0x020b12, 0.0f, 0),
 	TOG("gUseCombinedCustomMats", "Combine with Hunterborn materials", "Harvesting supplies the custom materials, AND Hunterborn's materials.", 0x0215e7, 0.0f, 0),
-	TOG("gUseCustomMeats", "Use custom meats", "Enable to use the custom meats added by another mod, when butchering.\\nSee the Readme for details and troubleshooting.", 0x0215d8, 0.0f, 0),
+	TOG("gUseCustomMeats", "Use custom meats", "Enable to use the custom meats added by another mod, when butchering. See the Readme for details and troubleshooting.", 0x0215d8, 0.0f, 0),
 	TOG("gUseCombinedCustomMeats", "Combine with Hunterborn meats", "Butchering supplies the custom meats, AND Hunterborn's meats.", 0x0215e8, 0.0f, 0),
 	TOG("gUseHiSCompatibility", "Enable Hunting in Skyrim Full Compatibility", "Disables Hunting in Skyrim's Skinning system, but allows you to still gain experience and the perks associated with HiS skinning.", 0x2ba6d7, 1.0f, 0),
 	TOG("gUseHiSTextures", "Use Hunting in Skyrim textures", "Skinned animals will use the alternate textures from Hunting in Skyrim. Requires HiS 1.3.7+.", 0x176297, 1.0f, 0),
 	TOG("gUseCustomTextures", "Use custom textures", "Enable if you use a mod that dynamically assigns creature textures, such as Automatic Variants. This prevents custom textures from disappearing after you Field Dress animals.", 0x0292be, 0.0f, 0),
-	TOG("gDoInitStuff", "Reapply templates", "Reapplies the changes Hunterborn makes when first started, including animals. This may help if adding another mod has broken Hunterborn. You won't lose your Hunterborn items or experience, but it is not as thorough as a clean save.", 0x045f0b, 0.0f, 0),
 	TOG("gDebugMode", "Debug mode", "Adds debugging information to Papyrus.0.log. Use only for detailed troubleshooting, this can impact game performance.", 0x0b5b14, 0.0f, 0),
 	HEADER("Checks"),
-	TOG("gToggleSkillsOfTheWildSupport", "(SOTW) Enable Spells and Powers", "Checking this box enables the Spells and Powers disabled due to Skills of the Wilds leveling system.\\nSkills of the Wild will unlock these powers when appropriate Campfire perk is purchased.", 0xdecd9f, 0.0f, 0),
+	TOG("gToggleSkillsOfTheWildSupport", "(SOTW) Enable Spells and Powers", "Checking this box enables the Spells and Powers disabled due to Skills of the Wilds leveling system. Skills of the Wild will unlock these powers when appropriate Campfire perk is purchased.", 0xdecd9f, 0.0f, 0),
 };
 
 constexpr Def kPage7[] = {

@@ -205,6 +205,14 @@ namespace Menu
 				SameLine();
 				TextDisabled("Takes effect when you close this menu.");
 			}
+			if (active) {
+				Spacing();
+				if (Button("Reapply templates")) {
+					Actions::Queue(Actions::ActReapply);
+				}
+				Tip("Reapplies the changes Hunterborn makes when first started, including animals. This may help if adding another mod has broken "
+					"Hunterborn. You won't lose your Hunterborn items or experience, but it is not as thorough as a clean save. Runs when you close this menu.");
+			}
 			Spacing();
 			SeparatorText("Your experience");
 			ValueRow("Carcasses cleaned", "gTotalCleans");

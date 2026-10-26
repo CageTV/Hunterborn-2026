@@ -47,7 +47,7 @@ FLAG = {
     "_ToggleSavageArrows": "ActPerkSavage", "_ToggleHideAbilities": "ActHideAbilities", "_TogglePeltValue": "ActInit", "_ToggleMeatValue": "ActInit",
     "_ToggleReweighMeat": "ActInit",
 }
-SKIP_GLOBALS = {"gHunterbornActive"}
+SKIP_GLOBALS = {"gHunterbornActive", "gDoInitStuff"}  # gDoInitStuff is a one-shot flag Hunterborn clears itself: a button on the Overview page, never a saved setting
 SKIP_LABELS = {"Reset to", "(SkyRe) Remove Gatherer perk", "(PerMa) Remove Gatherer perk"}
 
 
@@ -58,7 +58,8 @@ def fl(x):
 
 def cstr(s):
     bs = chr(92)
-    return '"' + (s or "").replace(bs, bs + bs).replace('"', bs + '"').replace("\n", " ") + '"'
+    s = (s or "").replace(bs + "n", " ")  # the translation file spells a line break as backslash + n
+    return '"' + s.replace(bs, bs + bs).replace('"', bs + '"').replace("\n", " ") + '"'
 
 
 def num(s, fallback=0.0):

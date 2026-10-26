@@ -33,6 +33,7 @@ namespace Actions
 		ActInit = 1u << 16,           // pelt / meat value presets: _DS_HB_MAIN.DoInitStuff
 		ActStart = 1u << 17,          // Start Hunterborn
 		ActStop = 1u << 18,           // Stop Hunterborn
+		ActReapply = 1u << 19,        // "Reapply templates": sets Hunterborn's one-shot flag, then DoInitStuff (which clears it)
 	};
 
 	void Queue(unsigned a_flags);
