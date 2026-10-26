@@ -23,6 +23,7 @@ IMPORTS = [
     SRC,
     os.path.join(HERE, "reference", "semcm"),
     os.path.join(HERE, "reference", "base"),
+    r"E:\WorkSpace\HuntingInSkyrim-analysis\scripts\source",  # Hunting in Skyrim's own sources: SE MCM's Actions casts to its types
     os.path.join(MODS, "powerofthree's Papyrus Extender", "Source", "scripts"),
     os.path.join(MODS, "Skyrim Script Extender (SKSE64)", "Scripts", "Source"),
     os.path.join(GAME, "Data", "Source", "Scripts"),
@@ -34,7 +35,7 @@ if os.path.exists(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
 if check:
-    names = ["_DS_HB_Player.psc"]
+    names = ["_DS_HB_Player.psc", "_DS_HB_Monsters.psc"]
     work = os.path.join(HERE, "reference", "semcm")
 else:
     names = sorted(n for n in os.listdir(SRC) if n.lower().endswith(".psc"))

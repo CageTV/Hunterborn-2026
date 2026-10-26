@@ -1,0 +1,2175 @@
+FormKey: 003367:Hunterborn.esp
+EditorID: _DS_Hunterborn
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _DS_HB_Actions
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AnimalFat
+      Object: 0AB90C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BearFaction
+      Object: 0FBBF3:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ContainerWolf
+      Object: 0292C0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsAnimals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsMonsters
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Dumpster
+      Object: 19EB45:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flClawRaces
+      Object: 03FD5B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flHarvestBonuses
+      Object: 035B30:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flHkefLists
+      Object: 035B23:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flHuntingKnives
+      Object: 007420:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteBones
+      Object: 041E28:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flSkinBonuses
+      Object: 035B2F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: foodWatermelon
+      Object: 055772:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: gGameTime
+      Object: 000038:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GoatFaction
+      Object: 04359D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HorkerFaction
+      Object: 04359F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: idle_Stop
+      Object: 10D9EE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: idleBloodAnim
+      Object: 0EFC64:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: idleCarcassAnim
+      Object: 0FE09F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: idleSearchAnim
+      Object: 0EFC64:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: idleVenomAnim
+      Object: 0EFC64:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ingrMoonMoonSugar
+      Object: 1F9E0D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ismBlack
+      Object: 032AA4:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ismFadeIn
+      Object: 032540:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ismFadeOut
+      Object: 032541:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwAnimalHide
+      Object: 0914EA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwHkCurseOfDaedra
+      Object: 035B3E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwHkCurseOfEbony
+      Object: 035B3D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwHkDoubleHarvest
+      Object: 035B40:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwHkDoubleMeat
+      Object: 035B3F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwHuntingKnife
+      Object: 01B47F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwRiteRing
+      Object: 03E7BC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liAggregator
+      Object: 0205AD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MammothFaction
+      Object: 04359B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MeatGrinder
+      Object: 1B8056:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: mgefHarvester
+      Object: 0287F8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: mgefStrangeBrew
+      Object: 00B501:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moPeltRuined
+      Object: 007427:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moSharpRock
+      Object: 01B480:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenBlood
+      Object: 027778:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenMat
+      Object: 01B485:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenMeat
+      Object: 01B486:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenMeat_Fresh
+      Object: 01B487:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenPelt
+      Object: 00F061:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenVenom
+      Object: 027777:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxBoneKnifeBroken
+      Object: 0266F5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxFinishButcherSection
+      Object: 015807:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxFinishSkinSection
+      Object: 015D9A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxHarvestCritFail
+      Object: 00A4B2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxHarvestCritFail2
+      Object: 00A4B3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxHarvestLevelUp
+      Object: 00A4B4:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxNoHuntingKnife
+      Object: 00741C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxSkinCritFail
+      Object: 00741D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxSkinCritFail2
+      Object: 00741E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxSkinLevelUp
+      Object: 00741F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGoatAteRocks
+      Object: 013CA9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgSpiritAppears
+      Object: 016861:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgVenomFail
+      Object: 028273:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: RiteRingSites
+      Objects:
+      - Name: ''
+        Object: 0F2F6E:Skyrim.esm
+      - Name: ''
+        Object: 02AA3A:Skyrim.esm
+      - Name: ''
+        Object: 033AF8:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SabreCatFaction
+      Object: 0435A2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpawnMarker
+      Object: 00289C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellSummonDaedricSpirit
+      Object: 015D9B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellSummonEbonySpirit
+      Object: 016DC9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellVenomFail
+      Object: 028272:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrollFaction
+      Object: 0435A1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: weapKnifeBone
+      Object: 01B482:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WerewolfRace
+      Object: 0CDD84:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WolfFaction
+      Object: 03E691:Skyrim.esm
+  - Name: _DS_HB_Animals
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ActiveAnimalSwitches
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 017893:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 017894:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 017895:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 017896:Hunterborn.esp
+      - Name: ''
+        Object: 017896:Hunterborn.esp
+      - Name: ''
+        Object: 017896:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 017897:Hunterborn.esp
+      - Name: ''
+        Object: 017898:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+    - MutagenObjectType: ScriptFloatListProperty
+      Name: AllMeatWeights
+      Data:
+      - 2
+      - 2
+      - 2
+      - 0.2
+      - 2
+      - 2
+      - 1
+      - 2
+      - 2
+      - 1
+      - 1
+      - 1
+      - 0.5
+      - 2
+      - 2
+      - 2
+      - 1
+      - 1
+      - 1
+      - 2
+      - 2
+      - 0.5
+      - 0.5
+      - 1
+      - 1
+      - 2
+      - 2
+      - 2
+    - MutagenObjectType: ScriptStringListProperty
+      Name: AnimalIndex
+      Data:
+      - Bear
+      - Bear
+      - Bear
+      - chicken
+      - Cow
+      - Deer
+      - Dog
+      - ElkFemale
+      - ElkMale
+      - Fox
+      - Fox
+      - Goat
+      - Hare
+      - Horker
+      - Horse
+      - Mammoth
+      - MudCrab01
+      - MudCrab02
+      - MudCrab03
+      - SabreCat
+      - SabreCat
+      - skeever
+      - Slaughterfish
+      - wolf
+      - wolf
+      - Deer
+      - SabreCat
+      - Bristleback
+    - MutagenObjectType: ScriptStringListProperty
+      Name: AnimalRaceNames
+      Data:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+    - MutagenObjectType: ScriptIntListProperty
+      Name: CarcassSizes
+      Data:
+      - 3
+      - 5
+      - 5
+      - 1
+      - 4
+      - 2
+      - 2
+      - 3
+      - 3
+      - 2
+      - 2
+      - 2
+      - 1
+      - 5
+      - 3
+      - 7
+      - 1
+      - 1
+      - 2
+      - 3
+      - 3
+      - 1
+      - 1
+      - 2
+      - 2
+      - 2
+      - 3
+      - 3
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: DeathItemLI
+      Objects:
+      - Name: ''
+        Object: 014D29:Hunterborn.esp
+      - Name: ''
+        Object: 014D29:Hunterborn.esp
+      - Name: ''
+        Object: 014D29:Hunterborn.esp
+      - Name: ''
+        Object: 014D2C:Hunterborn.esp
+      - Name: ''
+        Object: 014D2D:Hunterborn.esp
+      - Name: ''
+        Object: 014D2E:Hunterborn.esp
+      - Name: ''
+        Object: 014D2F:Hunterborn.esp
+      - Name: ''
+        Object: 014D31:Hunterborn.esp
+      - Name: ''
+        Object: 014D31:Hunterborn.esp
+      - Name: ''
+        Object: 014D32:Hunterborn.esp
+      - Name: ''
+        Object: 014D32:Hunterborn.esp
+      - Name: ''
+        Object: 014D34:Hunterborn.esp
+      - Name: ''
+        Object: 014D35:Hunterborn.esp
+      - Name: ''
+        Object: 014D36:Hunterborn.esp
+      - Name: ''
+        Object: 014D37:Hunterborn.esp
+      - Name: ''
+        Object: 014D38:Hunterborn.esp
+      - Name: ''
+        Object: 014D39:Hunterborn.esp
+      - Name: ''
+        Object: 014D39:Hunterborn.esp
+      - Name: ''
+        Object: 014D39:Hunterborn.esp
+      - Name: ''
+        Object: 014D3C:Hunterborn.esp
+      - Name: ''
+        Object: 014D3C:Hunterborn.esp
+      - Name: ''
+        Object: 014D3E:Hunterborn.esp
+      - Name: ''
+        Object: 014D3F:Hunterborn.esp
+      - Name: ''
+        Object: 014D40:Hunterborn.esp
+      - Name: ''
+        Object: 014D40:Hunterborn.esp
+      - Name: ''
+        Object: 0215ED:Hunterborn.esp
+      - Name: ''
+        Object: 0215EE:Hunterborn.esp
+      - Name: ''
+        Object: 038662:Hunterborn.esp
+    - MutagenObjectType: ScriptFloatListProperty
+      Name: DefaultMeatWeights
+      Data:
+      - 0.2
+      - 0.2
+      - 0.1
+      - 0.2
+      - 1
+      - 1
+      - 2
+      - 3
+      - 0.2
+      - 0.1
+      - 0.1
+      - 2
+    - MutagenObjectType: ScriptIntListProperty
+      Name: DefaultPeltValues
+      Data:
+      - 50
+      - 60
+      - 75
+      - 0
+      - 10
+      - 10
+      - 0
+      - 10
+      - 10
+      - 5
+      - 7
+      - 5
+      - 0
+      - 0
+      - 15
+      - 20
+      - 0
+      - 0
+      - 0
+      - 25
+      - 40
+      - 2
+      - 0
+      - 10
+      - 15
+      - 10
+      - 10
+      - 50
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flAnimalRaces
+      Object: 2B04CB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flCarcassesFresh
+      Object: 01789F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flCarcassObjects
+      Object: 006EB9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flDeathItems
+      Object: 00FB3F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flDeathItemTokens
+      Object: 00FB5A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flDefaultMeats
+      Object: 01789C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flMatLists
+      Object: 00A4BA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flPeltLists
+      Object: 0089BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flPerfectMats
+      Object: 14DA13:Hunterborn.esp
+    - MutagenObjectType: ScriptFloatListProperty
+      Name: HBMeatWeights
+      Data:
+      - 2
+      - 0.5
+      - 0.3
+      - 1
+      - 2
+      - 2
+      - 2
+      - 3
+      - 0.5
+      - 0.3
+      - 0.5
+      - 2
+      - 0.5
+      - 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwDeathItemToken
+      Object: 0178A1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGoatRocks
+      Object: 0205AE:Hunterborn.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: MeatCounts_0Scrawny
+      Data:
+      - 0
+      - 1
+      - 1
+      - 3
+      - 4
+      - 5
+      - 10
+      - 25
+    - MutagenObjectType: ScriptIntListProperty
+      Name: MeatCounts_1Lean
+      Data:
+      - 0
+      - 1
+      - 2
+      - 4
+      - 7
+      - 10
+      - 50
+      - 125
+    - MutagenObjectType: ScriptIntListProperty
+      Name: MeatCounts_2Normal
+      Data:
+      - 0
+      - 2
+      - 5
+      - 10
+      - 25
+      - 50
+      - 125
+      - 250
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: MeatTypes
+      Objects:
+      - Name: ''
+        Object: 014795:Hunterborn.esp
+      - Name: ''
+        Object: 014795:Hunterborn.esp
+      - Name: ''
+        Object: 014795:Hunterborn.esp
+      - Name: ''
+        Object: 0F2011:Skyrim.esm
+      - Name: ''
+        Object: 065C99:Skyrim.esm
+      - Name: ''
+        Object: 0669A2:Skyrim.esm
+      - Name: ''
+        Object: 0EDB2E:Skyrim.esm
+      - Name: ''
+        Object: 014D21:Hunterborn.esp
+      - Name: ''
+        Object: 014D21:Hunterborn.esp
+      - Name: ''
+        Object: 014798:Hunterborn.esp
+      - Name: ''
+        Object: 014798:Hunterborn.esp
+      - Name: ''
+        Object: 01479A:Hunterborn.esp
+      - Name: ''
+        Object: 0147A2:Hunterborn.esp
+      - Name: ''
+        Object: 065C9B:Skyrim.esm
+      - Name: ''
+        Object: 065C9C:Skyrim.esm
+      - Name: ''
+        Object: 01479E:Hunterborn.esp
+      - Name: ''
+        Object: 014D22:Hunterborn.esp
+      - Name: ''
+        Object: 014D22:Hunterborn.esp
+      - Name: ''
+        Object: 014D22:Hunterborn.esp
+      - Name: ''
+        Object: 0147A0:Hunterborn.esp
+      - Name: ''
+        Object: 0147A0:Hunterborn.esp
+      - Name: ''
+        Object: 014796:Hunterborn.esp
+      - Name: ''
+        Object: 014D24:Hunterborn.esp
+      - Name: ''
+        Object: 01479C:Hunterborn.esp
+      - Name: ''
+        Object: 01479C:Hunterborn.esp
+      - Name: ''
+        Object: 0669A2:Skyrim.esm
+      - Name: ''
+        Object: 0147A0:Hunterborn.esp
+      - Name: ''
+        Object: 03BD14:Dragonborn.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenCarcass_Clean
+      Object: 01B483:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenCarcass_Fresh
+      Object: 00FB59:Hunterborn.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: MultiPelts
+      Data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 10
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    - MutagenObjectType: ScriptIntListProperty
+      Name: PerMaPeltIDs
+      Data:
+      - 589107
+      - 589106
+      - 589108
+      - 0
+      - 0
+      - 589109
+      - 0
+      - 589109
+      - 589109
+      - 589110
+      - 589110
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 589111
+      - 589112
+      - 0
+      - 0
+      - 589113
+      - 589113
+      - 589109
+      - 589111
+      - 0
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: PerMaPelts
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: SharedDeathItems
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: DA0D13:Update.esm
+      - Name: ''
+        Object: DA0D14:Update.esm
+      - Name: ''
+        Object: DA0D15:Update.esm
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+    - MutagenObjectType: ScriptIntListProperty
+      Name: SkyRePeltIDs
+      Data:
+      - 589107
+      - 589106
+      - 589108
+      - 0
+      - 0
+      - 589109
+      - 0
+      - 589109
+      - 589109
+      - 589110
+      - 589110
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 589111
+      - 589112
+      - 0
+      - 0
+      - 589113
+      - 589113
+      - 589109
+      - 589111
+      - 0
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: SkyRePelts
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpawnMarker
+      Object: 00289C:Hunterborn.esp
+  - Name: _DS_HB_CarcassArray
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsAnimals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxArrayOverflow
+      Object: 0178A0:Hunterborn.esp
+  - Name: _DS_HB_Globals
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn__Active
+      Object: 007421:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn__Draugnarok
+      Object: 10BCA5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Action_Crouch
+      Object: 1C7367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ActionCleanCarcass
+      Object: 0256A2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ActionCleanCarcassSneak
+      Object: 0256A3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ActionFreshCarcass
+      Object: 0038CA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ActionFreshCarcassSneak
+      Object: 0038CB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ActionsTimed
+      Object: 1C7363:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_AddTaxonomy
+      Object: 0215D9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_AlterTime
+      Object: DDD9D5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_BlockSkyRe
+      Object: 023BB2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_BrewLevel
+      Object: 00CFFB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ButcheringDone
+      Object: 0063ED:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ButcherTimed
+      Object: 0038D0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_CarcassYield
+      Object: 1C7366:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ClawsAsHuntingKnife
+      Object: 035B21:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_CookbookRead
+      Object: 017E5A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_DebugMode
+      Object: 0B5B14:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_DLCEnabled
+      Object: 0215E3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_DoInitStuff
+      Object: 045F0B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_DragonsCorporeal
+      Object: 02984B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_DressTimed
+      Object: 0038CE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableBotanyPerk
+      Object: 1DB7BB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableBountyPerk
+      Object: 14DA0F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableConfig
+      Object: 2BA6D6:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableForaging
+      Object: 1DB7BC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableFurPlate
+      Object: 17B399:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableHuntersCache
+      Object: 03AC27:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnablePrimitiveCooking
+      Object: 1DB7BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableSavageArrows
+      Object: 1DB7BF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableScrimshaw
+      Object: 1DB7BE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableSenseDirection
+      Object: 1DB7C0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableSoupsStews
+      Object: 28CD33:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_EnableTracking
+      Object: DAAF9F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_FadeOuts
+      Object: 21D555:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_FakeUpdate
+      Object: 0DE361:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ForageExp
+      Object: 02DEC9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ForageLevel
+      Object: 02DECA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ForageTimed
+      Object: 005926:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Frostfall_Added
+      Object: 03FD66:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Frostfall_Removed
+      Object: 03FD67:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_GrimeyIdea_Alkahest
+      Object: 25F35E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_GrimeyIdea_Rubyluce
+      Object: 2737CF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_GrimeyIdea_StrawGold
+      Object: 2737D0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HarvestExp
+      Object: 01997F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HarvestingDone
+      Object: 0063EC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HarvestLevel
+      Object: 0089BB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HarvestTimed
+      Object: 0089BC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HiSCompatibility
+      Object: 2BA6D7:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Hotkey_HideAbilities
+      Object: 044EC4:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Hotkey_HideMenu
+      Object: 044EC5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyButcher
+      Object: 044EBE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyDress
+      Object: 041E22:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyForage
+      Object: 044EC0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyHarvest
+      Object: 044EBD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyPrimitiveCooking
+      Object: 08D2BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyProcess
+      Object: 044EBF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyScrimshaw
+      Object: 044EC1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeySenseDirection
+      Object: 044EC3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeySkin
+      Object: 044EBC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyTaxonomy
+      Object: 044EC2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HotkeyTracking
+      Object: DAAFA0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HuntersCacheEmpty
+      Object: 03AC25:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_HuntingKnife
+      Object: 035B22:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeChicken
+      Object: 017893:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeDog
+      Object: 017894:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeHare
+      Object: 017895:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterChaurus
+      Object: 0292CA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterDragons
+      Object: 0292CB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterSpiders
+      Object: 0292CC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterSpriggans
+      Object: 0292CD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterTrolls
+      Object: 0292CE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMonsterWerewolves
+      Object: 0292CF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeMudcrab
+      Object: 017896:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeSkeever
+      Object: 017897:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_IncludeSlaughterfish
+      Object: 017898:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_KenHunted_Active
+      Object: 0423A1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_KnifeSales
+      Object: 036605:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MatAmount
+      Object: 01CF95:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MeatValue
+      Object: 01997E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MeatYield
+      Object: 0038CD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MeatYieldCustom
+      Object: 020B11:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterCanDispose
+      Object: 110DA8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHasBlood
+      Object: 027773:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHasMats
+      Object: 027775:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHasMeat
+      Object: 027776:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHasSkin
+      Object: 027774:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHasVenom
+      Object: 027772:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_MonsterHunter
+      Object: 024115:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PeltValue
+      Object: 0038CC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PerMaAddLeather
+      Object: 14DA10:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PerMaGathererWarned
+      Object: 14DA11:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PerMaLevelWayfarer
+      Object: 14DA12:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PreventBearStash
+      Object: 017899:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PreventInCombat
+      Object: 01997D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_PreventOverburden
+      Object: 01789A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RegionIndex
+      Object: 02CE9E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RemoveManualLoot
+      Object: 0355BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RequireCookbook
+      Object: 017E06:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RequireHuntingKnife
+      Object: 035B20:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ReweighMeat
+      Object: 01789B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RiteRing_Wearing
+      Object: 041E27:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RiteStage_Elm
+      Object: 041E24:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RiteStage_Oak
+      Object: 041E25:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_RiteStage_Yew
+      Object: 041E23:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ShowScreenBlood
+      Object: 0256A0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkinExp
+      Object: 019980:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkinLevel
+      Object: 007422:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkinningDone
+      Object: 0063EB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkinTimed
+      Object: 0038CF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkyReAddLeather
+      Object: 03865F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkyReGathererWarned
+      Object: 038666:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SkyReLevelWayfarer
+      Object: 0256A4:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SmallGame
+      Object: 1C7379:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SoupLifetime
+      Object: 2B04BE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SoupReturnBowl
+      Object: 2B04BC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_SoupStayHot
+      Object: 2B04BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_StartupPrompted
+      Object: 1B2F49:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_ToggleSkillsOfTheWildSupport
+      Object: DECD9F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_TotalCleans
+      Object: 0063EE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_TrackingTimed
+      Object: DB51A3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseAnimation
+      Object: 0256A1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCampfireWood
+      Object: 1CC491:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCombinedCustomMats
+      Object: 0215E7:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCombinedCustomMeats
+      Object: 0215E8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCombinedCustomPelts
+      Object: 0215E9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCustomMats
+      Object: 020B12:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCustomMeats
+      Object: 0215D8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCustomPelts
+      Object: 0215D7:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseCustomTextures
+      Object: 0292BE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_UseHiSTextures
+      Object: 176297:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Hunterborn_Version
+      Object: 00EAFD:Hunterborn.esp
+  - Name: _DS_HB_Items
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsActions
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flEngravedBones
+      Object: 026175:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flEngravedBonesUsed
+      Object: 026184:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flEngravedBuffs
+      Object: 03AC2E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flEngravedMgefs
+      Object: 02617E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flEngravedSpells
+      Object: 02617F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flGrimeyRobeCurses
+      Object: 23199B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flGrimeyShimsIn
+      Object: 1F4D08:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flGrimeyShimsOut
+      Object: 1F4D09:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flGrimeyThings
+      Object: 1F4D02:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flGrimeyWineTastes
+      Object: 240CC3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flKnucklebonesMsgs
+      Object: 0A16EA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteCompleted
+      Object: 041E32:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteIdolMsgFar
+      Object: 03D21E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteIdolMsgNear
+      Object: 03D21F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteIdols
+      Object: 03D21A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRitePowers
+      Object: 041E33:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteRingClues
+      Object: 03E7BF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteRings
+      Object: 03E7BE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteStageVars
+      Object: 041E26:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GoldDream
+      Object: 2737D3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyAlkahest
+      Object: 25F356:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyChestRef
+      Object: 1EFBE3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyPlunge
+      Object: 24AF19:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyRobes
+      Object: 22C884:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyRubyluce
+      Object: 25F385:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyStrawGold
+      Object: 2737D8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GrimeyWineUnidentified
+      Object: 240CC2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IdleExamine
+      Object: 075C3D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KickoutRef
+      Object: 1F9E0B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwBoneIdolRite
+      Object: 03E7BD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwBoneRingRite
+      Object: 03E7BC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwEngravedBone
+      Object: 03E7BB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimey
+      Object: 1EAAE1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyComponent
+      Object: 20E220:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyDismantle
+      Object: 24AF0F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyPlunge
+      Object: 25F357:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyTimeCost
+      Object: 1F9E0F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyTimeCost_Long
+      Object: 1F9E12:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyTimeCost_Medium
+      Object: 1F9E11:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwGrimeyTimeCost_Short
+      Object: 1F9E10:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyAmulets
+      Object: 245DFD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyCircletBroken
+      Object: 24AF09:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyCirclets
+      Object: 24AF08:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeySatchelContents
+      Object: 23198A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyScrollBotched
+      Object: 218452:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyScrolls
+      Object: 21844F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: liGrimeyStaffHollowContents
+      Object: 213338:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moHircinesFork
+      Object: 045F05:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moKnucklebones
+      Object: 09C5E8:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgAlreadyComplete
+      Object: 044959:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxPrayerAnswered
+      Object: 02618F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxPrayerUnanswered
+      Object: 026190:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgErrorCantInCombat
+      Object: 015D8D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyAmuletFailed
+      Object: 245DFC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyCircletBroke
+      Object: 24AF06:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyPlungeWilted
+      Object: 25F374:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyRobesCursed
+      Object: 23199C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyRubyluceResult
+      Object: 2737D1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyScrollBotched
+      Object: 218450:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgGrimeyStaffHollow
+      Object: 21333B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: RiteIdolSites
+      Objects:
+      - Name: ''
+        Object: 037FCF:Skyrim.esm
+      - Name: ''
+        Object: 0E0F55:Skyrim.esm
+      - Name: ''
+        Object: 0CC759:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScavengeSpell
+      Object: 1F4CFB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellCureEffect
+      Object: 026177:Hunterborn.esp
+  - Name: _ds_hb_knives
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flKnifeMerchandise
+      Object: 0309F6:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flKnifeVendors
+      Object: 0309F3:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flKnives
+      Object: 007420:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: weapKnifeDragon
+      Object: 007992:Hunterborn.esp
+  - Name: _DS_HB_MAIN
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: abDMD
+      Object: 1251D2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: abSpiritWolf
+      Object: 12F3E0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BotanyPerk
+      Object: 14DA0E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BountyPerk
+      Object: 14DA0D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassCleanPerk
+      Object: 01B484:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassEmptyPerk
+      Object: 0215DD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassFreshPerk
+      Object: 002E04:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassMonsterPerk
+      Object: 024BDB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CarcassStartupPerk
+      Object: 1B2F47:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CartHorseRace
+      Object: 0DE505:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ConfigSpell
+      Object: 1B2F4B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1UndeadDragonRace
+      Object: 0117DE:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DmdSpawnRef
+      Object: 0CC759:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DogCompanionRace
+      Object: 0F1AC4:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DogRace
+      Object: 0131EE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonRace
+      Object: 012E82:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DruidicRitesBook
+      Object: 0D925F:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsActions
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsAnimals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsCarcassArray
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsKnives
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsMonsters
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Firewood
+      Object: 06F993:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FirewoodLItem
+      Object: 039133:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRitePowers
+      Object: 041E33:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteSpells
+      Object: 0423A5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flRiteStageVars
+      Object: 041E26:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmBooze10
+      Object: 03FD63:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmBooze15
+      Object: 03FD64:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmBooze20
+      Object: 03FD65:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmFoods10
+      Object: 03FD61:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmFoods15
+      Object: 03FD62:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flWarmFoods5
+      Object: 03FD60:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ForageSpell
+      Object: 014225:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: FreshCarcassMsgBoxes
+      Objects:
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0178A2:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0178A3:Hunterborn.esp
+      - Name: ''
+        Object: 0178A3:Hunterborn.esp
+      - Name: ''
+        Object: 0178A3:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0178A3:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+      - Name: ''
+        Object: 0038D1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GoatDomesticsRace
+      Object: 06FC4A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GoatRace
+      Object: 0131FA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HareRace
+      Object: 06DC99:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HircinesSightPerk
+      Object: 01FAE5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkButcher
+      Object: 044ECD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkFieldDress
+      Object: 044EC6:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkHarvest
+      Object: 044ECB:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkProcess
+      Object: 044ECF:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: hkSkin
+      Object: 044EC9:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HorseRace
+      Object: 0131FD:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HunterLootLItem
+      Object: 10D9D1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LyartCairnBook
+      Object: 017E07:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxCarcassStartup
+      Object: 1B2F48:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxCleanCarcass
+      Object: 0038D2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxMonsterCarcass
+      Object: 027779:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxSkyReGathererBug
+      Object: 03865E:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgBoxStartedFromCarcass
+      Object: 1B2F4A:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgErrorCantInCombat
+      Object: 015D8D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgErrorCarcassTooHeavy
+      Object: 007423:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgErrorCarryingTooMuch
+      Object: 007993:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MsgErrorWeaponDrawn
+      Object: 022B8B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: perkHeartwoodBow
+      Object: 1344E5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PrimitiveCookingSpell
+      Object: 073D95:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SavageArrowsPerk
+      Object: 1D1597:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrimshawSpell
+      Object: 025C0C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SenseDirectionSpell
+      Object: 044ED1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SolafREF
+      Object: 01981E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpawnMarker
+      Object: 00289C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellHealthBurst
+      Object: 12F3DC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellHircinesVigil
+      Object: 1200CC:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellStaminaBurst
+      Object: 12F3DE:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StartupQuest
+      Object: 1B2F46:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StrangeBrew
+      Object: 00B504:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SummonTargetFXActivator
+      Object: 07CD55:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TaxonomySpell
+      Object: 0215DA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrackingSpell
+      Object: DA5E9B:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: UndeadDragonRace
+      Object: 1052A3:Skyrim.esm
+  - Name: _DS_HB_Monsters
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _DS_Token_Carcass_Monster
+      Object: 027763:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ActiveMonsterSwitches
+      Objects:
+      - Name: ''
+        Object: 0292CA:Hunterborn.esp
+      - Name: ''
+        Object: 0292CC:Hunterborn.esp
+      - Name: ''
+        Object: 0292CC:Hunterborn.esp
+      - Name: ''
+        Object: 0292CD:Hunterborn.esp
+      - Name: ''
+        Object: 0292CE:Hunterborn.esp
+      - Name: ''
+        Object: 0292CE:Hunterborn.esp
+      - Name: ''
+        Object: 0292CF:Hunterborn.esp
+      - Name: ''
+        Object: 0292CB:Hunterborn.esp
+      - Name: ''
+        Object: 0292CA:Hunterborn.esp
+      - Name: ''
+        Object: 0292CF:Hunterborn.esp
+      - Name: ''
+        Object: 0292CD:Hunterborn.esp
+    - MutagenObjectType: ScriptFloatListProperty
+      Name: AllMeatWeights
+      Data:
+      - 2
+      - 2
+      - 2
+      - 2
+      - 2
+      - 2
+      - 1
+      - 2
+      - 2
+      - 2
+      - 2
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: BloodTypes
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 0292C1:Hunterborn.esp
+      - Name: ''
+        Object: 0292C1:Hunterborn.esp
+      - Name: ''
+        Object: 0292C2:Hunterborn.esp
+      - Name: ''
+        Object: 0292C4:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+        Object: DC95C9:Hunterborn.esp
+      - Name: ''
+    - MutagenObjectType: ScriptIntListProperty
+      Name: CarcassSizes
+      Data:
+      - 3
+      - 3
+      - 5
+      - 4
+      - 5
+      - 5
+      - 5
+      - 7
+      - 3
+      - 5
+      - 4
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: DeathItemLI
+      Objects:
+      - Name: ''
+        Object: 02777B:Hunterborn.esp
+      - Name: ''
+        Object: 02777C:Hunterborn.esp
+      - Name: ''
+        Object: 02777C:Hunterborn.esp
+      - Name: ''
+        Object: 02777E:Hunterborn.esp
+      - Name: ''
+        Object: 02777F:Hunterborn.esp
+      - Name: ''
+        Object: 02777F:Hunterborn.esp
+      - Name: ''
+        Object: 027781:Hunterborn.esp
+      - Name: ''
+        Object: 027782:Hunterborn.esp
+      - Name: ''
+        Object: DE2ADA:Hunterborn.esp
+      - Name: ''
+        Object: DC95C6:Hunterborn.esp
+      - Name: ''
+        Object: DECCE6:Hunterborn.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: DefaultPeltValues
+      Data:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 50
+      - 60
+      - 20
+      - 0
+      - 0
+      - 50
+      - 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonCorporealLI
+      Object: 02984D:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flCarcassesFresh
+      Object: 027770:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flCarcassObjects
+      Object: 027771:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flDeathItems
+      Object: 027764:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flDeathItemTokens
+      Object: 027766:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flMatLists
+      Object: 028275:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flMatsDragonCorporeal
+      Object: 029DD1:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flPeltLists
+      Object: 027CFD:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: flPerfectMats
+      Object: 14DA14:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwDeathItemToken
+      Object: 027768:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: MeatTypes
+      Objects:
+      - Name: ''
+        Object: 027783:Hunterborn.esp
+      - Name: ''
+        Object: 029846:Hunterborn.esp
+      - Name: ''
+        Object: 029846:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+        Object: 029847:Hunterborn.esp
+      - Name: ''
+        Object: 029847:Hunterborn.esp
+      - Name: ''
+        Object: 01479C:Hunterborn.esp
+      - Name: ''
+        Object: 029849:Hunterborn.esp
+      - Name: ''
+        Object: 027783:Hunterborn.esp
+      - Name: ''
+        Object: 014795:Hunterborn.esp
+      - Name: ''
+    - MutagenObjectType: ScriptStringListProperty
+      Name: MonsterIndex
+      Data:
+      - Chaurus
+      - Spider
+      - Spider
+      - Spriggan
+      - Troll
+      - Troll
+      - Werewolf
+      - DRAGON
+      - Chaurus
+      - Werebear
+      - SprigganBurnt
+    - MutagenObjectType: ScriptObjectProperty
+      Name: moTokenCarcass_Monster
+      Object: 027763:Hunterborn.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: MultiPelts
+      Data:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: NegativeTreasure
+      Objects:
+      - Name: ''
+        Object: 02984E:Hunterborn.esp
+      - Name: ''
+        Object: 029850:Hunterborn.esp
+      - Name: ''
+        Object: 029850:Hunterborn.esp
+      - Name: ''
+        Object: DE7BDC:Hunterborn.esp
+      - Name: ''
+        Object: 029851:Hunterborn.esp
+      - Name: ''
+        Object: 029851:Hunterborn.esp
+      - Name: ''
+        Object: 029852:Hunterborn.esp
+      - Name: ''
+        Object: 029853:Hunterborn.esp
+      - Name: ''
+        Object: DE2ADB:Hunterborn.esp
+      - Name: ''
+        Object: DC95BF:Hunterborn.esp
+      - Name: ''
+        Object: DECCE5:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: SharedDeathItems
+      Objects:
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: DA0D16:Update.esm
+      - Name: ''
+        Object: DA0D17:Update.esm
+      - Name: ''
+        Object: DA0D19:Update.esm
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpawnMarker
+      Object: 00289C:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: VenomTypes
+      Objects:
+      - Name: ''
+        Object: 027CE6:Hunterborn.esp
+      - Name: ''
+        Object: 0E41B8:Skyrim.esm
+      - Name: ''
+        Object: 0E41B8:Skyrim.esm
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+      - Name: ''
+        Object: 027CE6:Hunterborn.esp
+      - Name: ''
+      - Name: ''
+  - Name: _DS_HB_SoupManager
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ColdSoup
+      Object: 2AB3BA:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ColdStew
+      Object: 2B04C0:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dsGlobals
+      Object: 003367:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kwStew
+      Object: 2B04C2:Hunterborn.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 003367:Hunterborn.esp
+      Alias: 0
+    Scripts:
+    - Name: _DS_HB_Player
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsActions
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsAnimals
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsCarcassArray
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsGlobals
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsItems
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsMain
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsMonsters
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsPetFinder
+        Object: 09C5D3:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dsSoupMgr
+        Object: 003367:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flBoneArrows
+        Object: 1D1598:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flCarcassObjects
+        Object: 006EB9:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flMeatsRaw
+        Object: 152B44:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flPetActors
+        Object: 0923C2:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flPetItems
+        Object: 0923C1:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: flPetLures
+        Object: 09C5CC:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: foodSmellyMeat
+        Object: 09C5D7:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwColdSoup
+        Object: 2AB3B8:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwHuntingKnife
+        Object: 01B47F:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwPet
+        Object: 0923C0:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwPetLure
+        Object: 09C5CB:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwSoup
+        Object: 28CD32:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: kwUseItem
+        Object: 03E7BA:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: miscKettle
+        Object: 012FE6:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: miscPot1
+        Object: 0318FB:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: miscPot2
+        Object: 0318FA:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: miscWoodBowl
+        Object: 03199A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgDontEatIt
+        Object: 09C5D6:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgErrorNoStashing
+        Object: 005925:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgGotNone
+        Object: 0C9F35:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgGotOne
+        Object: 09C5D5:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgGotWolf
+        Object: 09C5DA:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: MsgTastySnack
+        Object: 09C5D4:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: npcFoxArctic
+        Object: 0EC96A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: npcHungryWolf
+        Object: 09C5DB:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: spellBoneDiviningKnife
+        Object: 0D925B:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: spellSoupsStews
+        Object: 291E40:Hunterborn.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: weapBoneDiviningKnife
+        Object: 0D925A:Hunterborn.esp
+Name:
+  TargetLanguage: English
+  Value: Hunterborn
+QuestFormVersion: 65
+NextAliasID: 2
+Aliases:
+- Name: Player
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null
