@@ -1,0 +1,345 @@
+[
+ {
+  "id": "_DS_Msg_DozeCold",
+  "local": 1387326,
+  "drop_box": false,
+  "time": 5
+ },
+ {
+  "id": "_DS_Msg_DozeWarm",
+  "local": 1387327,
+  "drop_box": false,
+  "time": 5
+ },
+ {
+  "id": "_DS_Msg_SpiritAppears",
+  "local": 92257,
+  "drop_box": false,
+  "time": 5
+ },
+ {
+  "id": "_DS_Msg_VenomFail",
+  "local": 164467,
+  "drop_box": false,
+  "time": 5
+ },
+ {
+  "id": "_DS_MsgBox_ArrayOverflow",
+  "local": 96416,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_BoneKnifeBroken",
+  "local": 157429,
+  "drop_box": true,
+  "time": 3,
+  "text": "I broke my bone knife!"
+ },
+ {
+  "id": "_DS_MsgBox_CurseDecurse1",
+  "local": 2300324,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_EquipHuntersCache",
+  "local": 14518484,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_FinishButcherSection",
+  "local": 88071,
+  "drop_box": true,
+  "time": 5,
+  "text": "That one section took longer than I expected. It will take more time to butcher the rest."
+ },
+ {
+  "id": "_DS_MsgBox_FinishSkinSection",
+  "local": 89498,
+  "drop_box": true,
+  "time": 5,
+  "text": "Hmm... this needs to be done carefully. It will take more time to skin the rest."
+ },
+ {
+  "id": "_DS_MsgBox_ForageLevelUp",
+  "local": 188107,
+  "drop_box": true,
+  "time": 8,
+  "text": "I've learnt so much! I feel as though my skills of foraging in the wilds is improving."
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyAmuletFailed",
+  "local": 2383356,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyCircletBroke",
+  "local": 2404102,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyRobesCursed",
+  "local": 2300316,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyRubyluceResult",
+  "local": 2570193,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyScrollBotched",
+  "local": 2196560,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyStaffHollow",
+  "local": 2175803,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyWineTaste_Diseased",
+  "local": 2362580,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyWineTaste_Fine",
+  "local": 2362583,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyWineTaste_Ordinary",
+  "local": 2362582,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_GrimeyWineTaste_Spoiled",
+  "local": 2362581,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_HarvestCritFail",
+  "local": 42162,
+  "drop_box": true,
+  "time": 8,
+  "text": "What a mess! I completely failed at my attempt to harvest any bones or organs. Just a slop of cruor, no useful material components."
+ },
+ {
+  "id": "_DS_MsgBox_HarvestCritFail2",
+  "local": 42163,
+  "drop_box": true,
+  "time": 8,
+  "text": "What a mess! I completely failed at my attempt to harvest any bones or organs. Just a slop of cruor, no useful material components."
+ },
+ {
+  "id": "_DS_MsgBox_HarvestLevelUp",
+  "local": 42164,
+  "drop_box": true,
+  "time": 8,
+  "text": "I've learnt so much! I feel as though my skills of harvesting bones and organs from animals is improving."
+ },
+ {
+  "id": "_DS_MsgBox_NeediNeed",
+  "local": 2819281,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_NeedSoupPatch",
+  "local": 2840021,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_PrayerAnswered",
+  "local": 156047,
+  "drop_box": true,
+  "time": 8,
+  "text": "After devout meditation on the graven bone icon, I feel myself filled with an uplifting spiritual essence. The idol has served its purpose; indeed, its ivory luster is beginning to fade."
+ },
+ {
+  "id": "_DS_MsgBox_PrayerUnanswered",
+  "local": 156048,
+  "drop_box": true,
+  "time": 8,
+  "text": "All I see is a deity crudely graven onto this bone, nothing; no higher thought or lengthy meditation is bringing me the enlightenment I seek. There must be something else I\u2019m missing, for the idol is losing its ivory luster even as I gaze at it in vain."
+ },
+ {
+  "id": "_DS_MsgBox_RiteCompleted_Elm",
+  "local": 269872,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteCompleted_Oak",
+  "local": 269873,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteCompleted_Yew",
+  "local": 269871,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteIdol_AlreadyComplete",
+  "local": 280921,
+  "drop_box": true,
+  "time": 5,
+  "text": "Even though I'm focusing intently on this bone idol, nothing is happening."
+ },
+ {
+  "id": "_DS_MsgBox_RiteIdol_Elm_Far",
+  "local": 255938,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteIdol_Oak_Far",
+  "local": 255939,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteIdol_Yew_Far",
+  "local": 250395,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteRing_Elm",
+  "local": 255942,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteRing_Oak",
+  "local": 255943,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_RiteRing_Yew",
+  "local": 255941,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_00",
+  "local": 2030569,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_01",
+  "local": 2030570,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_02",
+  "local": 2030571,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_03",
+  "local": 2030572,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_04",
+  "local": 2030573,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_05",
+  "local": 2030574,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_06",
+  "local": 2030575,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_07",
+  "local": 2030576,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_08",
+  "local": 2030577,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_09",
+  "local": 2030578,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_10",
+  "local": 2819273,
+  "drop_box": true,
+  "time": 8
+ },
+ {
+  "id": "_DS_MsgBox_Scavenge_Message_11",
+  "local": 2819274,
+  "drop_box": true,
+  "time": 5
+ },
+ {
+  "id": "_DS_MsgBox_SkinCritFail",
+  "local": 29725,
+  "drop_box": true,
+  "time": 8,
+  "text": "I completely failed at that attempt to skin the kill. Just a ruined pelt worth a couple of leather scraps."
+ },
+ {
+  "id": "_DS_MsgBox_SkinCritFail2",
+  "local": 29726,
+  "drop_box": true,
+  "time": 8,
+  "text": "I completely failed at that attempt to skin the kill. Just a ruined pelt worth a couple of leather scraps."
+ },
+ {
+  "id": "_DS_MsgBox_SkinLevelUp",
+  "local": 29727,
+  "drop_box": true,
+  "time": 8,
+  "text": "I've learnt so much! I feel as though my skills of skinning pelts from animals is improving."
+ },
+ {
+  "id": "_DS_MsgBox_SkyReGathererBug",
+  "local": 231006,
+  "drop_box": true,
+  "time": 15
+ },
+ {
+  "id": "_DS_MsgBox_StartedFromCarcass",
+  "local": 1781578,
+  "drop_box": true,
+  "time": 15
+ }
+]

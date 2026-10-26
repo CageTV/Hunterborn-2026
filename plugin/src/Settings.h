@@ -51,6 +51,8 @@ namespace Settings
 	bool  SetByName(std::string_view a_name, float a_value);
 	bool  Loaded();  // Hunterborn.esp is in the load order
 
+	void OnDataLoaded();  // the forms exist: applies the settings that change them (messages as notifications)
+
 	// Game load / new game: applies settings.ini to the globals (or writes the file from the globals the first time).
 	void OnGameLoaded();
 	bool ApplyOnLoad();

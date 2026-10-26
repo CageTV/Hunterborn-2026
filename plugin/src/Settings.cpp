@@ -6,6 +6,7 @@
  */
 #include "PCH.h"
 #include "Actions.h"
+#include "Notifications.h"
 #include "Settings.h"
 
 namespace Settings
@@ -34,6 +35,18 @@ namespace Settings
 
 #include "Globals.inc"
 
+		// Settings of this plugin that are not Hunterborn globals (FormID 0): they live only in settings.ini.
+		constexpr Def kExtras[] = {
+			{ nullptr, "Messages", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
+			{ "messages_as_notifications", "Show informational messages as notifications",
+			  "Hunterborn shows some purely informational messages (a broken knife, a level-up, a failed skinning ...) as pop-up boxes that stop the game until you click them. "
+			  "This turns those into on-screen notifications instead, like the community patch \"Hunterborn - Messages to Notifications\" (do not use both). "
+			  "Messages that ask you to choose are left alone. Takes effect at once and needs no restart.",
+			  Kind::Toggle, 0, 0, 0, 1, 1, "", nullptr, 0, 0, 0 },
+		};
+		constexpr Page kExtraPage = { "Extras", kExtras, static_cast<int>(std::size(kExtras)) };
+		constexpr const char* kNotifyId = "messages_as_notifications";
+
 		std::map<std::string, float> file;  // settings.ini as read, plus what has been written since
 		std::mutex                   mu;
 		std::atomic<bool>            applyOnLoad{ true };
@@ -47,7 +60,7 @@ namespace Settings
 			return dh ? dh->LookupForm<RE::TESGlobal>(a_local, kPlugin) : nullptr;
 		}
 
-		RE::TESGlobal* Glob(const Def& a_d) { return Lookup(a_d.local); }
+		RE::TESGlobal* Glob(const Def& a_d) { return a_d.local ? Lookup(a_d.local) : nullptr; }
 
 		// Callers hold mu.
 		void ReadFile()
@@ -124,6 +137,10 @@ namespace Settings
 
 		float Current(const Def& a_d)
 		{
+			if (!a_d.local) {  // a setting that lives only in settings.ini
+				const auto it = a_d.id ? file.find(a_d.id) : file.end();
+				return it != file.end() ? it->second : a_d.def;
+			}
 			auto* g = Glob(a_d);
 			return g ? g->value : a_d.def;
 		}
@@ -132,6 +149,13 @@ namespace Settings
 		bool Apply(const Def& a_d, float a_v)
 		{
 			const float before = Current(a_d);
+			if (!a_d.local) {
+				file[a_d.id] = a_v;
+				if (std::string_view(a_d.id) == kNotifyId) {
+					Notifications::Apply(a_v > 0.5f);
+				}
+				return std::abs(before - a_v) > 1e-6f;
+			}
 			// Soups and Stews crafting needs its own plugin: the MCM checks for its token and refuses the switch otherwise.
 			if (a_d.id && std::string_view(a_d.id) == "gEnableSoupsStews" && a_v > 0.5f) {
 				auto* dh = RE::TESDataHandler::GetSingleton();
@@ -161,11 +185,14 @@ namespace Settings
 					a_f(kPages[p].defs[i]);
 				}
 			}
+			for (int i = 0; i < kExtraPage.count; ++i) {
+				a_f(kExtraPage.defs[i]);
+			}
 		}
 	}
 
-	int         PageCount() { return kPageTotal; }
-	const Page& PageAt(int a_index) { return kPages[std::clamp(a_index, 0, kPageTotal - 1)]; }
+	int         PageCount() { return kPageTotal + 1; }  // the generated pages, then Extras
+	const Page& PageAt(int a_index) { return a_index >= kPageTotal ? kExtraPage : kPages[std::clamp(a_index, 0, kPageTotal - 1)]; }
 	bool        IsHeader(const Def& a_d) { return a_d.id == nullptr; }
 
 	bool Loaded()
@@ -185,7 +212,18 @@ namespace Settings
 		return found;
 	}
 
-	bool Available(const Def& a_d) { return a_d.id && Glob(a_d) != nullptr; }
+	bool Available(const Def& a_d) { return a_d.id && (a_d.local == 0 || Glob(a_d) != nullptr); }
+
+	void OnDataLoaded()
+	{
+		// The message records exist now: apply the saved "messages as notifications" choice before the game starts.
+		std::lock_guard lock(mu);
+		ReadFile();
+		const auto it = file.find(kNotifyId);
+		if (it != file.end() && it->second > 0.5f) {
+			Notifications::Apply(true);
+		}
+	}
 
 	float Get(const Def& a_d)
 	{

@@ -31,6 +31,9 @@ namespace
 		case SKSE::MessagingInterface::kPostLoad:
 			Menu::Register();  // SKSE Menu Framework loads after us alphabetically, so register once everything is loaded
 			break;
+		case SKSE::MessagingInterface::kDataLoaded:
+			Settings::OnDataLoaded();
+			break;
 		case SKSE::MessagingInterface::kPostLoadGame:
 		case SKSE::MessagingInterface::kNewGame:
 			Settings::OnGameLoaded();

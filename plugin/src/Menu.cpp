@@ -335,6 +335,7 @@ namespace Menu
 		SKSEMenuFramework::AddSectionItem(Settings::PageAt(kStatsPage).title, RenderStats);
 		SKSEMenuFramework::AddSectionItem(Settings::PageAt(5).title, RenderGenericPage<5>);
 		SKSEMenuFramework::AddSectionItem(Settings::PageAt(6).title, RenderGenericPage<6>);
+		SKSEMenuFramework::AddSectionItem(Settings::PageAt(8).title, RenderGenericPage<8>);  // Extras: settings of this plugin that are not Hunterborn globals
 		SKSEMenuFramework::AddSectionItem(Settings::PageAt(kProfilePage).title, RenderProfile);
 		SKSEMenuFramework::AddHudElement(Frame);
 		registered = true;
