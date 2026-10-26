@@ -1,0 +1,134 @@
+FormKey: 09C5D3:Hunterborn.esp
+EditorID: _DS_Hunterborn_Pet_Finder
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _DS_HB_Pet_Finder
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Result_Wolf
+      Object: 09C5D3:Hunterborn.esp
+      Alias: 4
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: Results
+      Objects:
+      - Name: ''
+        Object: 09C5D3:Hunterborn.esp
+        Alias: 3
+      - Name: ''
+        Object: 09C5D3:Hunterborn.esp
+        Alias: 2
+      - Name: ''
+        Object: 09C5D3:Hunterborn.esp
+        Alias: 5
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: Hunterborn Pet Finder
+Flags:
+- 0x1000
+NextAliasID: 6
+Aliases:
+- ID: 1
+  Name: PlayerRef
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null
+- ID: 4
+  Name: Hungry_Wolf
+  Flags:
+  - Optional
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsRaceConditionData
+      Race: 01320A:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetInFactionConditionData
+      Faction: 03E691:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      Target: 000014:Skyrim.esm
+    ComparisonValue: 8192
+  VoiceTypes: Null
+- ID: 3
+  Name: Pet_Hare
+  Flags:
+  - Optional
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsRaceConditionData
+      Race: 06DC99:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetInFactionConditionData
+      Faction: 0A3087:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      Target: 000014:Skyrim.esm
+    ComparisonValue: 2048
+  VoiceTypes: Null
+- ID: 2
+  Name: Pet_Fox
+  Flags:
+  - Optional
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsRaceConditionData
+      Race: 109C7C:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetInFactionConditionData
+      Faction: 000013:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      Target: 000014:Skyrim.esm
+    ComparisonValue: 2048
+  VoiceTypes: Null
+- ID: 5
+  Name: Pet_FoxArctic
+  Flags:
+  - Optional
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsRaceConditionData
+      Race: 109C7C:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetInFactionConditionData
+      Faction: 000013:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      Target: 000014:Skyrim.esm
+    ComparisonValue: 2048
+  VoiceTypes: Null
