@@ -195,8 +195,38 @@ namespace Actions
 		quiet = std::max(quiet, a_seconds);
 	}
 
+	namespace
+	{
+		constexpr unsigned kStartupQuest = 0x1B2F46;  // _DS_Hunterborn_Startup: stage 10 = the opening is over, waiting for the first carcass; 20 = started
+
+		// Starts Hunterborn on its own, once, for a game that has never started it.
+		void AutoStart(float a_dt)
+		{
+			static float timer = 4.0f;
+			timer -= a_dt;
+			if (timer > 0.0f) {
+				return;
+			}
+			timer = 2.0f;
+			if (!Settings::Loaded() || Active()) {
+				return;
+			}
+			const auto* def = Settings::Find("auto_start");
+			if (!def || Settings::Get(*def) < 0.5f) {
+				return;
+			}
+			auto* quest = Form<RE::TESQuest>(kStartupQuest);
+			if (!quest || quest->GetCurrentStageID() != 10) {
+				return;
+			}
+			SKSE::log::info("Auto start: the opening is over and Hunterborn has not been started, starting it");
+			Queue(ActStart);
+		}
+	}
+
 	void Tick(float a_dt)
 	{
+		AutoStart(a_dt);
 		unsigned run = 0;
 		{
 			std::lock_guard lock(mu);

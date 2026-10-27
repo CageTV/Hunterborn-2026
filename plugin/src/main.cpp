@@ -49,7 +49,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
 	SetupLog();
-	SKSE::log::info("HunterbornNative.dll 0.2.2, game {}", REL::Module::get().version().string());
+	SKSE::log::info("HunterbornNative.dll 0.3.0, game {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
 	return true;
 }

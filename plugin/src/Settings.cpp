@@ -37,6 +37,12 @@ namespace Settings
 
 		// Settings of this plugin that are not Hunterborn globals (FormID 0): they live only in settings.ini.
 		constexpr Def kExtras[] = {
+			{ nullptr, "Start", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
+			{ "auto_start", "Start Hunterborn automatically",
+			  "On a new game Hunterborn waits until you click your first carcass and asks whether to start. With this on it starts by itself once the opening is over: "
+			  "no prompt, no message, and the powers, perks and animals' loot lists are set up as if you had said yes. Only when it has never been started in this "
+			  "game: if you stop Hunterborn yourself it stays stopped.",
+			  Kind::Toggle, 0, 1, 0, 1, 1, "", nullptr, 0, 0, 0 },
 			{ nullptr, "Messages", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
 			{ "messages_as_notifications", "Show informational messages as notifications",
 			  "Hunterborn shows some purely informational messages (a broken knife, a level-up, a failed skinning ...) as pop-up boxes that stop the game until you click them. "
