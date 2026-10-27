@@ -6,6 +6,7 @@
  */
 #include "PCH.h"
 #include "Actions.h"
+#include "Menu.h"
 #include "Settings.h"
 
 #include "SKSEMenuFramework.h"
@@ -224,8 +225,39 @@ namespace Actions
 		}
 	}
 
+	namespace
+	{
+		std::atomic<int> lastActive{ -1 };  // -1 = not seen yet in this game
+
+		// Shows the logo when Hunterborn goes from stopped to running while you play (the automatic start, the carcass prompt or the menu).
+		void WatchStart(float a_dt)
+		{
+			static float timer = 0.0f;
+			timer -= a_dt;
+			if (timer > 0.0f) {
+				return;
+			}
+			timer = 0.5f;
+			auto* player = RE::PlayerCharacter::GetSingleton();
+			if (!Settings::Loaded() || !player || !player->Is3DLoaded()) {
+				return;
+			}
+			const int now = Active() ? 1 : 0;
+			const int was = lastActive.exchange(now);
+			if (was == 0 && now == 1) {
+				const auto* def = Settings::Find("start_logo");
+				if (!def || Settings::Get(*def) >= 0.5f) {
+					Menu::ShowStartLogo();
+				}
+			}
+		}
+	}
+
+	void ResetStartWatch() { lastActive = -1; }
+
 	void Tick(float a_dt)
 	{
+		WatchStart(a_dt);
 		AutoStart(a_dt);
 		unsigned run = 0;
 		{

@@ -36,6 +36,7 @@ namespace Actions
 		ActReapply = 1u << 19,        // "Reapply templates": sets Hunterborn's one-shot flag, then DoInitStuff (which clears it)
 	};
 
+	void ResetStartWatch();  // a game was loaded or begun: what is running now is the starting point, so a game that is already running shows no logo
 	void Queue(unsigned a_flags);
 	void Hold(float a_seconds);  // nothing queued runs for at least this long (used right after a game load)
 	void Tick(float a_dt);  // from the every-frame callback: runs the queued work when it is safe

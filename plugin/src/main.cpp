@@ -37,6 +37,7 @@ namespace
 		case SKSE::MessagingInterface::kPostLoadGame:
 		case SKSE::MessagingInterface::kNewGame:
 			Settings::OnGameLoaded();
+			Actions::ResetStartWatch();
 			Actions::Hold(12.0f);  // let the game and Hunterborn's own load scripts settle before any queued work runs
 			break;
 		default:
@@ -49,7 +50,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
 	SetupLog();
-	SKSE::log::info("HunterbornNative.dll 0.3.0, game {}", REL::Module::get().version().string());
+	SKSE::log::info("HunterbornNative.dll 0.4.0, game {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
 	return true;
 }

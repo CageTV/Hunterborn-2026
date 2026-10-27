@@ -357,16 +357,68 @@ namespace Menu
 			}
 		}
 
+		constexpr float   kStartFadeIn = 0.8f;
+		constexpr float   kStartHold = 2.6f;
+		constexpr float   kStartFadeOut = 1.2f;
+		std::atomic<bool> startLogoRequested{ false };
+		float             startLogoTime = -1.0f;  // seconds since the logo started, -1 = not showing
+
+		// The logo fades in near the top of the screen, holds, and fades out: what Frostfall 2026 and Last Seed 2026 show when they start.
+		void DrawStartLogo(ImDrawList* a_dl, float a_dt)
+		{
+			if (startLogoRequested.exchange(false)) {
+				startLogoTime = 0.0f;
+			}
+			if (startLogoTime < 0.0f) {
+				return;
+			}
+			startLogoTime += a_dt;
+			const float total = kStartFadeIn + kStartHold + kStartFadeOut;
+			if (startLogoTime >= total) {
+				startLogoTime = -1.0f;
+				return;
+			}
+			float a = 1.0f;
+			if (startLogoTime < kStartFadeIn) {
+				a = startLogoTime / kStartFadeIn;
+			} else if (startLogoTime > kStartFadeIn + kStartHold) {
+				a = 1.0f - (startLogoTime - kStartFadeIn - kStartHold) / kStartFadeOut;
+			}
+			a = a * a * (3.0f - 2.0f * a);  // smoothstep
+
+			static ImTextureID tex = SKSEMenuFramework::LoadTexture(kLogoPath);
+			if (!tex) {
+				return;
+			}
+			const auto* io = GetIO();
+			const float w = std::min(io->DisplaySize.x * 0.34f, 900.0f);
+			const float h = w * kLogoAspect;
+			const float x = (io->DisplaySize.x - w) * 0.5f;
+			const float y = io->DisplaySize.y * 0.24f;
+			const float drift = (1.0f - a) * 6.0f;  // settles upward slightly as it fades in
+			const ImU32 shadow = IM_COL32(0, 0, 0, static_cast<int>(165 * a));
+			const ImU32 white = IM_COL32(255, 255, 255, static_cast<int>(255 * a));
+			ImDrawListManager::AddImage(a_dl, tex, ImVec2(x + 2, y + 3 + drift), ImVec2(x + w + 2, y + h + 3 + drift), ImVec2(0, 0), ImVec2(1, 1), shadow);
+			ImDrawListManager::AddImage(a_dl, tex, ImVec2(x, y + drift), ImVec2(x + w, y + h + drift), ImVec2(0, 0), ImVec2(1, 1), white);
+		}
+
 		// Drawn every frame whether or not the menu is open: runs the queued work and writes the settings file a moment after the last change.
 		void __stdcall Frame()
 		{
 			const float dt = GetIO()->DeltaTime;
 			Settings::Tick(dt);
 			Actions::Tick(dt);
+			DrawStartLogo(GetForegroundDrawList(), std::clamp(dt, 0.0f, 0.1f));
 		}
 	}
 
 	bool Registered() { return registered; }
+
+	void ShowStartLogo()
+	{
+		startLogoRequested = true;
+		SKSE::log::info("Start-up logo requested");
+	}
 
 	void Register()
 	{

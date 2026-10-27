@@ -10,4 +10,5 @@ namespace Menu
 {
 	void Register();  // adds the "Hunterborn" section to SKSE Menu Framework
 	bool Registered();
+	void ShowStartLogo();  // the Hunterborn logo fades in on the screen for a few seconds (called when Hunterborn starts)
 }
