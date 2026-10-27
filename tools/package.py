@@ -1,10 +1,11 @@
-"""Lays out the Hunterborn 2026 packages (staging in package/, nothing outside the workspace is touched).
+"""Lays out the Hunterborn 2026 package (staging in package/, nothing outside the workspace is touched).
 
-  package/Hunterborn 2026                    the layer for a quick install: new HunterbornNative.dll + README + LICENSE
-  package/Hunterborn 2026 - Installer(.zip)  FOMOD: pick the DLL build (new / older)
+  package/Hunterborn 2026 - Installer(.zip)   FOMOD: always installs the core (SE MCM plugin, scripts, translations, core ESL, logo),
+                                              then the DLL build (new / older) and the four optional patches
 
-Needs plugin/build/release/HunterbornNative.dll (older, plugin/build.cmd) and E:/WorkSpace/ng-build/build/release/out/HunterbornNative/HunterbornNative.dll
-(new, ng-build/build.cmd HunterbornNative). No script, mesh, texture or plugin of Hunterborn is packaged.
+Needs plugin/build/release/HunterbornNative.dll (older, plugin/build.cmd), E:/WorkSpace/ng-build/build/release/out/HunterbornNative/HunterbornNative.dll
+(new, ng-build/build.cmd HunterbornNative), build/*.pex (tools/build_scripts.py), package/Hunterborn2026.esp (tools/make_core.py) and the four patch plugins
+from the Hunterborn 2026 Patches mod folder of the test list. No mesh, texture or sound of Hunterborn is packaged: the original mod is a requirement.
 
 Usage: python tools/package.py [version]
 """
@@ -15,12 +16,22 @@ import xml.dom.minidom
 import zipfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = sys.argv[1] if len(sys.argv) > 1 else "0.1.0"
+VERSION = sys.argv[1] if len(sys.argv) > 1 else "1.0.0"
 OLD = os.path.join(HERE, "plugin", "build", "release", "HunterbornNative.dll")
 NEW = r"E:\WorkSpace\ng-build\build\release\out\HunterbornNative\HunterbornNative.dll"
-for p in (OLD, NEW):
-    assert os.path.exists(p), f"missing {p}"
+SEMCM = os.path.join(HERE, "reference", "semcm-mod")
+PATCHES = r"C:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
+PATCH_FILES = [
+    ("Hunterborn - Campfire Patch.esp", "Campfire patch", "For Campfire. Adds Hunterborn's meats and pelts to Campfire's cooking and crafting."),
+    ("Hunterborn - Leather Tanning.esp", "Leather tanning", "Adds tanning recipes for Hunterborn's pelts. Needs nothing else."),
+    ("Hunterborn_CACO-SE_Patch.esp", "CACO patch", "For Complete Alchemy and Cooking Overhaul. Makes Hunterborn's foods and ingredients work with CACO."),
+    ("Hunterborn - Soups and Stews.esp", "Soups and Stews", "Adds soups and stews, cooked from Hunterborn's meats. Large (7 MB, 30,000 records): install it only if you want it."),
+]
+CORE_ESL = os.path.join(HERE, "package", "Hunterborn2026.esp")
+LOGO = os.path.join(HERE, "assets", "hunterborn_logo.png")
 NAME = "Hunterborn 2026"
+for p in [OLD, NEW, CORE_ESL, LOGO] + [os.path.join(PATCHES, f) for f, _, _ in PATCH_FILES]:
+    assert os.path.exists(p), f"missing {p}"
 
 
 def put(src, dst):
@@ -28,24 +39,46 @@ def put(src, dst):
     shutil.copyfile(src, dst)
 
 
-quick = os.path.join(HERE, "package", NAME)
-if os.path.exists(quick):
-    shutil.rmtree(quick)
-put(NEW, os.path.join(quick, "SKSE", "Plugins", "HunterbornNative.dll"))
-put(os.path.join(HERE, "docs", "README.txt"), os.path.join(quick, NAME + " README.txt"))
-put(os.path.join(HERE, "LICENSE.txt"), os.path.join(quick, NAME + " LICENSE.txt"))
-
 dest = os.path.join(HERE, "package", NAME + " - Installer")
 if os.path.exists(dest):
     shutil.rmtree(dest)
+
+# core: SE MCM's files, then ours on top (build/ holds the five scripts changed here, src/ their sources)
+core = os.path.join(dest, "core")
+for sub in ("Scripts", "Interface"):
+    shutil.copytree(os.path.join(SEMCM, sub), os.path.join(core, sub))
+shutil.copytree(os.path.join(SEMCM, "Source"), os.path.join(core, "Source"))
+put(os.path.join(SEMCM, "Hunterborn.esp"), os.path.join(core, "Hunterborn.esp"))
+put(CORE_ESL, os.path.join(core, "Hunterborn2026.esp"))
+put(LOGO, os.path.join(core, "Interface", "HunterbornNative", "hunterborn_logo.png"))
+OURS = ["_DS_HB_Actions", "_DS_HB_HiSBridge", "_DS_HB_MCM", "_DS_HB_Monsters", "_DS_HB_mgef_Hotkey"]
+for n in OURS:
+    put(os.path.join(HERE, "build", n + ".pex"), os.path.join(core, "Scripts", n + ".pex"))
+    put(os.path.join(HERE, "src", n + ".psc"), os.path.join(core, "Source", "Scripts", n + ".psc"))
+for n in os.listdir(os.path.join(core, "Source")):
+    if n != "Scripts":
+        raise SystemExit("unexpected Source layout: " + n)
+
 put(NEW, os.path.join(dest, "new", "SKSE", "Plugins", "HunterbornNative.dll"))
 put(OLD, os.path.join(dest, "older", "SKSE", "Plugins", "HunterbornNative.dll"))
+for f, _, _ in PATCH_FILES:
+    put(os.path.join(PATCHES, f), os.path.join(dest, "patches", f))
 put(os.path.join(HERE, "docs", "README.txt"), os.path.join(dest, "README.txt"))
 put(os.path.join(HERE, "LICENSE.txt"), os.path.join(dest, "LICENSE.txt"))
+
 NEW_VER = "1.6.1170.0"
+patch_plugins = "".join(
+    f"""            <plugin name="{label}">
+              <description>{desc}</description>
+              <files><file source="patches\\{f}" destination="{f}"/></files>
+              <typeDescriptor><type name="Optional"/></typeDescriptor>
+            </plugin>
+"""
+    for f, label, desc in PATCH_FILES)
 config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
   <moduleName>{NAME}</moduleName>
   <requiredInstallFiles>
+    <folder source="core" destination=""/>
     <file source="README.txt" destination="{NAME} README.txt"/>
     <file source="LICENSE.txt" destination="{NAME} LICENSE.txt"/>
   </requiredInstallFiles>
@@ -72,12 +105,20 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
         </group>
       </optionalFileGroups>
     </installStep>
+    <installStep name="Patches">
+      <optionalFileGroups order="Explicit">
+        <group name="Patches (install the ones for mods you use)" type="SelectAny">
+          <plugins order="Explicit">
+{patch_plugins}          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
   </installSteps>
 </config>
 """
-info = (f"<fomod>\n  <Name>{NAME}</Name>\n  <Author>CageTV (Hunterborn by unuroboros, Hunterborn SE MCM by Hazado)</Author>\n  <Version>{VERSION}</Version>\n"
-        "  <Website>https://github.com/CageTV/Hunterborn-2026</Website>\n"
-        "  <Description>Hunterborn SE MCM's settings in SKSE Menu Framework, replacing the use of its SkyUI menu, with the same work done when the menu closes.</Description>\n</fomod>\n")
+info = (f"<fomod>\n  <Name>{NAME}</Name>\n  <Author>CageTV (Hunterborn by unuroboros, Hunterborn SE MCM by Hazado, Process Hotkey Fix by Gasil)</Author>\n"
+        f"  <Version>{VERSION}</Version>\n  <Website>https://github.com/CageTV/Hunterborn-2026</Website>\n"
+        "  <Description>Hunterborn SE MCM with its menu in SKSE Menu Framework, a native plugin that applies the settings, and fixes. Replaces Hunterborn SE MCM and the Process Hotkey Fix.</Description>\n</fomod>\n")
 xml.dom.minidom.parseString(config)
 xml.dom.minidom.parseString(info)
 os.makedirs(os.path.join(dest, "fomod"), exist_ok=True)
