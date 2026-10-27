@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 
 # HunterbornNative.dll - the SKSE plugin behind Hunterborn 2026's SKSE Menu Framework settings pages.
 # This is the "older" build (CharmedBaryon's CommonLibSSE-NG: Skyrim VR and SE/AE 1.6.1130 and older); the "new" build is made by E:/WorkSpace/ng-build.
-project(HunterbornNative VERSION 0.4.0 LANGUAGES CXX)
+project(HunterbornNative VERSION 0.5.0 LANGUAGES CXX)
 
 find_package(CommonLibSSE CONFIG REQUIRED)
 
@@ -10,6 +10,7 @@ add_commonlibsse_plugin(${PROJECT_NAME} NAME "HunterbornNative" AUTHOR "CageTV" 
     src/main.cpp
     src/Settings.cpp
     src/Actions.cpp
+    src/AutoPatch.cpp
     src/Menu.cpp
     src/Hotkeys.cpp
     src/Notifications.cpp

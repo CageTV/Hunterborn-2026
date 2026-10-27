@@ -1,0 +1,15 @@
+; Hunterborn AutoPatch: your own rules. Read once when the game starts; the report is written to
+; Documents\My Games\Skyrim Special Edition\SKSE\HunterbornNative_AutoPatch.txt (type names are listed in it).
+;
+; [Map]          a word in a creature's name, race or skeleton, and the Hunterborn type it counts as
+;                example:  tiger = Sabrecat
+; [Skip]         a word that marks a creature to leave alone
+;                example:  koi
+; [SkipPlugins]  every creature this plugin adds is left alone
+;                example:  SomeMod.esp
+
+[Map]
+
+[Skip]
+
+[SkipPlugins]

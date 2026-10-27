@@ -6,6 +6,7 @@
  */
 #include "PCH.h"
 #include "Actions.h"
+#include "AutoPatch.h"
 #include "Menu.h"
 #include "Settings.h"
 
@@ -33,6 +34,7 @@ namespace
 			break;
 		case SKSE::MessagingInterface::kDataLoaded:
 			Settings::OnDataLoaded();
+			AutoPatch::OnDataLoaded();  // the animals other mods add: a report only, nothing is changed yet
 			break;
 		case SKSE::MessagingInterface::kPostLoadGame:
 		case SKSE::MessagingInterface::kNewGame:
@@ -50,7 +52,7 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
 	SetupLog();
-	SKSE::log::info("HunterbornNative.dll 0.4.0, game {}", REL::Module::get().version().string());
+	SKSE::log::info("HunterbornNative.dll 0.5.0, game {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
 	return true;
 }
