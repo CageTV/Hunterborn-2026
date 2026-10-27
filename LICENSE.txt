@@ -3,13 +3,21 @@ Copyright (c) 2026 CageTV
 
 Released under the MIT License. Source code: https://github.com/CageTV/Hunterborn-2026
 
-This license covers the files written for this repository (HunterbornNative.dll and the settings pages). It does not cover plugin/include/
-SKSEMenuFramework.h (the SKSE Menu Framework 3 project's SDK header, under that project's terms).
+This license covers the files written for this repository (HunterbornNative.dll, the settings pages, the Hunting in Skyrim bridge script and
+the changes made to the scripts below). It does not cover plugin/include/SKSEMenuFramework.h (the SKSE Menu Framework 3 project's SDK header,
+under that project's terms).
 
-Hunterborn is by unuroboros and is a REQUIREMENT, not part of this download. Hunterborn SE MCM is by Hazado, who allows modification and
-redistribution with credit; the settings table and the Papyrus knowledge this plugin relies on were read from it. Nothing of Hunterborn's
-plugin, scripts, meshes, textures or sounds is included: this plugin only reads and changes Hunterborn's global variables and calls its own
-Papyrus functions while the game runs.
+CREDITS - the work this builds on, used with its authors' permission and credited here and on the download page
+  Hunterborn, by unuroboros. A REQUIREMENT, not part of this download: its meshes, textures, sounds and original plugin are not included.
+  Hunterborn SE MCM 1.6.8, by Hazado, who allows modification and redistribution with credit. Its plugin, Papyrus scripts, translations and
+    patches are included, modified as described in the README. The settings table of the SKSE pages was generated from its SkyUI menu.
+  Process Hotkey Fix, by Gasil, open permissions with credit. Folded into _DS_HB_Monsters and _DS_HB_mgef_Hotkey.
+  Hunting in Skyrim and Fishing in Skyrim, by Rich Webster, who has given permission to update them; only the bridge to Hunting in Skyrim's
+    own script types is written here.
+  The original authors keep their copyright in their work; it is redistributed under the permission they gave, and it is not re-licensed.
+
+The files written for this repository are released under the MIT License below, and the "new" HunterbornNative.dll is also under the GNU General
+Public License as described at the end of this file.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
 to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -23,19 +31,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 IN THE SOFTWARE.
 
 BUILDS
-- "older" HunterbornNative.dll: linked against CommonLibSSE-NG by CharmedBaryon (MIT).
-- "new" HunterbornNative.dll: linked against CommonLibSSE-NG by alandtse, which is GPL-3.0-or-later with a modding exception (see below).
+- "older" StressAndFear.dll: linked against CommonLibSSE-NG by CharmedBaryon (MIT).
+- "new" StressAndFear.dll: linked against CommonLibSSE-NG by alandtse, which is GPL-3.0-or-later with a modding exception (see below).
 
 ======================================================================================================================================================
-Third-party library in the "new" HunterbornNative.dll
+Third-party library in the "new" StressAndFear.dll
 
-The "new" HunterbornNative.dll statically links CommonLibSSE-NG by alandtse (https://github.com/alandtse/CommonLibVR, branch ng), which is licensed
+The "new" StressAndFear.dll statically links CommonLibSSE-NG by alandtse (https://github.com/alandtse/CommonLibVR, branch ng), which is licensed
 GPL-3.0-or-later with a Modding Exception and a GPL-3.0 Linking Exception. The Modding Exception covers the Skyrim code being modded; it
-does not cover plugin code. The "new" HunterbornNative.dll is therefore a combined work and is distributed under the GNU General Public License,
+does not cover plugin code. The "new" StressAndFear.dll is therefore a combined work and is distributed under the GNU General Public License,
 version 3 or (at your option) any later version. Its complete corresponding source code is in this repository:
-https://github.com/CageTV/Hunterborn-2026
+https://github.com/CageTV/Stress-and-Fear-2026
 
-Hunterborn 2026
+Stress and Fear 2026
 Copyright (c) 2026 CageTV
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -47,7 +55,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public 
 You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 The files written for this repository stay under the MIT License above (MIT is GPL-compatible, as that library's README requires); only the
-combined "new" HunterbornNative.dll as a whole is under the GPL. The "older" HunterbornNative.dll does not contain the alandtse library and stays under the MIT
+combined "new" StressAndFear.dll as a whole is under the GPL. The "older" StressAndFear.dll does not contain the alandtse library and stays under the MIT
 License. The full text of the GNU General Public License, version 3, is at the end of this file.
 
 ======================================================================================================================================================
