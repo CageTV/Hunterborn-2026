@@ -24,6 +24,8 @@ IMPORTS = [
     os.path.join(HERE, "reference", "semcm"),
     os.path.join(HERE, "reference", "base"),
     r"E:\WorkSpace\HuntingInSkyrim-analysis\scripts\source",  # Hunting in Skyrim's own sources: SE MCM's Actions casts to its types
+    r"E:\WorkSpace\Frostfall-Modernized\imports\skyui",  # SkyUI sources: the SkyUI menu script extends SKI_ConfigBase
+    os.path.join(MODS, "FileAccess Interface for Skyrim SE Scripts - FISSES", "scripts", "source"),  # FISS: the SkyUI menu script saves profiles with it
     os.path.join(MODS, "powerofthree's Papyrus Extender", "Source", "scripts"),
     os.path.join(MODS, "Skyrim Script Extender (SKSE64)", "Scripts", "Source"),
     os.path.join(GAME, "Data", "Source", "Scripts"),

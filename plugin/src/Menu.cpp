@@ -24,6 +24,46 @@ namespace Menu
 		constexpr int kStatsPage = 4;
 		constexpr int kProfilePage = 7;
 
+		constexpr const char* kLogoPath = "Data\\Interface\\HunterbornNative\\hunterborn_logo.png";
+		constexpr float       kLogoAspect = 275.0f / 1000.0f;
+
+		void Logo()
+		{
+			static ImTextureID tex = SKSEMenuFramework::LoadTexture(kLogoPath);
+			if (!tex) {
+				return;
+			}
+			const float avail = GetContentRegionAvail().x;
+			const float w = std::min(avail, 460.0f);
+			SetCursorPosX(GetCursorPosX() + (avail - w) * 0.5f);
+			Image(tex, ImVec2(w, w * kLogoAspect));
+			Spacing();
+		}
+
+		struct Detected
+		{
+			const char* name;
+			const char* plugin;
+		};
+
+		// Mods Hunterborn reads, patches or has a patch for. Only the ones in the load order are shown.
+		constexpr Detected kDetected[] = {
+			{ "Soups and Stews", "Hunterborn - Soups and Stews.esp" },
+			{ "Leather Tanning", "Hunterborn - Leather Tanning.esp" },
+			{ "Campfire", "Campfire.esm" },
+			{ "Campfire patch", "Hunterborn - Campfire Patch.esp" },
+			{ "Frostfall", "Frostfall.esp" },
+			{ "Last Seed", "LastSeed.esp" },
+			{ "Last Seed patch", "Hunterborn - LastSeed Patch SE.esp" },
+			{ "Complete Alchemy & Cooking Overhaul", "complete alchemy & cooking overhaul.esp" },
+			{ "CACO patch", "Hunterborn_CACO-SE_Patch.esp" },
+			{ "Simple Hunting Overhaul", "Simple Hunting Overhaul.esp" },
+			{ "Skills of the Wild", "SkillsOfTheWild.esp" },
+			{ "Hunting in Skyrim", "Hunting in Skyrim.esp" },
+			{ "Eating Animations and Sounds patch", "EASHunterbornPatch.esp" },
+			{ "Immersive Hunting Animations", "ImmersiveHunting.esp" },
+		};
+
 		void Tip(const char* a_text)
 		{
 			if (a_text && a_text[0] && IsItemHovered()) {
@@ -183,13 +223,13 @@ namespace Menu
 			if (!Guard()) {
 				return;
 			}
+			Logo();
 			PendingNotice();
 			const bool active = Actions::Active();
 			TextColored(active ? ImVec4(0.65f, 0.9f, 0.5f, 1.0f) : ImVec4(0.95f, 0.8f, 0.4f, 1.0f), active ? "Hunterborn is running." : "Hunterborn is not running.");
 			Spacing();
 			TextWrapped("Hunterborn changes looting animals into a process of dressing, skinning, harvesting and butchering. These pages replace the SkyUI "
-						"menu of Hunterborn SE MCM and are generated from it: every option writes the same Hunterborn global variable as before, so the mod "
-						"and the pages always agree.");
+						"menu of Hunterborn SE MCM: every option writes the same Hunterborn global variable as before, so the mod and the pages always agree.");
 			Spacing();
 			SeparatorText("Hunterborn");
 			if (active) {
@@ -220,16 +260,24 @@ namespace Menu
 			ValueRow("Harvesting level", "gHarvestLevel");
 			ValueRow("Foraging level", "gForageLevel");
 			Spacing();
-			SeparatorText("Installed");
+			SeparatorText("Detected in your load order");
 			auto* dh = RE::TESDataHandler::GetSingleton();
-			auto row = [&](const char* a_name, const char* a_plugin) {
-				const bool on = dh && dh->LookupModByName(a_plugin);
-				Text("%s: %s", a_name, on ? "yes" : "no");
-			};
-			row("Soups and Stews", "Hunterborn - Soups and Stews.esp");
-			row("Leather Tanning", "Hunterborn - Leather Tanning.esp");
-			row("Simple Hunting Overhaul", "Simple Hunting Overhaul.esp");
-			row("Simple Hunterborn", "SimpleHunterborn.esp");
+			int shown = 0;
+			for (const auto& d : kDetected) {
+				if (dh && dh->LookupModByName(d.plugin)) {
+					TextColored(ImVec4(0.65f, 0.9f, 0.5f, 1.0f), "%s", d.name);
+					++shown;
+				}
+			}
+			if (!shown) {
+				TextDisabled("None of the mods Hunterborn works with were found.");
+			}
+			if (dh && dh->LookupModByName("SimpleHunterborn.esp")) {
+				Spacing();
+				TextColored(ImVec4(0.95f, 0.6f, 0.35f, 1.0f), "Simple Hunterborn is installed.");
+				TextWrapped("These settings pages and the native plugin replace what Simple Hunterborn did, and its older copies of Hunterborn's scripts "
+							"can conflict with this mod. You can remove it. If you keep it, load Hunterborn2026.esp after SimpleHunterborn.esp.");
+			}
 			Spacing();
 			TextDisabled("Hunterborn by unuroboros, the SE MCM version by Hazado. Settings pages by CageTV.");
 		}
