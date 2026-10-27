@@ -1,10 +1,13 @@
 Scriptname _DS_HB_HiSBridge Hidden
 
 ; Hunting in Skyrim compatibility, moved out of _DS_HB_Actions by Hunterborn 2026 so that Actions loads without HiS installed.
-; Code from Hunterborn SE MCM (Hazado), unchanged apart from the act. prefixes.
+; Code from Hunterborn SE MCM (Hazado), unchanged apart from the act. prefixes and the guards that skip the HiS stats until HiS has been started.
 
 Function DisableHiSSkinning() global
 	Quest HISStatsQuest1 = Game.GetFormFromFile(0x000356BD, "Hunting in Skyrim.esp") as Quest
+	If !HISStatsQuest1 || !HISStatsQuest1.IsRunning()
+		Return
+	EndIf
 	HISModOptionsScript HISModOptions = (HISStatsQuest1 as Quest) as HISModOptionsScript
 	HISModOptions.HISRealisticSkinningEnabled.SetValue(0)
 EndFunction
@@ -25,7 +28,7 @@ Function SkinAnimalHIS(_DS_HB_Actions act, Actor akActorRef, MiscObject skin) gl
 			HISHBQuest.Start()
 		EndIf
 		HISHBSkinningScript HISScript = (HISHBQuest as Quest) as HISHBSkinningScript
-		If act.dsGlobals.gUseHiSCompatibility
+		If act.dsGlobals.gUseHiSCompatibility && HISStatsQuest1 && HISStatsQuest1.IsRunning()
 			HISStatsNoteScript1 StatsScript = (HISStatsQuest1 as Quest) as HISStatsNoteScript1
 			HISRealisticSkinningScript RealSkin = (HISStatsQuest1 as Quest) as HISRealisticSkinningScript
 			HISModOptionsScript HISModOptions = (HISStatsQuest1 as Quest) as HISModOptionsScript

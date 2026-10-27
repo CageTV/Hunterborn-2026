@@ -30,11 +30,20 @@ for name in ("dsGlobals", "PlayerRef", "BearFaction", "GoatFaction", "HorkerFact
 body = re.sub(r"(?<![\w.])DebugMode\(", "act.DebugMode(", body)
 body = body.replace("act.act.", "act.")
 
+# Hunterborn 2026: HiS's stats, skills and options live on its stats quest, which exists only once Hunting in Skyrim has been started (by Path of the
+# Woodsman, or by Hunting in Skyrim 2026's automatic start). Before that every call below hit a None object and wrote an error per skinned animal.
+old = "\tHISModOptionsScript HISModOptions = (HISStatsQuest1 as Quest) as HISModOptionsScript" + nl + "\tHISModOptions.HISRealisticSkinningEnabled.SetValue(0)"
+assert body.count(old) == 1
+body = body.replace(old, "\tIf !HISStatsQuest1 || !HISStatsQuest1.IsRunning()" + nl + "\t\tReturn" + nl + "\tEndIf" + nl + old)
+old = "\t\tIf act.dsGlobals.gUseHiSCompatibility"
+assert body.count(old) == 1
+body = body.replace(old, "\t\tIf act.dsGlobals.gUseHiSCompatibility && HISStatsQuest1 && HISStatsQuest1.IsRunning()")
+
 bridge = nl.join([
     "Scriptname _DS_HB_HiSBridge Hidden",
     "",
     "; Hunting in Skyrim compatibility, moved out of _DS_HB_Actions by Hunterborn 2026 so that Actions loads without HiS installed.",
-    "; Code from Hunterborn SE MCM (Hazado), unchanged apart from the act. prefixes.",
+    "; Code from Hunterborn SE MCM (Hazado), unchanged apart from the act. prefixes and the guards that skip the HiS stats until HiS has been started.",
     "",
     body,
     "",
