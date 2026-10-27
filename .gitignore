@@ -3,3 +3,5 @@ build/
 package/
 *.log
 __pycache__/
+backups/
+build-check/
