@@ -135,8 +135,7 @@ Event OnUpdate()
 	EndIf
 
 	If StartupQuest.GetStage() == 0
-		; Hunterborn 2026: move the quest without running the stage (no objective banner, no journal entry, no "Completed" banner).
-		StartupQuest.SetCurrentStageID(10)
+		StartupQuest.SetStage(10)
 		PlayerRef.AddPerk(CarcassStartupPerk)
 	EndIf
 	
@@ -184,8 +183,8 @@ Function StartHunterborn()
 		self.Start()
 	EndIf
 
-	; Same here: stage 20 has the Complete Quest flag, which would announce "Completed: Hunterborn" (the logo is shown instead).
-	StartupQuest.SetCurrentStageID(20)
+	; Hunterborn2026.esp clears the Complete Quest flag of this stage, so no "Completed: Hunterborn" banner (the logo is shown instead).
+	StartupQuest.SetStage(20)
 	Utility.Wait(2.0)
 	
 	PlayerRef.RemovePerk(CarcassStartupPerk)

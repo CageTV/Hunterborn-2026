@@ -5,3 +5,4 @@ package/
 __pycache__/
 backups/
 build-check/
+core-out/

@@ -6,6 +6,7 @@ Records (all overrides of Hunterborn.esp, so the plugin is a light plugin):
   Quest _DS_Hunterborn (003367)          the SE MCM quest with the Process Hotkey Fix's one extra property on _DS_HB_Monsters
   MagicEffect _DS_MGEF_Hotkey_Process     the Hotkey Fix's effect (binds the fixed hotkey script)
   Quest _DS_Hunterborn_Pet_Finder (09C5D3) SE MCM's own record again: Simple Hunterborn empties it (no aliases, no script), which breaks pets and lures
+  Quest _DS_Hunterborn_StartupHelper (1B2F46) the startup quest with the Complete Quest flag of stage 20 cleared (no "Completed: Hunterborn" banner)
 The Process Hotkey Fix is by Gasil (Nexus 73571, open permissions, credit required). Load after Simple Hunterborn.
 """
 import os
@@ -33,9 +34,18 @@ jobs = [
     (find(HKFIX, "Quests", "003367"), "Quests"),
     (find(HKFIX, "MagicEffects", "045438"), "MagicEffects"),
     (find(SEMCM, "Quests", "_DS_Hunterborn_Pet_Finder"), "Quests"),
+    (find(SEMCM, "Quests", "_DS_Hunterborn_StartupHelper"), "Quests"),
 ]
 for src, sub in jobs:
     shutil.copyfile(src, os.path.join(SRC, sub, os.path.basename(src)))
+
+# Startup quest _DS_Hunterborn_StartupHelper (1B2F46): stage 20 (Hunterborn started) carries the Complete Quest flag, which makes the game announce
+# "Completed: Hunterborn". Cleared here: the logo of HunterbornNative.dll is shown instead.
+quest = find(SRC, "Quests", "StartupHelper")
+text = open(quest, encoding="utf-8").read()
+flagged = "  - Flags:" + NL + "    - CompleteQuest" + NL
+assert flagged in text.replace(chr(13) + NL, NL), "the Complete Quest flag was not found in the startup quest"
+open(quest, "w", encoding="utf-8", newline="").write(text.replace(chr(13) + NL, NL).replace(flagged, "  - Flags: []" + NL, 1))
 
 open(os.path.join(SRC, "spriggit-meta.json"), "w", encoding="utf-8", newline=NL).write(NL.join([
     "{", '  "PackageName": "Spriggit.Yaml.Skyrim",', '  "Version": "0.41.0",', '  "Release": "SkyrimSE",', f'  "ModKey": "{NAME}"', "}", ""]))

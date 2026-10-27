@@ -1,0 +1,47 @@
+FormKey: 1B2F46:Hunterborn.esp
+EditorID: _DS_Hunterborn_StartupHelper
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _DS_HB_QF_StartupHelper
+  FileName: _DS_HB_QF_StartupHelper
+  Fragments:
+  - Stage: 10
+    Unknown2: 1
+    ScriptName: _DS_HB_QF_StartupHelper
+    FragmentName: Fragment_4
+  - Stage: 20
+    Unknown2: 1
+    ScriptName: _DS_HB_QF_StartupHelper
+    FragmentName: Fragment_5
+Name:
+  TargetLanguage: English
+  Value: Hunterborn
+Flags:
+- StartGameEnabled
+- 0x10
+Type: SideQuest
+Stages:
+- LogEntries:
+  - Flags: []
+    Entry:
+      TargetLanguage: English
+      Value: Initializing
+- Index: 10
+  LogEntries:
+  - Flags: []
+    Entry:
+      TargetLanguage: English
+      Value: "I've decided to go on a little hunting expedition... (To activate Hunterborn, access the fresh carcass of an animal, or use the Options: Hunterborn spell.)"
+- Index: 20
+  LogEntries:
+  - Flags: []
+    Entry:
+      TargetLanguage: English
+      Value: I've prepared myself for all that the hunt may bring.
+Objectives:
+- Index: 10
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Inspect a fresh animal carcass
+NextAliasID: 0
