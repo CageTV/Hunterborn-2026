@@ -13,7 +13,8 @@ namespace AutoPatch
 {
 	namespace
 	{
-		constexpr unsigned kActorTypeAnimal = 0x013798;  // Skyrim.esm keyword every animal race carries
+		constexpr unsigned kActorTypeAnimal = 0x013798;    // Skyrim.esm keywords the races of animals ...
+		constexpr unsigned kActorTypeCreature = 0x013795;  // ... and of other creatures carry
 
 		struct Type
 		{
@@ -29,16 +30,16 @@ namespace AutoPatch
 		const std::vector<Type>& Types()
 		{
 			static const std::vector<Type> t = {
-				{ false, 0, "Skyrim.esm", 0x03AD77, "Bear", { "bear", "grizzly" } },
+				{ false, 0, "Skyrim.esm", 0x03AD77, "Bear", { "bear", "grizzly", "panda" } },
 				{ false, 1, "Skyrim.esm", 0x03AD78, "BearCave", { "cavebear", "bearcave", "cave bear" } },
 				{ false, 2, "Skyrim.esm", 0x03AD79, "BearSnow", { "snowbear", "bearsnow", "snow bear", "polarbear", "polar bear" } },
-				{ false, 3, "Skyrim.esm", 0x106AEC, "Chicken", { "chicken", "rooster", "chick", "hen", "pheasant", "goose", "geese", "duck", "turkey", "quail", "grouse", "partridge" } },
-				{ false, 4, "Skyrim.esm", 0x03AD7B, "Cow", { "cow", "calf", "cattle", "ox", "rhino" } },
-				{ false, 5, "Skyrim.esm", 0x0D284C, "Deer", { "deer", "whitetail", "blacktail", "fawn", "stag", "reindeer", "caribou", "gazelle", "roe" } },
+				{ false, 3, "Skyrim.esm", 0x106AEC, "Chicken", { "chicken", "rooster", "chick", "chicklin", "hen", "pheasant", "tragopan", "goose", "geese", "duck", "turkey", "quail", "grouse", "partridge", "owl" } },
+				{ false, 4, "Skyrim.esm", 0x03AD7B, "Cow", { "cow", "calf", "cattle", "ox", "oxen", "bull", "yak", "rhino", "rhinoceros" } },
+				{ false, 5, "Skyrim.esm", 0x0D284C, "Deer", { "deer", "whitetail", "blacktail", "fawn", "stag", "reindeer", "caribou", "gazelle", "roe", "antelope", "eland", "kob", "nyala", "muntjac" } },
 				{ false, 6, "Skyrim.esm", 0x03AD7D, "Dog", { "dog", "hound", "husky" } },
 				{ false, 7, "Skyrim.esm", 0x10FF79, "ElkFemale", { "elkfemale", "femaleelk", "elk female", "female elk" } },
 				{ false, 8, "Skyrim.esm", 0x03AD7C, "ElkMale", { "elk", "moose" } },
-				{ false, 9, "Skyrim.esm", 0x1072C3, "Fox", { "fox", "raccoon", "coon" } },
+				{ false, 9, "Skyrim.esm", 0x1072C3, "Fox", { "fox", "raccoon", "coon", "badger" } },
 				{ false, 10, "Skyrim.esm", 0x1072C4, "FoxIce", { "snowfox", "icefox", "foxsnow", "foxice", "snow fox", "ice fox" } },
 				{ false, 11, "Skyrim.esm", 0x03AD8D, "Goat", { "goat", "sheep", "lamb", "ibex" } },
 				{ false, 12, "Skyrim.esm", 0x09A772, "Hare", { "hare", "rabbit", "bunny" } },
@@ -48,15 +49,15 @@ namespace AutoPatch
 				{ false, 16, "Skyrim.esm", 0x1017B8, "MudCrab01", { "mudcrab", "crab" } },
 				{ false, 17, "Skyrim.esm", 0x1017B9, "MudCrab02", { "largemudcrab", "mudcrablarge", "mudcrab02", "large mudcrab" } },
 				{ false, 18, "Skyrim.esm", 0x1017BA, "MudCrab03", { "giantmudcrab", "mudcrabgiant", "mudcrabking", "crabking", "mudcrab03", "giant mudcrab" } },
-				{ false, 19, "Skyrim.esm", 0x03AD97, "Sabrecat", { "sabrecat", "sabercat", "tiger", "lion", "panther", "lynx", "cougar", "leopard", "jaguar", "cheetah", "puma" } },
-				{ false, 20, "Skyrim.esm", 0x03AD98, "SabrecatSnow", { "sabrecatsnow", "snowsabre", "snowysabre", "snowy sabre", "snow sabre" } },
+				{ false, 19, "Skyrim.esm", 0x03AD97, "Sabrecat", { "sabrecat", "sabercat", "tiger", "lion", "lioness", "panther", "lynx", "bobcat", "cougar", "leopard", "jaguar", "cheetah", "puma", "taiga" } },
+				{ false, 20, "Skyrim.esm", 0x03AD98, "SabrecatSnow", { "sabrecatsnow", "snowsabre", "snowysabre", "snowy sabre", "snow sabre", "snowleopard", "snow leopard" } },
 				{ false, 21, "Skyrim.esm", 0x03AD99, "Skeever", { "skeever" } },
 				{ false, 22, "Skyrim.esm", 0x03AD9A, "Slaughterfish", { "slaughterfish" } },
-				{ false, 23, "Skyrim.esm", 0x03AD9E, "Wolf", { "wolf", "hyena", "jackal", "coyote" } },
+				{ false, 23, "Skyrim.esm", 0x03AD9E, "Wolf", { "wolf", "wolves", "hyena", "jackal", "coyote", "durzog" } },
 				{ false, 24, "Skyrim.esm", 0x03AD9F, "WolfIce", { "icewolf", "wolfice", "snowwolf", "ice wolf", "snow wolf" } },
 				{ false, 25, "Dawnguard.esm", 0x013E25, "DeerVale", { "deervale", "valedeer" } },
 				{ false, 26, "Dawnguard.esm", 0x013E24, "SabrecatVale", { "sabrecatvale", "valesabre" } },
-				{ false, 27, "Dragonborn.esm", 0x032C7B, "Bristleback", { "boar", "bristleback", "pig", "hog", "swine" } },
+				{ false, 27, "Dragonborn.esm", 0x032C7B, "Bristleback", { "boar", "bristleback", "pig", "piglet", "hog", "swine" } },
 				{ true, 0, "Skyrim.esm", 0x03ADA1, "Chaurus", { "chaurus" } },
 				{ true, 1, "Skyrim.esm", 0x03AD89, "Spider", { "frostbitespider", "spider" } },
 				{ true, 2, "Skyrim.esm", 0x03AD8A, "SpiderGiant", { "giantspider", "spidergiant", "frostbitespidergiant", "giant spider" } },
@@ -72,8 +73,16 @@ namespace AutoPatch
 		// Creatures that are not for hunting: summons, pets, mounts, a transformation of the player ...
 		const std::vector<std::string>& DefaultSkipWords()
 		{
-			static const std::vector<std::string> w = { "familiar", "summon", "companion", "mount", "battleform", "spebf", "spirit", "ghost", "undead", "zombie",
-														"koi", "raven", "crow", "hatchling", "spiderling", "elytra", "follower", "puppet", "dummy", "test" };
+			static const std::vector<std::string> w = { "familiar", "summon", "summoned", "companion", "mount", "battleform", "spebf", "spirit", "spectral", "ghost", "undead", "zombie",
+														"koi", "raven", "crow", "hatchling", "spiderling", "elytra", "follower", "daedric", "dwarven", "automaton" };
+			return w;
+		}
+
+		// Creatures that are not animals only count for a monster type when nothing in them says they are something else: a Dragon Priest is not a dragon.
+		const std::vector<std::string>& NotMonsterWords()
+		{
+			static const std::vector<std::string> w = { "priest", "acolyte", "lich", "draman", "draugr", "skeleton", "dreugh", "daedroth", "daedra", "griffin", "vampire", "knight",
+														"mechanic", "stormcloak", "giant", "mage", "warrior", "kwama", "ogrim", "shade" };
 			return w;
 		}
 
@@ -154,6 +163,65 @@ namespace AutoPatch
 				}
 			}
 			return nullptr;
+		}
+
+		// A text is cut into lower-case words at spaces, punctuation, digits and capital letters ("BearSnowRace2" -> bear snow race).
+		std::vector<std::string> Words(std::string_view a_text)
+		{
+			std::vector<std::string> out;
+			std::string              cur;
+			auto flush = [&]() { if (!cur.empty()) { out.push_back(cur); cur.clear(); } };
+			char prev = 0;
+			for (const char c : a_text) {
+				const bool alpha = std::isalpha(static_cast<unsigned char>(c)) != 0;
+				if (!alpha) { flush(); prev = 0; continue; }
+				if (std::isupper(static_cast<unsigned char>(c)) && std::islower(static_cast<unsigned char>(prev))) { flush(); }
+				cur.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
+				prev = c;
+			}
+			flush();
+			return out;
+		}
+
+		// A word counts when it is a word of the text, ends one ("packwolf" has "wolf"; "mountain" does not have "mount"), or is two or three neighbouring
+		// words written together ("mudcrabking" in "Mud Crab King"). A phrase ("snow bear") needs its words next to each other in that order.
+		bool HasWord(const std::vector<std::string>& a_words, const std::string& a_word)
+		{
+			if (a_word.empty()) { return false; }
+			if (a_word.find(' ') != std::string::npos) {
+				const auto parts = Words(a_word);
+				for (std::size_t i = 0; i + parts.size() <= a_words.size(); ++i) {
+					bool ok = true;
+					for (std::size_t j = 0; j < parts.size() && ok; ++j) { ok = a_words[i + j] == parts[j]; }
+					if (ok) { return true; }
+				}
+				return false;
+			}
+			const bool tail = a_word.size() >= 3 && a_word != "hen" && a_word != "roe" && a_word != "hog";
+			for (std::size_t i = 0; i < a_words.size(); ++i) {
+				const auto& w = a_words[i];
+				if (w == a_word || (tail && w.size() > a_word.size() && w.ends_with(a_word))) { return true; }
+				std::string joined = w;
+				for (std::size_t k = 1; k <= 2 && i + k < a_words.size(); ++k) {
+					joined += a_words[i + k];
+					if (joined == a_word) { return true; }
+				}
+			}
+			return false;
+		}
+
+		// The longest word of a type's list found in the words, so "mudcrabking" beats "mudcrab".
+		const Type* BestType(const std::vector<std::string>& a_words, std::string& a_found, bool a_monstersOnly = false)
+		{
+			const Type* best = nullptr;
+			std::size_t len = 0;
+			for (const auto& t : Types()) {
+				if (a_monstersOnly && !t.monster) { continue; }
+				for (const auto& w : t.words) {
+					if (w.size() > len && HasWord(a_words, w)) { len = w.size(); best = &t; a_found = w; }
+				}
+			}
+			return best;
 		}
 
 		struct Signature
@@ -237,87 +305,119 @@ namespace AutoPatch
 		int                                      handled = 0;
 		int                                      considered = 0;
 
+		int otherCreatures = 0;  // creatures with a loot list that are neither animals nor one of Hunterborn's monster types: nothing for Hunterborn to do
+
+		// Several types can share a race, skeleton or voice (both elks, both foxes): the one the vanilla game uses far more is the answer, otherwise there is none.
+		auto pick = [&](const std::vector<const Type*>& a_list) -> const Type* {
+			if (a_list.size() == 1) { return a_list[0]; }
+			const Type* top = nullptr;
+			int         topN = 0, second = 0;
+			for (const auto* t : a_list) {
+				const int n = handledCount.contains(t) ? handledCount[t] : 0;
+				if (n > topN) { second = topN; topN = n; top = t; } else if (n > second) { second = n; }
+			}
+			return (top && topN >= 3 && topN >= 3 * second) ? top : nullptr;
+		};
+
 		for (auto* npc : npcs) {
-			if (!npc || !npc->race || npc->IsDeleted()) {
+			if (!npc || !npc->race || npc->IsDeleted() || !npc->deathItem) {
 				continue;
 			}
-			auto* race = npc->race;
-			if (!race->HasKeywordID(kActorTypeAnimal) || !npc->deathItem) {
+			auto*      race = npc->race;
+			const bool isAnimal = race->HasKeywordID(kActorTypeAnimal);
+			if (!isAnimal && !race->HasKeywordID(kActorTypeCreature)) {
 				continue;
 			}
 			if (typeOfList.contains(npc->deathItem)) {
-				handled++;
+				if (isAnimal) { handled++; }
 				continue;  // Hunterborn already handles it
 			}
-			considered++;
 			const std::string plugin = FileOf(npc);
 			const std::string raceId = race->GetFormEditorID() ? race->GetFormEditorID() : "";
 			const std::string raceName = race->GetName() ? race->GetName() : "";
 			const std::string npcName = npc->GetName() ? npc->GetName() : "";
-			const std::string text = Lower(raceId + " | " + raceName + " | " + npcName + " | " + Skeleton(race));
+			const auto        nameW = Words(npcName);
+			const auto        raceW = Words(raceId + " " + raceName);
+			auto              allW = nameW;
+			allW.insert(allW.end(), raceW.begin(), raceW.end());
+			const auto skelW = Words(Skeleton(race));
+			allW.insert(allW.end(), skelW.begin(), skelW.end());
 
 			Found f{ npc, nullptr, {}, plugin, raceId.empty() ? raceName : raceId };
 
+			// creatures that are not for hunting
 			const std::string lp = Lower(plugin);
-			bool skip = false;
-			for (const auto& p : DefaultSkipPlugins()) {
-				skip = skip || lp == p;
-			}
-			for (const auto& p : rules.skipPlugins) {
-				skip = skip || lp == p;
-			}
-			std::string skipWhy = skip ? "plugin is on the skip list" : "";
+			bool              skip = false;
+			std::string       skipWhy;
+			for (const auto& p : DefaultSkipPlugins()) { if (lp == p) { skip = true; skipWhy = "plugin is on the skip list"; } }
+			for (const auto& p : rules.skipPlugins) { if (lp == p) { skip = true; skipWhy = "plugin is on your skip list"; } }
 			if (!skip) {
 				for (const auto& w : DefaultSkipWords()) {
-					if (Contains(text, w)) { skip = true; skipWhy = "name or race says '" + w + "'"; break; }
+					if (HasWord(allW, w)) { skip = true; skipWhy = "name or race says '" + w + "'"; break; }
+				}
+			}
+			if (!skip && !isAnimal) {
+				for (const auto& w : NotMonsterWords()) {
+					if (HasWord(allW, w) && !HasWord(nameW, "spider") && !HasWord(nameW, "chaurus") && !HasWord(nameW, "troll")) { skip = true; skipWhy = "not an animal or monster '" + w + "'"; break; }
 				}
 			}
 			if (!skip) {
 				for (const auto& w : rules.skip) {
-					if (Contains(text, w)) { skip = true; skipWhy = "your skip word '" + w + "'"; break; }
+					if (HasWord(allW, w)) { skip = true; skipWhy = "your skip word '" + w + "'"; break; }
 				}
 			}
 			if (skip) {
-				f.reason = "skipped: " + skipWhy;
-				skipped[skipWhy]++;
-				perPlugin[plugin]["skipped"]++;
-				found.push_back(std::move(f));
+				if (isAnimal) {
+					considered++;
+					f.reason = "skipped: " + skipWhy;
+					skipped[skipWhy]++;
+					perPlugin[plugin]["skipped"]++;
+					found.push_back(std::move(f));
+				}
 				continue;
 			}
 
-			// 1. what the creature is built on: a race, skeleton or voice a vanilla animal of a type already has
-			std::vector<const Type*> byRace, bySkeleton, byVoice;
-			for (const auto& [type, s] : sig) {
-				if (s.races.contains(race)) { byRace.push_back(type); }
-				if (!Skeleton(race).empty() && s.skeletons.contains(Skeleton(race))) { bySkeleton.push_back(type); }
-				if (npc->voiceType && s.voices.contains(npc->voiceType)) { byVoice.push_back(type); }
-			}
 			const Type* chosen = nullptr;
-			if (byRace.size() == 1) { chosen = byRace[0]; f.reason = "race of a vanilla " + std::string(chosen->name); }
-			else if (bySkeleton.size() == 1) { chosen = bySkeleton[0]; f.reason = "same skeleton as a vanilla " + std::string(chosen->name); }
-			else if (byVoice.size() == 1) { chosen = byVoice[0]; f.reason = "same voice as a vanilla " + std::string(chosen->name); }
+			std::string word;
 
-			// 2. your own words
-			if (!chosen) {
-				for (const auto& [word, typeName] : rules.map) {
-					if (Contains(text, word)) {
-						if (const auto* t = FindTypeByName(typeName)) { chosen = t; f.reason = "your rule '" + word + "'"; break; }
-					}
+			// 1. your own rules come first
+			for (const auto& [w, typeName] : rules.map) {
+				if (HasWord(allW, w)) {
+					if (const auto* t = FindTypeByName(typeName)) { chosen = t; f.reason = "your rule '" + w + "'"; break; }
 				}
 			}
 
-			// 3. words in the names: the longest word that matches wins, so "mudcrabking" beats "mudcrab"
+			// 2. what the creature calls itself: "Pig" on a cow's skeleton is a pig
 			if (!chosen) {
-				std::size_t best = 0;
-				std::string bestWord;
-				for (const auto& t : Types()) {
-					for (const auto& w : t.words) {
-						if (w.size() > best && Contains(text, w)) { best = w.size(); chosen = &t; bestWord = w; }
-					}
-				}
-				if (chosen) { f.reason = "name or race says '" + bestWord + "'"; }
+				if (const auto* t = BestType(nameW, word, !isAnimal)) { chosen = t; f.reason = "its name says '" + word + "'"; }
 			}
 
+			// 3. what the creature is built on: a race, skeleton or voice a vanilla animal of a type already has
+			if (!chosen) {
+				std::vector<const Type*> byRace, bySkeleton, byVoice;
+				for (const auto& [type, sg] : sig) {
+					if (sg.races.contains(race)) { byRace.push_back(type); }
+					if (!Skeleton(race).empty() && sg.skeletons.contains(Skeleton(race))) { bySkeleton.push_back(type); }
+					if (npc->voiceType && sg.voices.contains(npc->voiceType)) { byVoice.push_back(type); }
+				}
+				const Type* t = nullptr;
+				if ((t = pick(byRace))) { f.reason = "race of a vanilla " + std::string(t->name); }
+				else if (!isAnimal) { /* a creature that is not an animal needs the race of a vanilla monster */ }
+				else if ((t = pick(bySkeleton))) { f.reason = "same skeleton as a vanilla " + std::string(t->name); }
+				else if ((t = pick(byVoice))) { f.reason = "same voice as a vanilla " + std::string(t->name); }
+				if (t && (isAnimal ? !t->monster : t->monster)) { chosen = t; } else { f.reason.clear(); }
+			}
+
+			// 4. what the race is called
+			if (!chosen) {
+				if (const auto* t = BestType(raceW, word, !isAnimal)) { chosen = t; f.reason = "its race says '" + word + "'"; }
+			}
+
+			if (!isAnimal) {
+				if (chosen) { considered++; f.type = chosen; perPlugin[plugin]["typed"]++; found.push_back(std::move(f)); } else { otherCreatures++; }
+				continue;
+			}
+			considered++;
 			f.type = chosen;
 			perPlugin[plugin][chosen ? "typed" : "unknown"]++;
 			found.push_back(std::move(f));
