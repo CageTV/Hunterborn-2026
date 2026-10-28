@@ -372,8 +372,37 @@ namespace AutoPatch
 
 		using Leaf = std::pair<RE::TESForm*, std::int32_t>;
 
-		// Every item that can drop from a loot list, nested lists opened up, with how many; sets a_part when one of them is an animal part.
-		void Flatten(RE::TESLevItem* a_list, int a_mult, int a_depth, std::vector<Leaf>& a_out, bool& a_part)
+		enum class Parts { kNone, kAll, kMixed };
+
+		// Does a loot list (and the lists inside it) hold animal parts, only animal parts, or a mix?
+		Parts Classify(RE::TESLevItem* a_list, int a_depth = 0)
+		{
+			bool part = false, other = false;
+			if (a_list && a_depth <= 6) {
+				for (std::uint32_t i = 0; i < a_list->numEntries; ++i) {
+					auto* form = a_list->entries[i].form;
+					if (!form) {
+						continue;
+					}
+					if (auto* nested = form->As<RE::TESLevItem>()) {
+						switch (Classify(nested, a_depth + 1)) {
+						case Parts::kAll: part = true; break;
+						case Parts::kNone: other = true; break;
+						case Parts::kMixed: part = other = true; break;
+						}
+					} else if (IsAnimalPart(form)) {
+						part = true;
+					} else {
+						other = true;
+					}
+				}
+			}
+			return part ? (other ? Parts::kMixed : Parts::kAll) : Parts::kNone;
+		}
+
+		// What stays of a loot list when its animal parts go. A list that drops one of its entries at random cannot be split without changing the odds, so such a list
+		// stays whole when it has no animal parts or only some, and goes when it is all animal parts; a list that drops all of its entries is opened and filtered.
+		void Collect(RE::TESLevItem* a_list, int a_mult, int a_depth, std::vector<Leaf>& a_out)
 		{
 			if (!a_list || a_depth > 6) {
 				return;
@@ -383,14 +412,30 @@ namespace AutoPatch
 				if (!e.form) {
 					continue;
 				}
+				const int count = a_mult * std::max<int>(1, e.count);
 				if (auto* nested = e.form->As<RE::TESLevItem>()) {
-					Flatten(nested, a_mult * std::max<int>(1, e.count), a_depth + 1, a_out, a_part);
-				} else if (IsAnimalPart(e.form)) {
-					a_part = true;
-				} else {
-					a_out.emplace_back(e.form, a_mult * std::max<int>(1, e.count));
+					const auto c = Classify(nested);
+					if (c == Parts::kNone || (c == Parts::kMixed && !(static_cast<unsigned>(nested->llFlags) & RE::TESLeveledList::kUseAll))) {
+						a_out.emplace_back(nested, count);
+					} else if (c == Parts::kMixed) {
+						Collect(nested, count, a_depth + 1, a_out);
+					}
+				} else if (!IsAnimalPart(e.form)) {
+					a_out.emplace_back(e.form, count);
 				}
 			}
+		}
+
+		std::vector<Leaf> KeptOf(RE::TESLevItem* a_list)
+		{
+			std::vector<Leaf> out;
+			const auto        c = Classify(a_list);
+			if (c == Parts::kNone || (c == Parts::kMixed && !(static_cast<unsigned>(a_list->llFlags) & RE::TESLeveledList::kUseAll))) {
+				out.emplace_back(a_list, 1);
+			} else if (c == Parts::kMixed) {
+				Collect(a_list, 1, 0, out);
+			}
+			return out;
 		}
 
 		// per exported list, parallel to `exported`: what stays when Hunterborn runs
@@ -640,9 +685,7 @@ namespace AutoPatch
 					wrapper->chanceNone = 0;
 					exported[{ f.type->monster, f.type->index }].push_back(wrapper);
 					originals[{ f.type->monster, f.type->index }].push_back(f.npc->deathItem);
-					std::vector<Leaf> rest;
-					bool              hadPart = false;
-					Flatten(f.npc->deathItem, 1, 0, rest, hadPart);
+					std::vector<Leaf> rest = KeptOf(f.npc->deathItem);
 					if (!rest.empty()) {
 						listsWithOtherDrops++;
 						SKSE::log::info("AutoPatch loot: list of '{}' keeps {} other drop(s), e.g. '{}'", f.npc->GetName() ? f.npc->GetName() : "?", rest.size(), rest.front().first->GetName() ? rest.front().first->GetName() : "?");
