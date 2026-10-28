@@ -12,9 +12,32 @@ Hunterborn SE MCM already replaces the plugin and 14 scripts of the original Hun
                               and lists the mods it detected.
   HunterbornNative.dll        applies your settings on every game load, runs the work the SkyUI menu did when it closed, rebinds the hotkeys, and can turn
                               Hunterborn's 51 informational message boxes into notifications (Extras page, off by default).
-  Hunterborn2026.esp          a small light plugin: the hotkey fix's records, and the Pet Finder quest restored for when Simple Hunterborn empties it.
+  Hunterborn2026.esp          a small light plugin: the hotkey fix's records, the Pet Finder quest restored for when Simple Hunterborn empties it, and the
+                              startup quest without its "Completed: Hunterborn" banner.
   Scripts                     the SE MCM scripts, with the Process Hotkey Fix folded in, and the Hunting in Skyrim code moved to its own script so Hunterborn
                               works with or without that mod (before, its absence stopped the whole Actions script loading: no tracking, broken loot).
+
+STARTS BY ITSELF
+----------------
+Hunterborn starts on its own when you load a game (Overview page: "Start automatically"). The Hunterborn logo fades in for a few seconds instead of the
+start-up message boxes (Extras page, "Show the logo when Hunterborn starts").
+
+AUTOPATCH: CREATURES FROM OTHER MODS
+------------------------------------
+Hunterborn works with the animals other mods add, without a patch plugin. When the game's data has loaded, HunterbornNative.dll looks at every creature that
+uses a loot list of its own and works out which of Hunterborn's types it is: from your own rules, its name, its race, skeleton and voice compared with the
+vanilla animals, and its race name. Summons, spirits, pets, mounts and creatures that are not animals are left alone. A creature that is found is treated like
+the vanilla animal of its type: it leaves a Hunterborn carcass that is skinned, harvested and butchered, and its meat, pelts and animal parts come from
+Hunterborn. Whatever else is on its loot list (gold, special drops, gear) stays. When Hunterborn is stopped, the original loot is back.
+
+A report of what was found, and why, is written to Documents\My Games\Skyrim Special Edition\SKSE\HunterbornNative_AutoPatch.txt every time the game starts.
+Your own rules go in Data\SKSE\Plugins\HunterbornNativeutopatch.ini (type names are in the report):
+  [Map]          tiger = Sabrecat           a word in a creature's name, race or skeleton, and the Hunterborn type it counts as
+  [Skip]         koi                        a word that marks a creature to leave alone
+  [SkipPlugins]  SomeMod.esp                every creature this plugin adds is left alone
+
+It also gives every recipe of another mod that uses Troll Fat a twin recipe with Animal Fat (three times as much) in its place, so soap, supplies and the like
+can be made from the fat Hunterborn gives. The original recipe is unchanged. Recipes about trolls are left alone.
 
 PAGES
 -----
