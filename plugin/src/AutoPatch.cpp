@@ -263,6 +263,78 @@ namespace AutoPatch
 			return it == exported.end() ? std::vector<RE::TESLevItem*>{} : it->second;
 		}
 
+		bool NameHas(const RE::TESForm* a_form, std::string_view a_word)
+		{
+			const char* n = a_form ? a_form->GetName() : nullptr;
+			return n && Lower(n).find(a_word) != std::string::npos;
+		}
+
+		// The older CommonLib has no TESCondition::Copy: there a recipe with conditions is left alone (its twin could not carry them).
+		template <class Cond>
+		bool CopyConditions(Cond& a_to, const Cond& a_from, RE::TESForm* a_owner)
+		{
+			if constexpr (requires { a_to.Copy(&a_from, a_owner); }) {
+				a_to.Copy(&a_from, a_owner);
+				return true;
+			} else {
+				return a_from.head == nullptr;
+			}
+		}
+
+		// Fat patch: every recipe of another mod that uses Troll Fat gets an Animal Fat twin (Animal Fat x3 in place of the Troll Fat), as Hunterborn's own fat patcher did, so soap,
+		// supplies and replicas can be made from the fat Hunterborn gives. The twin is a recipe of its own, so the original keeps working. Recipes about trolls are left alone.
+		int PatchFat(RE::TESDataHandler* a_dh)
+		{
+			constexpr std::int32_t kMultiplier = 3;
+			auto*                  troll = a_dh->LookupForm<RE::TESBoundObject>(0x03AD72, "Skyrim.esm");
+			auto*                  animal = a_dh->LookupForm<RE::TESBoundObject>(0x0AB90C, "Hunterborn.esp");
+			auto*                  factory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::BGSConstructibleObject>();
+			if (!troll || !animal || !factory) {
+				SKSE::log::warn("AutoPatch fat: Troll Fat, Animal Fat or the recipe factory was not found; no Animal Fat recipes added");
+				return 0;
+			}
+			auto&                                    all = a_dh->GetFormArray<RE::BGSConstructibleObject>();
+			std::vector<RE::BGSConstructibleObject*> sources;
+			for (auto* r : all) {
+				if (!r || r->IsDeleted() || !r->createdItem || Lower(FileOf(r)) == "hunterborn.esp" || NameHas(r->createdItem, "troll")) {
+					continue;
+				}
+				bool hasTroll = false, otherTroll = false;
+				r->requiredItems.ForEachContainerObject([&](RE::ContainerObject& o) {
+					if (o.obj == troll) { hasTroll = true; } else if (NameHas(o.obj, "troll")) { otherTroll = true; }  // a troll skull or the like: not a recipe to substitute
+					return RE::BSContainer::ForEachResult::kContinue;
+				});
+				if (hasTroll && !otherTroll) {
+					sources.push_back(r);
+				}
+			}
+			for (auto* src : sources) {
+				auto* twin = factory->Create();
+				if (!twin) {
+					continue;
+				}
+				twin->createdItem = src->createdItem;
+				twin->benchKeyword = src->benchKeyword;
+				twin->data = src->data;
+				if (!CopyConditions(twin->conditions, src->conditions, twin)) {
+					SKSE::log::info("AutoPatch fat: {:08X} {} has conditions this build cannot copy; left alone", src->GetFormID(), FileOf(src));
+					continue;
+				}
+				src->requiredItems.ForEachContainerObject([&](RE::ContainerObject& o) {
+					if (o.obj == troll) {
+						twin->requiredItems.AddObjectToContainer(animal, o.count * kMultiplier, twin);
+					} else {
+						twin->requiredItems.AddObjectToContainer(o.obj, o.count, twin);
+					}
+					return RE::BSContainer::ForEachResult::kContinue;
+				});
+				all.push_back(twin);
+				SKSE::log::info("AutoPatch fat: {:08X} {} -> Animal Fat recipe {:08X} ({})", src->GetFormID(), FileOf(src), twin->GetFormID(), src->createdItem->GetName());
+			}
+			SKSE::log::info("AutoPatch fat: {} Animal Fat recipes added", sources.size());
+			return static_cast<int>(sources.size());
+		}
+
 		struct Found
 		{
 			RE::TESNPC*  npc;
@@ -287,6 +359,7 @@ namespace AutoPatch
 			return;
 		}
 		const auto started = std::chrono::steady_clock::now();
+		PatchFat(dh);
 		const auto rules = ReadRules();
 
 		// The loot list of each type, and the creatures that already use it: these say what each type looks like in this game.
