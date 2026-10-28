@@ -163,7 +163,20 @@ Function InitDeathItems(bool abRevertAll = False)
 			While j
 				j -= 1
 				extra[j].Revert()
-				extra[j].AddForm(orig[j], 1, 1)
+				If abRevertAll || !IsActiveMonster(i)
+					extra[j].AddForm(orig[j], 1, 1)
+				Else
+					; Hunterborn gives the meat, pelts and parts itself: only what is not an animal part stays
+					Form[] keep = HunterbornNative.GetKept(True, i, j)
+					int[] keepCount = HunterbornNative.GetKeptCounts(True, i, j)
+					If keep
+						int k = keep.Length
+						While k
+							k -= 1
+							extra[j].AddForm(keep[k], 1, keepCount[k])
+						EndWhile
+					EndIf
+				EndIf
 				If !abRevertAll && IsActiveMonster(i)
 					extra[j].AddForm(moTokenCarcass_Monster, 1, 1)
 					extra[j].AddForm(flDeathItemTokens.GetAt(i), 1, 1)

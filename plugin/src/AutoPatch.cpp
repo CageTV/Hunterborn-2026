@@ -338,6 +338,84 @@ namespace AutoPatch
 			return static_cast<int>(sources.size());
 		}
 
+		// ---- which loot of an animal is an animal part
+		// Hunterborn gives the meat, pelts and parts itself, so those entries of another mod's loot list are dropped when Hunterborn runs; anything else on the list
+		// (gold, special drops, gear) stays. An animal part is an item with one of the vendor keywords for hides, animal parts or raw food, or whose name says so.
+		std::set<const RE::BGSKeyword*> partKeywords;
+
+		bool IsAnimalPart(RE::TESForm* a_leaf)
+		{
+			if (!a_leaf) {
+				return false;
+			}
+			if (auto* kf = a_leaf->As<RE::BGSKeywordForm>()) {
+				for (const auto* kw : partKeywords) {
+					if (kf->HasKeyword(kw)) {
+						return true;
+					}
+				}
+			}
+			static const char* words[] = { "pelt", "hide", "fur", "feather", "meat", "breast", "thigh", "haunch", "steak", "claw", "tooth", "teeth", "tusk", "horn", "antler", "fang", "fat",
+										   "heart", "tongue", "wing", "tail", "venom", "ribs", "leg", "paw", "egg", "scale", "sinew", "bone", "organ", "liver", "stomach", "gland" };
+			const char* n = a_leaf->GetName();
+			if (!n || !*n) {
+				return false;
+			}
+			const auto nameWords = Words(n);
+			for (const char* w : words) {
+				if (HasWord(nameWords, w)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		using Leaf = std::pair<RE::TESForm*, std::int32_t>;
+
+		// Every item that can drop from a loot list, nested lists opened up, with how many; sets a_part when one of them is an animal part.
+		void Flatten(RE::TESLevItem* a_list, int a_mult, int a_depth, std::vector<Leaf>& a_out, bool& a_part)
+		{
+			if (!a_list || a_depth > 6) {
+				return;
+			}
+			for (std::uint32_t i = 0; i < a_list->numEntries; ++i) {
+				auto& e = a_list->entries[i];
+				if (!e.form) {
+					continue;
+				}
+				if (auto* nested = e.form->As<RE::TESLevItem>()) {
+					Flatten(nested, a_mult * std::max<int>(1, e.count), a_depth + 1, a_out, a_part);
+				} else if (IsAnimalPart(e.form)) {
+					a_part = true;
+				} else {
+					a_out.emplace_back(e.form, a_mult * std::max<int>(1, e.count));
+				}
+			}
+		}
+
+		// per exported list, parallel to `exported`: what stays when Hunterborn runs
+		std::map<std::pair<bool, int>, std::vector<std::vector<Leaf>>> kept;
+
+		std::vector<RE::TESForm*> GetKept(RE::StaticFunctionTag*, bool a_monster, std::int32_t a_index, std::int32_t a_list)
+		{
+			std::vector<RE::TESForm*> r;
+			const auto                it = kept.find({ a_monster, a_index });
+			if (it != kept.end() && a_list >= 0 && static_cast<std::size_t>(a_list) < it->second.size()) {
+				for (const auto& l : it->second[a_list]) { r.push_back(l.first); }
+			}
+			return r;
+		}
+
+		std::vector<std::int32_t> GetKeptCounts(RE::StaticFunctionTag*, bool a_monster, std::int32_t a_index, std::int32_t a_list)
+		{
+			std::vector<std::int32_t> r;
+			const auto                it = kept.find({ a_monster, a_index });
+			if (it != kept.end() && a_list >= 0 && static_cast<std::size_t>(a_list) < it->second.size()) {
+				for (const auto& l : it->second[a_list]) { r.push_back(l.second); }
+			}
+			return r;
+		}
+
 		struct Found
 		{
 			RE::TESNPC*  npc;
@@ -352,6 +430,8 @@ namespace AutoPatch
 	{
 		a_vm->RegisterFunction("GetLists", "HunterbornNative", GetLists);
 		a_vm->RegisterFunction("GetOriginals", "HunterbornNative", GetOriginals);
+		a_vm->RegisterFunction("GetKept", "HunterbornNative", GetKept);
+		a_vm->RegisterFunction("GetKeptCounts", "HunterbornNative", GetKeptCounts);
 		return true;
 	}
 
@@ -535,6 +615,15 @@ namespace AutoPatch
 			}
 			exported.clear();
 			originals.clear();
+			kept.clear();
+			partKeywords.clear();
+			for (const auto* kw : dh->GetFormArray<RE::BGSKeyword>()) {
+				const char* id = kw ? kw->GetFormEditorID() : nullptr;
+				if (id && (!_stricmp(id, "VendorItemAnimalHide") || !_stricmp(id, "VendorItemAnimalPart") || !_stricmp(id, "VendorItemFoodRaw"))) {
+					partKeywords.insert(kw);
+				}
+			}
+			int listsWithOtherDrops = 0;
 			std::map<std::pair<RE::TESLevItem*, const Type*>, RE::TESLevItem*> wrappers;
 			int                                                                 nCreatures = 0;
 			for (const auto& f : found) {
@@ -551,11 +640,19 @@ namespace AutoPatch
 					wrapper->chanceNone = 0;
 					exported[{ f.type->monster, f.type->index }].push_back(wrapper);
 					originals[{ f.type->monster, f.type->index }].push_back(f.npc->deathItem);
+					std::vector<Leaf> rest;
+					bool              hadPart = false;
+					Flatten(f.npc->deathItem, 1, 0, rest, hadPart);
+					if (!rest.empty()) {
+						listsWithOtherDrops++;
+						SKSE::log::info("AutoPatch loot: list of '{}' keeps {} other drop(s), e.g. '{}'", f.npc->GetName() ? f.npc->GetName() : "?", rest.size(), rest.front().first->GetName() ? rest.front().first->GetName() : "?");
+					}
+					kept[{ f.type->monster, f.type->index }].push_back(std::move(rest));
 				}
 				f.npc->deathItem = wrapper;
 				nCreatures++;
 			}
-			SKSE::log::info("AutoPatch: {} creatures now drop through {} loot lists of their own (Hunterborn's tokens go into these)", nCreatures, wrappers.size());
+			SKSE::log::info("AutoPatch: {} creatures now drop through {} loot lists of their own (Hunterborn's tokens go into these); {} of them keep drops that are not animal parts", nCreatures, wrappers.size(), listsWithOtherDrops);
 		}
 
 		// ---- the report
