@@ -299,13 +299,16 @@ namespace AutoPatch
 				if (!r || r->IsDeleted() || !r->createdItem || Lower(FileOf(r)) == "hunterborn.esp" || NameHas(r->createdItem, "troll")) {
 					continue;
 				}
-				bool hasTroll = false, otherTroll = false;
+				bool        hasTroll = false, otherTroll = false;
+				std::string otherName;
 				r->requiredItems.ForEachContainerObject([&](RE::ContainerObject& o) {
-					if (o.obj == troll) { hasTroll = true; } else if (NameHas(o.obj, "troll")) { otherTroll = true; }  // a troll skull or the like: not a recipe to substitute
+					if (o.obj == troll) { hasTroll = true; } else if (NameHas(o.obj, "troll")) { otherTroll = true; otherName = o.obj->GetName(); }  // a troll skull or the like: not a recipe to substitute
 					return RE::BSContainer::ForEachResult::kContinue;
 				});
 				if (hasTroll && !otherTroll) {
 					sources.push_back(r);
+				} else if (hasTroll) {
+					SKSE::log::info("AutoPatch fat: {:08X} {} ({}) left alone: it also needs '{}'", r->GetFormID(), FileOf(r), r->createdItem->GetName(), otherName);
 				}
 			}
 			for (auto* src : sources) {
