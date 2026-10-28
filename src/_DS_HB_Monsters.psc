@@ -157,11 +157,13 @@ Function InitDeathItems(bool abRevertAll = False)
 	While i
 		i -= 1
 		LeveledItem[] extra = HunterbornNative.GetLists(True, i)
+		LeveledItem[] orig = HunterbornNative.GetOriginals(True, i)
 		If extra
 			j = extra.Length
 			While j
 				j -= 1
 				extra[j].Revert()
+				extra[j].AddForm(orig[j], 1, 1)
 				If !abRevertAll && IsActiveMonster(i)
 					extra[j].AddForm(moTokenCarcass_Monster, 1, 1)
 					extra[j].AddForm(flDeathItemTokens.GetAt(i), 1, 1)

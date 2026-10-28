@@ -249,6 +249,14 @@ namespace AutoPatch
 		// The loot lists of other mods' creatures that Hunterborn treats like a vanilla animal, by [monster][Hunterborn's index]. Hunterborn's scripts ask for them (GetLists) when they set up the death items.
 		std::map<std::pair<bool, int>, std::vector<RE::TESLevItem*>> exported;
 
+		std::map<std::pair<bool, int>, std::vector<RE::TESLevItem*>> originals;  // parallel to exported: the loot list each one stands in for
+
+		std::vector<RE::TESLevItem*> GetOriginals(RE::StaticFunctionTag*, bool a_monster, std::int32_t a_index)
+		{
+			const auto it = originals.find({ a_monster, a_index });
+			return it == originals.end() ? std::vector<RE::TESLevItem*>{} : it->second;
+		}
+
 		std::vector<RE::TESLevItem*> GetLists(RE::StaticFunctionTag*, bool a_monster, std::int32_t a_index)
 		{
 			const auto it = exported.find({ a_monster, a_index });
@@ -268,6 +276,7 @@ namespace AutoPatch
 	bool RegisterPapyrus(RE::BSScript::IVirtualMachine* a_vm)
 	{
 		a_vm->RegisterFunction("GetLists", "HunterbornNative", GetLists);
+		a_vm->RegisterFunction("GetOriginals", "HunterbornNative", GetOriginals);
 		return true;
 	}
 
@@ -439,37 +448,38 @@ namespace AutoPatch
 		}
 
 		// ---- the lists Hunterborn's scripts will add their tokens to
-		// A loot list is used only when EVERY creature that has it was typed, and all to the same type: a list shared with anything else (a summon, a person, another type) would give that one a carcass too.
+		// A creature's own loot list can be shared with creatures of another type (Animallica's tigers, rhinos and deer all use one list), and it may not drop all of its entries.
+		// So each (loot list, type) gets a small list of its own that drops everything it holds, and the typed creatures are pointed at it. The scripts put the original list and
+		// Hunterborn's tokens into it (GetOriginals / GetLists); creatures of other types, and everything else that uses the original list, are not touched.
 		{
-			std::map<const RE::TESNPC*, const Type*> typedNpc;
-			for (const auto& f : found) {
-				if (f.type) { typedNpc[f.npc] = f.type; }
-			}
-			std::map<RE::TESLevItem*, std::set<const Type*>> typesOf;
-			std::set<RE::TESLevItem*>                         shared;
-			for (auto* npc : npcs) {
-				if (!npc || npc->IsDeleted() || !npc->deathItem) {
-					continue;
-				}
-				auto* li = npc->deathItem;
-				if (const auto it = typedNpc.find(npc); it != typedNpc.end()) {
-					typesOf[li].insert(it->second);
-				} else if (!typeOfList.contains(li)) {
-					shared.insert(li);
-				}
+			auto* factory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::TESLevItem>();
+			if (!factory) {
+				SKSE::log::warn("AutoPatch: cannot create loot lists");
+				return;
 			}
 			exported.clear();
-			int nLists = 0, nShared = 0;
-			for (const auto& [li, types] : typesOf) {
-				if (shared.contains(li) || types.size() != 1 || typeOfList.contains(li)) {
-					nShared++;
+			originals.clear();
+			std::map<std::pair<RE::TESLevItem*, const Type*>, RE::TESLevItem*> wrappers;
+			int                                                                 nCreatures = 0;
+			for (const auto& f : found) {
+				if (!f.type || !f.npc->deathItem) {
 					continue;
 				}
-				const auto* t = *types.begin();
-				exported[{ t->monster, t->index }].push_back(li);
-				nLists++;
+				auto*& wrapper = wrappers[{ f.npc->deathItem, f.type }];
+				if (!wrapper) {
+					wrapper = factory->Create();
+					if (!wrapper) {
+						continue;
+					}
+					wrapper->llFlags = RE::TESLeveledList::kUseAll;
+					wrapper->chanceNone = 0;
+					exported[{ f.type->monster, f.type->index }].push_back(wrapper);
+					originals[{ f.type->monster, f.type->index }].push_back(f.npc->deathItem);
+				}
+				f.npc->deathItem = wrapper;
+				nCreatures++;
 			}
-			SKSE::log::info("AutoPatch: {} loot lists will get Hunterborn's tokens, {} left out because other creatures share them", nLists, nShared);
+			SKSE::log::info("AutoPatch: {} creatures now drop through {} loot lists of their own (Hunterborn's tokens go into these)", nCreatures, wrappers.size());
 		}
 
 		// ---- the report
