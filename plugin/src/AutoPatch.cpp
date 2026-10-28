@@ -286,11 +286,11 @@ namespace AutoPatch
 		int PatchFat(RE::TESDataHandler* a_dh)
 		{
 			constexpr std::int32_t kMultiplier = 3;
-			auto*                  troll = a_dh->LookupForm<RE::TESBoundObject>(0x03AD72, "Skyrim.esm");
-			auto*                  animal = a_dh->LookupForm<RE::TESBoundObject>(0x0AB90C, "Hunterborn.esp");
+			auto*                  troll = a_dh->LookupForm(0x03AD72, "Skyrim.esm") ? a_dh->LookupForm(0x03AD72, "Skyrim.esm")->As<RE::TESBoundObject>() : nullptr;
+			auto*                  animal = a_dh->LookupForm(0x0AB90C, "Hunterborn.esp") ? a_dh->LookupForm(0x0AB90C, "Hunterborn.esp")->As<RE::TESBoundObject>() : nullptr;
 			auto*                  factory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::BGSConstructibleObject>();
 			if (!troll || !animal || !factory) {
-				SKSE::log::warn("AutoPatch fat: Troll Fat, Animal Fat or the recipe factory was not found; no Animal Fat recipes added");
+				SKSE::log::warn("AutoPatch fat: Troll Fat {}, Animal Fat {}, recipe factory {}; no Animal Fat recipes added", troll ? "found" : "MISSING", animal ? "found" : "MISSING", factory ? "found" : "MISSING");
 				return 0;
 			}
 			auto&                                    all = a_dh->GetFormArray<RE::BGSConstructibleObject>();
