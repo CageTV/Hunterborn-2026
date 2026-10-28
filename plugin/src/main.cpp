@@ -40,6 +40,7 @@ namespace
 		case SKSE::MessagingInterface::kNewGame:
 			Settings::OnGameLoaded();
 			Actions::ResetStartWatch();
+			Actions::Queue(Actions::ActSmallGame | Actions::ActCorpDragons);  // the loot lists AutoPatch made are new every launch and not saved: fill them again (does nothing until Hunterborn is running)
 			Actions::Hold(12.0f);  // let the game and Hunterborn's own load scripts settle before any queued work runs
 			break;
 		default:
