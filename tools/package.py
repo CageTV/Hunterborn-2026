@@ -51,7 +51,7 @@ shutil.copytree(os.path.join(SEMCM, "Source"), os.path.join(core, "Source"))
 put(os.path.join(SEMCM, "Hunterborn.esp"), os.path.join(core, "Hunterborn.esp"))
 put(CORE_ESL, os.path.join(core, "Hunterborn2026.esp"))
 put(LOGO, os.path.join(core, "Interface", "HunterbornNative", "hunterborn_logo.png"))
-OURS = ["_DS_HB_Actions", "_DS_HB_HiSBridge", "_DS_HB_MAIN", "_DS_HB_MCM", "_DS_HB_Monsters", "_DS_HB_QF_StartupHelper", "_DS_HB_mgef_Hotkey"]
+OURS = ["HunterbornNative", "_DS_HB_Animals", "_DS_HB_Actions", "_DS_HB_HiSBridge", "_DS_HB_MAIN", "_DS_HB_MCM", "_DS_HB_Monsters", "_DS_HB_QF_StartupHelper", "_DS_HB_mgef_Hotkey"]
 for n in OURS:
     put(os.path.join(HERE, "build", n + ".pex"), os.path.join(core, "Scripts", n + ".pex"))
     put(os.path.join(HERE, "src", n + ".psc"), os.path.join(core, "Source", "Scripts", n + ".psc"))

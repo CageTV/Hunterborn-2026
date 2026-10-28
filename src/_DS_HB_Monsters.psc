@@ -152,6 +152,29 @@ Function InitDeathItems(bool abRevertAll = False)
 		EndIf
 	EndWhile
 	
+	; Hunterborn 2026 AutoPatch: the same for the monsters other mods add (see _DS_HB_Animals).
+	i = flDeathItems.GetSize()
+	While i
+		i -= 1
+		LeveledItem[] extra = HunterbornNative.GetLists(True, i)
+		If extra
+			j = extra.Length
+			While j
+				j -= 1
+				extra[j].Revert()
+				If !abRevertAll && IsActiveMonster(i)
+					extra[j].AddForm(moTokenCarcass_Monster, 1, 1)
+					extra[j].AddForm(flDeathItemTokens.GetAt(i), 1, 1)
+					If (MonsterIndex[i] == "Dragon" && dsGlobals.gDragonsCorporeal)
+						extra[j].AddForm(DragonCorporealLI, 1, 1)
+					Else
+						extra[j].AddForm(DeathItemLI[i], 1, 1)
+					EndIf
+				EndIf
+			EndWhile
+		EndIf
+	EndWhile
+
 	DebugMode("Monster InitDeathItems done!")
 	
 EndFunction

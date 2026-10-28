@@ -246,6 +246,15 @@ namespace AutoPatch
 			return file ? std::string(file->GetFilename()) : std::string("?");
 		}
 
+		// The loot lists of other mods' creatures that Hunterborn treats like a vanilla animal, by [monster][Hunterborn's index]. Hunterborn's scripts ask for them (GetLists) when they set up the death items.
+		std::map<std::pair<bool, int>, std::vector<RE::TESLevItem*>> exported;
+
+		std::vector<RE::TESLevItem*> GetLists(RE::StaticFunctionTag*, bool a_monster, std::int32_t a_index)
+		{
+			const auto it = exported.find({ a_monster, a_index });
+			return it == exported.end() ? std::vector<RE::TESLevItem*>{} : it->second;
+		}
+
 		struct Found
 		{
 			RE::TESNPC*  npc;
@@ -254,6 +263,12 @@ namespace AutoPatch
 			std::string  plugin;
 			std::string  race;
 		};
+	}
+
+	bool RegisterPapyrus(RE::BSScript::IVirtualMachine* a_vm)
+	{
+		a_vm->RegisterFunction("GetLists", "HunterbornNative", GetLists);
+		return true;
 	}
 
 	void OnDataLoaded()
@@ -421,6 +436,40 @@ namespace AutoPatch
 			f.type = chosen;
 			perPlugin[plugin][chosen ? "typed" : "unknown"]++;
 			found.push_back(std::move(f));
+		}
+
+		// ---- the lists Hunterborn's scripts will add their tokens to
+		// A loot list is used only when EVERY creature that has it was typed, and all to the same type: a list shared with anything else (a summon, a person, another type) would give that one a carcass too.
+		{
+			std::map<const RE::TESNPC*, const Type*> typedNpc;
+			for (const auto& f : found) {
+				if (f.type) { typedNpc[f.npc] = f.type; }
+			}
+			std::map<RE::TESLevItem*, std::set<const Type*>> typesOf;
+			std::set<RE::TESLevItem*>                         shared;
+			for (auto* npc : npcs) {
+				if (!npc || npc->IsDeleted() || !npc->deathItem) {
+					continue;
+				}
+				auto* li = npc->deathItem;
+				if (const auto it = typedNpc.find(npc); it != typedNpc.end()) {
+					typesOf[li].insert(it->second);
+				} else if (!typeOfList.contains(li)) {
+					shared.insert(li);
+				}
+			}
+			exported.clear();
+			int nLists = 0, nShared = 0;
+			for (const auto& [li, types] : typesOf) {
+				if (shared.contains(li) || types.size() != 1 || typeOfList.contains(li)) {
+					nShared++;
+					continue;
+				}
+				const auto* t = *types.begin();
+				exported[{ t->monster, t->index }].push_back(li);
+				nLists++;
+			}
+			SKSE::log::info("AutoPatch: {} loot lists will get Hunterborn's tokens, {} left out because other creatures share them", nLists, nShared);
 		}
 
 		// ---- the report
