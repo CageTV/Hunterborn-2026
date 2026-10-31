@@ -89,7 +89,7 @@ ESL_WARNING = ("ESL edition of Hunterborn.esp: its 2,965 records are renumbered 
                "patches, IED profiles, animation and carry mods. This installer's own patches are included in their ESL form; anything else needs the regular edition "
                "or must be remade. (2) A save made with the regular edition cannot be loaded with this one, and the reverse: start a new game. "
                "(3) Needs Skyrim 1.6.1130 or newer (not VR): the new build of HunterbornNative.dll. "
-               "(4) Last Seed: use Last Seed 2026 1.4.1 or newer, whose food lists find the ESL edition's foods; older Last Seed versions ask about every Hunterborn food. "
+               "(4) Last Seed: use the ESL build of Last Seed 2026 1.4.1 or newer, whose food lists find the ESL edition's foods; the regular build and older versions ask about every Hunterborn food. "
                "Do not install it on top of a game you are playing, and do not mix it with patches downloaded for the regular Hunterborn.esp. If in doubt, choose Regular.")
 patch_plugins = "".join(
     f"""            <plugin name="{label}">

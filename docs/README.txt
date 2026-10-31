@@ -78,7 +78,7 @@ into the light range (header 1.71, up to 4,096 records), so it takes no plugin s
   - A save made with one edition cannot be loaded with the other. Start a new game; do not switch editions on a game you are playing.
   - Needs Skyrim 1.6.1130 or newer (not VR): choose the NEW build of HunterbornNative.dll. The same DLL works with both editions: when it sees the ESL
     edition it translates the record numbers it knows. Run PGPatcher again after switching.
-  - Last Seed: use Last Seed 2026 1.4.1 or newer; its food lists then find the ESL edition's foods (older versions ask about every Hunterborn food). The animation
+  - Last Seed: use the ESL build of Last Seed 2026 1.4.1 or newer; its food lists then find the ESL edition's foods (the regular build and older versions ask about every Hunterborn food). The animation
     integration's cooking script and the DLL find their records the same way.
 Hunting in Skyrim has 12,594 records and would have to be split into several plugins to become ESL, so it is not offered. Mods are not split to make them ESL.
 
