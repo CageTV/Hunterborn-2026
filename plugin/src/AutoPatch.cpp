@@ -472,8 +472,16 @@ namespace AutoPatch
 		};
 	}
 
+	// The record number to pass to Game.GetFormFromFile for a record of a_plugin (a_id as in that mod's regular plugin): the ESL edition of Hunterborn.esp renumbers its
+	// records, so scripts that name one by number ask here; every other plugin's ids come back unchanged.
+	std::int32_t ModFormId(RE::StaticFunctionTag*, std::int32_t a_id, RE::BSFixedString a_plugin)
+	{
+		return static_cast<std::int32_t>(HbIds::Fix(a_plugin.c_str(), static_cast<unsigned>(a_id)));
+	}
+
 	bool RegisterPapyrus(RE::BSScript::IVirtualMachine* a_vm)
 	{
+		a_vm->RegisterFunction("ModFormId", "HunterbornNative", ModFormId);
 		a_vm->RegisterFunction("GetLists", "HunterbornNative", GetLists);
 		a_vm->RegisterFunction("GetOriginals", "HunterbornNative", GetOriginals);
 		a_vm->RegisterFunction("GetKept", "HunterbornNative", GetKept);

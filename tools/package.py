@@ -23,7 +23,7 @@ SEMCM = os.path.join(HERE, "reference", "semcm-mod")
 PATCHES = r"H:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
 ANIM_BUILD = os.path.join(HERE, "patches", "Animations", "build")  # tools/build_animations_patch.py
 ANIM_SRC = os.path.join(HERE, "patches", "Animations", "src")
-ANIM_SCRIPTS = ["_DS_HB_Actions", "_DS_HB_MAIN", "_DS_HB_mgef_Forage", "_DS_HB_mgef_Hotkey", "_DS_HB_mgef_Track", "_GP_HB_AnimFunctions"]
+ANIM_SCRIPTS = ["_DS_HB_Actions", "_DS_HB_MAIN", "_DS_HB_mgef_Forage", "_DS_HB_mgef_Hotkey", "_DS_HB_mgef_Track", "_GP_HB_AnimCooking", "_GP_HB_AnimFunctions"]
 VOLS = os.path.join(HERE, "assets_local", "volspbr")  # the Vols cloak PBR files (CageTV's PBR Conversion Hub, Nexus 175588); not in git: copy them here from the installed mod
 PATCH_FILES = [
     ("Hunterborn - Campfire Patch.esp", "Campfire patch", "For Campfire. Adds Hunterborn's meats and pelts to Campfire's cooking and crafting."),
@@ -89,6 +89,7 @@ ESL_WARNING = ("ESL edition of Hunterborn.esp: its 2,965 records are renumbered 
                "patches, IED profiles, animation and carry mods. This installer's own patches are included in their ESL form; anything else needs the regular edition "
                "or must be remade. (2) A save made with the regular edition cannot be loaded with this one, and the reverse: start a new game. "
                "(3) Needs Skyrim 1.6.1130 or newer (not VR): the new build of HunterbornNative.dll. "
+               "(4) Last Seed: use Last Seed 2026 1.4.1 or newer, whose food lists find the ESL edition's foods; older Last Seed versions ask about every Hunterborn food. "
                "Do not install it on top of a game you are playing, and do not mix it with patches downloaded for the regular Hunterborn.esp. If in doubt, choose Regular.")
 patch_plugins = "".join(
     f"""            <plugin name="{label}">

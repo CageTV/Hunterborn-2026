@@ -11,3 +11,7 @@ LeveledItem[] Function GetOriginals(bool abMonster, int aiIndex) global native
 ; What stays on stand-in list number aiList (the position in GetLists) while Hunterborn runs: the original loot without its animal parts (meat, pelts, parts), with the counts.
 Form[] Function GetKept(bool abMonster, int aiIndex, int aiList) global native
 int[] Function GetKeptCounts(bool abMonster, int aiIndex, int aiList) global native
+
+; The record number to pass to Game.GetFormFromFile for a record of asPlugin (aiFormID as in that mod's regular plugin). The ESL edition of Hunterborn.esp renumbers its
+; records, so scripts that name one by number ask here; every other plugin's ids come back unchanged.
+int Function ModFormId(int aiFormID, string asPlugin) global native
