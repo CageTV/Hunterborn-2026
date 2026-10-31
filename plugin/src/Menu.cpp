@@ -366,8 +366,23 @@ namespace Menu
 		// The logo fades in near the top of the screen, holds, and fades out: what Frostfall 2026 and Last Seed 2026 show when they start.
 		void DrawStartLogo(ImDrawList* a_dl, float a_dt)
 		{
+			// A logo that was asked for waits until you are in control: Hunterborn can start while the opening, a menu or a dialogue is still on screen, and the
+			// overlay is not visible then.
+			static bool waiting = false;
 			if (startLogoRequested.exchange(false)) {
-				startLogoTime = 0.0f;
+				waiting = true;
+			}
+			if (waiting && startLogoTime < 0.0f) {
+				auto*       ui = RE::UI::GetSingleton();
+				auto*       player = RE::PlayerCharacter::GetSingleton();
+				const bool free = ui && player && player->Is3DLoaded() && !ui->GameIsPaused() && !ui->IsMenuOpen(RE::MainMenu::MENU_NAME) && !ui->IsMenuOpen(RE::LoadingMenu::MENU_NAME) &&
+				                  !ui->IsMenuOpen(RE::RaceSexMenu::MENU_NAME) && !ui->IsMenuOpen(RE::DialogueMenu::MENU_NAME) && !ui->IsMenuOpen(RE::MessageBoxMenu::MENU_NAME) &&
+				                  !ui->IsMenuOpen(RE::MapMenu::MENU_NAME) && !ui->IsMenuOpen(RE::InventoryMenu::MENU_NAME) && !SKSEMenuFramework::IsAnyBlockingWindowOpened();
+				if (free) {
+					waiting = false;
+					startLogoTime = 0.0f;
+					SKSE::log::info("Start-up logo shown");
+				}
 			}
 			if (startLogoTime < 0.0f) {
 				return;
@@ -388,6 +403,11 @@ namespace Menu
 
 			static ImTextureID tex = SKSEMenuFramework::LoadTexture(kLogoPath);
 			if (!tex) {
+				static bool said = false;
+				if (!said) {
+					said = true;
+					SKSE::log::warn("The start-up logo ({}) could not be loaded", kLogoPath);
+				}
 				return;
 			}
 			const auto* io = GetIO();
