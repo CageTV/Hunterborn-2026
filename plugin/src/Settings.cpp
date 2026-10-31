@@ -5,6 +5,7 @@
  * Released under the MIT License; see LICENSE.txt.
  */
 #include "PCH.h"
+#include "HunterbornIds.h"
 #include "Actions.h"
 #include "Notifications.h"
 #include "Settings.h"
@@ -91,7 +92,7 @@ namespace Settings
 		RE::TESGlobal* Lookup(unsigned a_local)
 		{
 			auto* dh = RE::TESDataHandler::GetSingleton();
-			return dh ? dh->LookupForm<RE::TESGlobal>(a_local, kPlugin) : nullptr;
+			return dh ? dh->LookupForm<RE::TESGlobal>(HbIds::Fix(kPlugin, a_local), kPlugin) : nullptr;
 		}
 
 		RE::TESGlobal* Glob(const Def& a_d) { return a_d.local ? Lookup(a_d.local) : nullptr; }

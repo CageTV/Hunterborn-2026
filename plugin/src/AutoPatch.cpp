@@ -5,6 +5,7 @@
  * Released under the MIT License; see LICENSE.txt.
  */
 #include "PCH.h"
+#include "HunterbornIds.h"
 #include "AutoPatch.h"
 
 #include <set>
@@ -287,7 +288,7 @@ namespace AutoPatch
 		{
 			constexpr std::int32_t kMultiplier = 3;
 			auto*                  troll = a_dh->LookupForm(0x03AD72, "Skyrim.esm") ? a_dh->LookupForm(0x03AD72, "Skyrim.esm")->As<RE::TESBoundObject>() : nullptr;
-			auto*                  animal = a_dh->LookupForm(0x0AB90C, "Hunterborn.esp") ? a_dh->LookupForm(0x0AB90C, "Hunterborn.esp")->As<RE::TESBoundObject>() : nullptr;
+			auto*                  animal = a_dh->LookupForm(HbIds::Fix("Hunterborn.esp", 0x0AB90C), "Hunterborn.esp") ? a_dh->LookupForm(HbIds::Fix("Hunterborn.esp", 0x0AB90C), "Hunterborn.esp")->As<RE::TESBoundObject>() : nullptr;
 			auto*                  factory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::BGSConstructibleObject>();
 			if (!troll || !animal || !factory) {
 				SKSE::log::warn("AutoPatch fat: Troll Fat {}, Animal Fat {}, recipe factory {}; no Animal Fat recipes added", troll ? "found" : "MISSING", animal ? "found" : "MISSING", factory ? "found" : "MISSING");
@@ -494,7 +495,7 @@ namespace AutoPatch
 		std::map<const Type*, RE::TESLevItem*> lists;
 		std::map<RE::TESLevItem*, const Type*> typeOfList;
 		for (const auto& t : Types()) {
-			if (auto* li = dh->LookupForm<RE::TESLevItem>(t.local, t.plugin)) {
+			if (auto* li = dh->LookupForm<RE::TESLevItem>(HbIds::Fix(t.plugin, t.local), t.plugin)) {
 				lists[&t] = li;
 				typeOfList[li] = &t;
 			}

@@ -67,7 +67,18 @@ the Stats page but is never saved in the file.
 PATCHES
 -------
 The installer offers the four patches from Hunterborn SE MCM as options: Campfire Patch, Leather Tanning, CACO-SE Patch and Soups and Stews (large, 7 MB,
-30,000 records). All are small light plugins except Soups and Stews. Install the ones for mods you use.
+30,000 records). All are small light plugins except Soups and Stews. Install the ones for mods you use. Each comes in a regular and an ESL form; the installer picks the one that matches your Hunterborn.esp.
+
+ESL EDITION OF HUNTERBORN.ESP (installer option) - READ THE WARNING
+--------------------------------------------------------------------
+The installer asks which Hunterborn.esp. Regular is the default, and the one almost everyone should pick. The ESL edition renumbers the plugin's 2,965 records
+into the light range (header 1.71, up to 4,096 records), so it takes no plugin slot. The price:
+  - Every other mod made for the regular Hunterborn.esp stops working with it, because they point at the old record numbers: patches, IED profiles, animation
+    and carry mods. This installer's own four patches and Hunterborn2026.esp come in ESL form. Anything else needs the regular edition or must be remade.
+  - A save made with one edition cannot be loaded with the other. Start a new game; do not switch editions on a game you are playing.
+  - Needs Skyrim 1.6.1130 or newer (not VR): choose the NEW build of HunterbornNative.dll. The same DLL works with both editions: when it sees the ESL
+    edition it translates the record numbers it knows. Run PGPatcher again after switching.
+Hunting in Skyrim has 12,594 records and would have to be split into several plugins to become ESL, so it is not offered. Mods are not split to make them ESL.
 
 HOW A CLICK ON A KILL WORKS (Extras page)
 -----------------------------------------

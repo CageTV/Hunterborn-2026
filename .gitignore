@@ -6,3 +6,7 @@ __pycache__/
 backups/
 build-check/
 core-out/
+esl/
+assets_local/
+tools/eslcompact/bin/
+tools/eslcompact/obj/

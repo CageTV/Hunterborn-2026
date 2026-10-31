@@ -15,6 +15,7 @@ add_commonlibsse_plugin(${PROJECT_NAME} NAME "HunterbornNative" AUTHOR "CageTV" 
     src/Hotkeys.cpp
     src/Notifications.cpp
     src/Animallica.cpp
+    src/HunterbornIds.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)

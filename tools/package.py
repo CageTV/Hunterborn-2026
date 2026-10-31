@@ -24,7 +24,7 @@ PATCHES = r"H:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
 ANIM_BUILD = os.path.join(HERE, "patches", "Animations", "build")  # tools/build_animations_patch.py
 ANIM_SRC = os.path.join(HERE, "patches", "Animations", "src")
 ANIM_SCRIPTS = ["_DS_HB_Actions", "_DS_HB_MAIN", "_DS_HB_mgef_Forage", "_DS_HB_mgef_Hotkey", "_DS_HB_mgef_Track", "_GP_HB_AnimFunctions"]
-VOLS = r"H:\Modlists\Tabula\mods\Immersive Hunting Animations PBR"  # the Vols cloak PBR textures (CageTV's PBR Conversion Hub, Nexus 175588)
+VOLS = os.path.join(HERE, "assets_local", "volspbr")  # the Vols cloak PBR files (CageTV's PBR Conversion Hub, Nexus 175588); not in git: copy them here from the installed mod
 PATCH_FILES = [
     ("Hunterborn - Campfire Patch.esp", "Campfire patch", "For Campfire. Adds Hunterborn's meats and pelts to Campfire's cooking and crafting."),
     ("Hunterborn - Leather Tanning.esp", "Leather tanning", "Adds tanning recipes for Hunterborn's pelts. Needs nothing else."),
@@ -78,14 +78,38 @@ put(os.path.join(HERE, "docs", "README.txt"), os.path.join(dest, "README.txt"))
 put(os.path.join(HERE, "LICENSE.txt"), os.path.join(dest, "LICENSE.txt"))
 
 NEW_VER = "1.6.1170.0"
+# the ESL edition (tools/make_esl.py): Hunterborn.esp renumbered into the light range, with the plugins that point at it repointed
+ESL_OUT = os.path.join(HERE, "esl", "out")
+for f in ["Hunterborn.esp", "Hunterborn2026.esp"]:
+    put(os.path.join(ESL_OUT, f), os.path.join(dest, "esl", f))
+for f, _, _ in PATCH_FILES:
+    put(os.path.join(ESL_OUT, "patches", f), os.path.join(dest, "esl", "patches", f))
+ESL_WARNING = ("ESL edition of Hunterborn.esp: its 2,965 records are renumbered into the light range, which frees one plugin slot. READ THIS FIRST. "
+               "(1) Every other mod that was made for the regular Hunterborn.esp stops working with it, because they point at the old record numbers: "
+               "patches, IED profiles, animation and carry mods. This installer's own patches are included in their ESL form; anything else needs the regular edition "
+               "or must be remade. (2) A save made with the regular edition cannot be loaded with this one, and the reverse: start a new game. "
+               "(3) Needs Skyrim 1.6.1130 or newer (not VR): the new build of HunterbornNative.dll. "
+               "Do not install it on top of a game you are playing, and do not mix it with patches downloaded for the regular Hunterborn.esp. If in doubt, choose Regular.")
 patch_plugins = "".join(
     f"""            <plugin name="{label}">
               <description>{desc}</description>
-              <files><file source="patches\\{f}" destination="{f}"/></files>
+              <conditionFlags><flag name="patch{i}">On</flag></conditionFlags>
               <typeDescriptor><type name="Optional"/></typeDescriptor>
             </plugin>
 """
-    for f, label, desc in PATCH_FILES)
+    for i, (f, label, desc) in enumerate(PATCH_FILES))
+patch_installs = "".join(
+    f"""    <pattern>
+      <dependencies operator="And"><flagDependency flag="edition" value="{ed}"/><flagDependency flag="patch{i}" value="On"/></dependencies>
+      <files><file source="{'esl\\patches' if ed == 'ESL' else 'patches'}\\{f}" destination="{f}"/></files>
+    </pattern>
+"""
+    for i, (f, _, _) in enumerate(PATCH_FILES) for ed in ("Regular", "ESL"))
+esl_core_install = """    <pattern>
+      <dependencies operator="And"><flagDependency flag="edition" value="ESL"/></dependencies>
+      <files><file source="esl\\Hunterborn.esp" destination="Hunterborn.esp"/><file source="esl\\Hunterborn2026.esp" destination="Hunterborn2026.esp"/></files>
+    </pattern>
+"""
 config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
   <moduleName>{NAME}</moduleName>
   <requiredInstallFiles>
@@ -111,6 +135,24 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
               <typeDescriptor><dependencyType><defaultType name="Optional"/><patterns>
                 <pattern><dependencies><gameDependency version="{NEW_VER}"/></dependencies><type name="Optional"/></pattern>
               </patterns></dependencyType></typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Hunterborn.esp edition">
+      <optionalFileGroups order="Explicit">
+        <group name="Which Hunterborn.esp" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Regular (recommended)">
+              <description>Hunterborn.esp as it always was. Works with every patch, profile and mod made for Hunterborn, and with your existing saves.</description>
+              <conditionFlags><flag name="edition">Regular</flag></conditionFlags>
+              <typeDescriptor><type name="Recommended"/></typeDescriptor>
+            </plugin>
+            <plugin name="ESL edition (WARNING: read the description)">
+              <description>{ESL_WARNING}</description>
+              <conditionFlags><flag name="edition">ESL</flag></conditionFlags>
+              <typeDescriptor><type name="Optional"/></typeDescriptor>
             </plugin>
           </plugins>
         </group>
@@ -143,6 +185,10 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
       </optionalFileGroups>
     </installStep>
   </installSteps>
+  <conditionalFileInstalls>
+    <patterns>
+{esl_core_install}{patch_installs}    </patterns>
+  </conditionalFileInstalls>
 </config>
 """
 info = (f"<fomod>\n  <Name>{NAME}</Name>\n  <Author>CageTV (Hunterborn by unuroboros, Hunterborn SE MCM by Hazado, Process Hotkey Fix by Gasil)</Author>\n"

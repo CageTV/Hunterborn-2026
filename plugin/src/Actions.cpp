@@ -5,6 +5,7 @@
  * Released under the MIT License; see LICENSE.txt.
  */
 #include "PCH.h"
+#include "HunterbornIds.h"
 #include "Actions.h"
 #include "Menu.h"
 #include "Settings.h"
@@ -35,7 +36,7 @@ namespace Actions
 		T* Form(unsigned a_id)
 		{
 			auto* dh = RE::TESDataHandler::GetSingleton();
-			return dh ? dh->LookupForm<T>(a_id, kPlugin) : nullptr;
+			return dh ? dh->LookupForm<T>(HbIds::Fix(kPlugin, a_id), kPlugin) : nullptr;
 		}
 
 		float G(std::string_view a_name) { return Settings::GetByName(a_name); }

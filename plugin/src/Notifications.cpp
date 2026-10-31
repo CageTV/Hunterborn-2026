@@ -5,6 +5,7 @@
  * Released under the MIT License; see LICENSE.txt.
  */
 #include "PCH.h"
+#include "HunterbornIds.h"
 #include "Notifications.h"
 
 namespace Notifications
@@ -49,7 +50,7 @@ namespace Notifications
 			saved.clear();
 			int changed = 0;
 			for (const auto& n : kNotes) {
-				auto* msg = dh->LookupForm<RE::BGSMessage>(n.local, kPlugin);
+				auto* msg = dh->LookupForm<RE::BGSMessage>(HbIds::Fix(kPlugin, n.local), kPlugin);
 				if (!msg) {
 					continue;
 				}
