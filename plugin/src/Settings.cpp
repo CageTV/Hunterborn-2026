@@ -36,6 +36,11 @@ namespace Settings
 #include "Globals.inc"
 
 		// Settings of this plugin that are not Hunterborn globals (FormID 0): they live only in settings.ini.
+		constexpr const char* kShoModeId = "hunt_mode";
+		constexpr const char* kShoPlugin = "Simple Hunting Overhaul.esp";
+		constexpr const char* kAnimalliModes[] = { "All creatures", "Lore friendly", "Lore friendly (stricter)" };
+		constexpr const char* kHuntModes[] = { "Hunterborn's menus", "One click: kneel, dress, skin, harvest, butcher", "Simple Hunting Overhaul loot window" };
+
 		constexpr Def kExtras[] = {
 			{ nullptr, "Start", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
 			{ "auto_start", "Start Hunterborn automatically",
@@ -47,6 +52,25 @@ namespace Settings
 			  "Shows the Hunterborn logo for a few seconds when Hunterborn starts (instead of any message), like Frostfall 2026 and Last Seed 2026 do. "
 			  "Only when it starts: a game where it is already running shows nothing. Takes effect at once.",
 			  Kind::Toggle, 0, 1, 0, 1, 1, "", nullptr, 0, 0, 0 },
+			{ nullptr, "Hunting", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
+			{ kShoModeId, "How a click on a kill works",
+			  "One click (recommended): a click on a fresh kill kneels, field dresses, skins, harvests and butchers it in one sequence (with Hunterborn Animations: "
+			  "the kneel, the knife work and taking the parts), takes everything and passes the time. No menus and no loot window. Without a hunting knife you get "
+			  "less, and better knives give better quality, as in Hunterborn. Sneak-clicking picks the carcass up to carry it.\n"
+			  "Hunterborn's menus: the original prompts (field dress, skin, harvest, butcher).\n"
+			  "Simple Hunting Overhaul loot window: the click opens the loot window and Simple Hunting Overhaul skins when you take the pelt (needs Simple Hunting "
+			  "Overhaul and Simple Hunterborn).\n"
+			  "One click and the loot window set \"Click on fresh kill\" and \"Click fresh kill (sneaking)\" on every game load.",
+			  Kind::Combo, 0, 1, 0, 0, 1, "", kHuntModes, 3, 0, 0 },
+			{ nullptr, "Animallica", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
+			{ "animallica_lore", "Animallica creatures",
+			  "Animallica fills Skyrim's animal spawn lists with creatures that do not belong in Tamriel: tigers, lions, hyenas, rhinos, pandas and others. The two lore editions of "
+			  "Animallica remove some of them from the plugin; this does the same at run time on the plugin you have installed, so you do not need either lore edition.\n"
+			  "All: every Animallica creature spawns.\n"
+			  "Lore friendly: the creatures the Lore Friendly edition removes are taken out of every spawn list.\n"
+			  "Lore friendly (stricter): the creatures the Lore Edition Redux removes (it also drops tigers, sabertooths and the exotic pheasants).\n"
+			  "Takes effect at the next game load. Animals already placed in the world by earlier play stay as they are. Needs Animallica.esp.",
+			  Kind::Combo, 0, 0, 0, 0, 1, "", kAnimalliModes, 3, 0, 0 },
 			{ nullptr, "Messages", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
 			{ "messages_as_notifications", "Show informational messages as notifications",
 			  "Hunterborn shows some purely informational messages (a broken knife, a level-up, a failed skinning ...) as pop-up boxes that stop the game until you click them. "
@@ -71,6 +95,40 @@ namespace Settings
 		}
 
 		RE::TESGlobal* Glob(const Def& a_d) { return a_d.local ? Lookup(a_d.local) : nullptr; }
+
+		// Simple Hunting Overhaul runs the hunt: a click on a fresh kill opens the loot window (Hunterborn's "Manual loot"), whatever settings.ini
+		// or the old menu said. The caller holds mu and has read the file.
+		void EnforceShoMode()
+		{
+			const auto it = file.find(kShoModeId);
+			auto*      dh = RE::TESDataHandler::GetSingleton();
+			const int  mode = it != file.end() ? static_cast<int>(it->second + 0.5f) : 1;
+			if (mode == 0 || !dh) {
+				return;
+			}
+			if (mode == 2 && !dh->LookupModByName(kShoPlugin)) {
+				return;
+			}
+			constexpr unsigned kFresh = 0x0038ca, kFreshSneak = 0x0038cb, kClean = 0x0256a2, kCleanSneak = 0x0256a3, kRemoveManualLoot = 0x0355bd;
+			if (auto* g = Lookup(kFresh)) {
+				g->value = mode == 2 ? 3.0f : 4.0f;  // 3 manual loot (the loot window); 4 field dress and process in one go
+			}
+			if (auto* g = Lookup(kFreshSneak)) {
+				g->value = 1.0f;  // sneaking: pick the carcass up (the carry display)
+			}
+			if (mode == 1) {
+				if (auto* g = Lookup(kClean)) {
+					g->value = 1.0f;  // an already dressed kill: process it (skin, harvest, butcher)
+				}
+				if (auto* g = Lookup(kCleanSneak)) {
+					g->value = 1.0f;
+				}
+			}
+			if (auto* g = Lookup(kRemoveManualLoot)) {
+				g->value = 0.0f;
+			}
+			SKSE::log::info("Hunting mode {}: {}", mode, kHuntModes[std::clamp(mode, 0, 2)]);
+		}
 
 		// Callers hold mu.
 		void ReadFile()
@@ -163,6 +221,8 @@ namespace Settings
 				file[a_d.id] = a_v;
 				if (std::string_view(a_d.id) == kNotifyId) {
 					Notifications::Apply(a_v > 0.5f);
+				} else if (std::string_view(a_d.id) == kShoModeId) {
+					EnforceShoMode();
 				}
 				return std::abs(before - a_v) > 1e-6f;
 			}
@@ -311,6 +371,7 @@ namespace Settings
 				}
 			}
 		});
+		EnforceShoMode();
 		if (dirty) {
 			timer = kWriteDelay;
 		}

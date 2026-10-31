@@ -667,8 +667,16 @@ Function ActivateFreshCarcass(ObjectReference akCarcassRef, int aiIndex = -1)
 		EndIf
 	ElseIf (actionToTake == 3)
 		akCarcassRef.Activate(PlayerRef)
+	ElseIf (actionToTake == 4)
+		; Hunterborn 2026: field dress and process (skin, harvest, butcher) in one go.
+		If (PlayerRef.IsWeaponDrawn() && dsGlobals.gUseAnimation)
+			MsgErrorWeaponDrawn.Show()
+		Else
+			dsActions.FieldDress(a, aiIndex)
+			dsActions.ProcessCarcass(a)
+		EndIf
 	EndIf
-	
+
 	CritSection = False
 
 EndFunction

@@ -69,9 +69,44 @@ PATCHES
 The installer offers the four patches from Hunterborn SE MCM as options: Campfire Patch, Leather Tanning, CACO-SE Patch and Soups and Stews (large, 7 MB,
 30,000 records). All are small light plugins except Soups and Stews. Install the ones for mods you use.
 
+HOW A CLICK ON A KILL WORKS (Extras page)
+-----------------------------------------
+Three choices, saved with your settings and applied on every game load:
+  One click (default)               clicking a fresh kill field dresses it and processes it (skin, harvest, butcher) in one go. Without a hunting knife you
+                                    get less, and better knives give better quality, exactly as in Hunterborn. Sneak-click picks the carcass up to carry it.
+  Hunterborn's menus                the original prompts: field dress, skin, harvest, butcher.
+  Simple Hunting Overhaul loot window   the click opens the loot window and Simple Hunting Overhaul skins when you take the pelt (needs Simple Hunting
+                                    Overhaul and Simple Hunterborn).
+The "Click on fresh kill" and "Click on dressed kill" options on the Tweaks page show what is set; "Field dress and process" is the new fresh-kill action.
+
+HUNTERBORN ANIMATIONS (optional)
+--------------------------------
+The installer's "Hunterborn Animations integration" is a set of merged scripts for Hunterborn - Animations (Nexus 80677, by Elsawirr and GiraPomba), which must be
+installed first: none of its animations, meshes or plugins are included. With it, one click plays: kneel, the dress cut, the kneel idle, the stab-and-pull that
+takes the parts, and the stand-up. With bare hands the claw dress and the harvest-fail pull play instead of the generic rock animation. Sneak-click carries the
+animal in a pose that follows its size: bears across the back, wolves and deer on the left or right shoulder (at random), foxes and skeevers on the hip; a hare or
+a chicken goes straight into the inventory. For the animals to look right on you, use Carry Your Carcasses (its IED profile and carcass meshes); it has no meshes
+for bears, sabre cats, cows, horses, horkers, mammoths or bristlebacks, so those show nothing while carried.
+Hunting in Skyrim's "HIS / HB Skinning Quest Started" message box is removed.
+
+VOLS CLOAK PBR (optional, Community Shaders only)
+-------------------------------------------------
+PBR textures with PGPatcher json files for the Vols fur cloaks (cloak, black, brown, snow sabre, vale sabre) of Hunterborn - Animations / Immersive Hunting
+Animations. Needs Community Shaders and PGPatcher, and the cloak mesh and textures of Hunterborn - Animations. Conversions by CageTV (Nexus 175588) of the original
+textures; credit to their authors.
+
+ANIMALLICA (Extras page)
+------------------------
+Animallica fills Skyrim's animal spawn lists with creatures that do not belong in Tamriel. "Animallica creatures" takes the same ones out as Animallica's lore
+editions, at run time, on the Animallica plugin you already have (Animallica SE - Skyrim Wildlife Overhaul): "Lore friendly" removes what the Lore Friendly
+edition removes, "Lore friendly (stricter)" what the Lore Edition Redux removes (also all tigers, sabertooths and the exotic pheasants). Neither lore plugin is
+needed. It takes effect at the next game load and does not change animals already placed in your world.
+
 SIMPLE HUNTERBORN
 -----------------
-Not needed. If it is installed, the Overview page says so, and load Hunterborn2026.esp after SimpleHunterborn.esp.
+Not needed. With the one-click hunt it is better left out: its loot tiers follow Simple Hunting Overhaul's experience, which no longer rises when Hunterborn does
+the skinning. If it is installed, the Overview page says so, and load Hunterborn2026.esp after SimpleHunterborn.esp. (Hunterborn - Forbidden Prey calls only
+functions that still exist, but has not been tested here.)
 
 REQUIREMENTS
 ------------
@@ -87,4 +122,7 @@ CREDITS AND LICENSE
 Hunterborn by unuroboros. Hunterborn SE MCM 1.6.8 by Hazado (Nexus 17993), who allows modification and redistribution with credit: its plugin, scripts,
 translations and patches are included here, with the changes above. Process Hotkey Fix by Gasil (Nexus 73571), open permissions with credit: folded into
 _DS_HB_Monsters and _DS_HB_mgef_Hotkey. HunterbornNative.dll, the settings pages, the Hunting in Skyrim bridge script and the SKSE logic are by CageTV, MIT
-licensed (see LICENSE.txt). Hunterborn's meshes, textures and sounds come from the original mod and are not included.
+licensed (see LICENSE.txt). Hunterborn's meshes, textures and sounds come from the original mod and are not included. Hunterborn - Animations by Elsawirr and
+GiraPomba: the "Hunterborn Animations integration" scripts are theirs merged with the Hunterborn 2026 scripts, with one change of their animation script (the
+bare-hands animations and the carry poses by size); credit is also in each script's header. The Animallica lore lists were read from Animallica's own plugins
+(Animallica, its Lore Friendly edition and the Lore Edition Redux, by their authors).

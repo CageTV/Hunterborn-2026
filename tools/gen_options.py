@@ -127,6 +127,8 @@ for p in sorted(per_page):
         elif o["type"] == "menu":
             name = f"kMenu{len(menus)}"
             items = arrays.get(o.get("menu_array")) or ["?"]
+            if o.get("menu_array") == "FreshActionStrings":  # Hunterborn 2026: 4 = field dress and process in one go (the scripts handle it)
+                items = list(items) + ["Field dress and process"]
             menus.append((name, items))
             rows.append(("CMB", g, o["label"], tip, local, dflt, name, flags))
         elif o["type"] == "keymap":

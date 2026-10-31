@@ -107,6 +107,12 @@ namespace Actions
 				return;
 			}
 			if (a_flags & ActStart) {
+				// Simple Hunterborn (its plugin and startup script) sets the "active" flag on a new game without Hunterborn ever having been
+				// started: the startup quest still waits at stage 10 for the first carcass prompt. That is not started, whatever the flag says.
+				if (auto* startup = Form<RE::TESQuest>(0x1B2F46); startup && startup->GetCurrentStageID() == 10 && Active()) {
+					Settings::SetByName("gHunterbornActive", 0.0f);
+					SKSE::log::info("Hunterborn's active flag was set before it was started (Simple Hunterborn): cleared, starting it properly");
+				}
 				if (!Active()) {
 					Call(MainQuest(), "_DS_HB_MAIN", "StartHunterborn");
 				}
@@ -209,7 +215,7 @@ namespace Actions
 				return;
 			}
 			timer = 2.0f;
-			if (!Settings::Loaded() || Active()) {
+			if (!Settings::Loaded()) {
 				return;
 			}
 			const auto* def = Settings::Find("auto_start");
@@ -220,8 +226,11 @@ namespace Actions
 			if (!quest || quest->GetCurrentStageID() != 10) {
 				return;
 			}
+			// Stage 10 = never started, even when the active flag already says yes (Simple Hunterborn sets it); Run clears the flag. Try again
+			// in a minute if the stage has not moved on.
 			SKSE::log::info("Auto start: the opening is over and Hunterborn has not been started, starting it");
 			Queue(ActStart);
+			timer = 60.0f;
 		}
 	}
 

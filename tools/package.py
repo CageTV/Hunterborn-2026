@@ -20,7 +20,11 @@ VERSION = sys.argv[1] if len(sys.argv) > 1 else "1.0.0"
 OLD = os.path.join(HERE, "plugin", "build", "release", "HunterbornNative.dll")
 NEW = r"E:\WorkSpace\ng-build\build\release\out\HunterbornNative\HunterbornNative.dll"
 SEMCM = os.path.join(HERE, "reference", "semcm-mod")
-PATCHES = r"C:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
+PATCHES = r"H:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
+ANIM_BUILD = os.path.join(HERE, "patches", "Animations", "build")  # tools/build_animations_patch.py
+ANIM_SRC = os.path.join(HERE, "patches", "Animations", "src")
+ANIM_SCRIPTS = ["_DS_HB_Actions", "_DS_HB_MAIN", "_DS_HB_mgef_Forage", "_DS_HB_mgef_Hotkey", "_DS_HB_mgef_Track", "_GP_HB_AnimFunctions"]
+VOLS = r"H:\Modlists\Tabula\mods\Immersive Hunting Animations PBR"  # the Vols cloak PBR textures (CageTV's PBR Conversion Hub, Nexus 175588)
 PATCH_FILES = [
     ("Hunterborn - Campfire Patch.esp", "Campfire patch", "For Campfire. Adds Hunterborn's meats and pelts to Campfire's cooking and crafting."),
     ("Hunterborn - Leather Tanning.esp", "Leather tanning", "Adds tanning recipes for Hunterborn's pelts. Needs nothing else."),
@@ -30,7 +34,7 @@ PATCH_FILES = [
 CORE_ESL = os.path.join(HERE, "package", "Hunterborn2026.esp")
 LOGO = os.path.join(HERE, "assets", "hunterborn_logo.png")
 NAME = "Hunterborn 2026"
-for p in [OLD, NEW, CORE_ESL, LOGO] + [os.path.join(PATCHES, f) for f, _, _ in PATCH_FILES]:
+for p in [OLD, NEW, CORE_ESL, LOGO, VOLS] + [os.path.join(PATCHES, f) for f, _, _ in PATCH_FILES] + [os.path.join(ANIM_BUILD, n + ".pex") for n in ANIM_SCRIPTS]:
     assert os.path.exists(p), f"missing {p}"
 
 
@@ -51,7 +55,7 @@ shutil.copytree(os.path.join(SEMCM, "Source"), os.path.join(core, "Source"))
 put(os.path.join(SEMCM, "Hunterborn.esp"), os.path.join(core, "Hunterborn.esp"))
 put(CORE_ESL, os.path.join(core, "Hunterborn2026.esp"))
 put(LOGO, os.path.join(core, "Interface", "HunterbornNative", "hunterborn_logo.png"))
-OURS = ["HunterbornNative", "_DS_HB_Animals", "_DS_HB_Actions", "_DS_HB_HiSBridge", "_DS_HB_MAIN", "_DS_HB_MCM", "_DS_HB_Monsters", "_DS_HB_QF_StartupHelper", "_DS_HB_mgef_Hotkey"]
+OURS = ["HunterbornNative", "_DS_HB_Animals", "_DS_HB_Actions", "_DS_HB_HiSBridge", "_DS_HB_MAIN", "_DS_HB_MCM", "_DS_HB_Monsters", "_DS_HB_QF_StartupHelper", "_DS_HB_mgef_Hotkey", "HIS_QF_HISHBSkinningQuest_0213F719"]
 for n in OURS:
     put(os.path.join(HERE, "build", n + ".pex"), os.path.join(core, "Scripts", n + ".pex"))
     put(os.path.join(HERE, "src", n + ".psc"), os.path.join(core, "Source", "Scripts", n + ".psc"))
@@ -63,6 +67,13 @@ put(NEW, os.path.join(dest, "new", "SKSE", "Plugins", "HunterbornNative.dll"))
 put(OLD, os.path.join(dest, "older", "SKSE", "Plugins", "HunterbornNative.dll"))
 for f, _, _ in PATCH_FILES:
     put(os.path.join(PATCHES, f), os.path.join(dest, "patches", f))
+# optional: the Hunterborn - Animations integration (scripts only: none of its animations or meshes are packaged, it is a requirement)
+for n in ANIM_SCRIPTS:
+    put(os.path.join(ANIM_BUILD, n + ".pex"), os.path.join(dest, "animations", "Scripts", n + ".pex"))
+    put(os.path.join(ANIM_SRC, n + ".psc"), os.path.join(dest, "animations", "Source", "Scripts", n + ".psc"))
+# optional: the Vols cloak PBR textures (only the PBR files; the original cloak mesh and textures come from Hunterborn - Animations)
+for sub in ("PBRNifPatcher", "textures"):
+    shutil.copytree(os.path.join(VOLS, sub), os.path.join(dest, "volspbr", sub))
 put(os.path.join(HERE, "docs", "README.txt"), os.path.join(dest, "README.txt"))
 put(os.path.join(HERE, "LICENSE.txt"), os.path.join(dest, "LICENSE.txt"))
 
@@ -110,6 +121,24 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
         <group name="Patches (install the ones for mods you use)" type="SelectAny">
           <plugins order="Explicit">
 {patch_plugins}          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+    <installStep name="Animations and extras">
+      <optionalFileGroups order="Explicit">
+        <group name="Animations and extras" type="SelectAny">
+          <plugins order="Explicit">
+            <plugin name="Hunterborn Animations integration">
+              <description>One click on a fresh kill kneels, field dresses, skins, harvests and butchers it with the animations of Hunterborn - Animations, then stands up. With a hunting knife it plays the dress cut and the stab-and-pull; with bare hands the claw dress and the harvest-fail pull. Sneak-click carries the animal, with a pose by size. Needs Hunterborn - Animations (Nexus 80677) installed first; none of its files are included. Set the click action on the Tweaks page.</description>
+              <files><folder source="animations" destination=""/></files>
+              <typeDescriptor><type name="Optional"/></typeDescriptor>
+            </plugin>
+            <plugin name="Vols Cloak PBR (Community Shaders only)">
+              <description>PBR textures (with PGPatcher json files) for the Vols fur cloaks of Hunterborn - Animations / Immersive Hunting Animations: the cloak, black, brown, snow sabre and vale sabre variants. Needs Community Shaders and PGPatcher, and the cloak mesh and textures from Hunterborn - Animations. Conversions by CageTV (Nexus 175588) of the original textures, with credit to their authors.</description>
+              <files><folder source="volspbr" destination=""/></files>
+              <typeDescriptor><type name="Optional"/></typeDescriptor>
+            </plugin>
+          </plugins>
         </group>
       </optionalFileGroups>
     </installStep>
