@@ -74,7 +74,11 @@ ESL EDITION OF HUNTERBORN.ESP (installer option) - READ THE WARNING
 The installer asks which Hunterborn.esp. Regular is the default, and the one almost everyone should pick. The ESL edition renumbers the plugin's 2,965 records
 into the light range (header 1.71, up to 4,096 records), so it takes no plugin slot. The price:
   - Every other mod made for the regular Hunterborn.esp stops working with it, because they point at the old record numbers: patches, IED profiles, animation
-    and carry mods. This installer's own four patches and Hunterborn2026.esp come in ESL form. Anything else needs the regular edition or must be remade.
+    and carry mods. This installer's own four patches and Hunterborn2026.esp come in ESL form, and the step "Other mods (ESL edition)" offers the same renumbered files for the
+    popular mods built on Hunterborn: Hunterborn - Animations (and Primitive Cooking), Carry Your Carcasses (and CYC Animations), Immersive Carcass Carrying (IED profile and the
+    four Open Animation Replacer configs), Eating Animations and Sounds patch, Hunterborn Extender (Advanced Taxonomy), the Last Seed 2026 patch, the SOTW/CACO patch,
+    SHO for Hunterborn, the Bathing in Skyrim soaps patch and Hunterborn Descriptions. Tick the mods you use; they have the same file names as the originals, so let them overwrite.
+    A plugin that is not on that list and was made for the regular edition can crash the game at start-up or change the wrong records: use the regular edition or have it remade.
   - A save made with one edition cannot be loaded with the other. Start a new game; do not switch editions on a game you are playing.
   - Needs Skyrim 1.6.1130 or newer (not VR): choose the NEW build of HunterbornNative.dll. The same DLL works with both editions: when it sees the ESL
     edition it translates the record numbers it knows. Run PGPatcher again after switching.

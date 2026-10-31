@@ -14,13 +14,17 @@ import shutil
 import sys
 import xml.dom.minidom
 import zipfile
+from xml.sax.saxutils import escape
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from esl_thirdparty import GROUPS, DETECT  # other mods' files renumbered for the ESL edition
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VERSION = sys.argv[1] if len(sys.argv) > 1 else "1.0.0"
 OLD = os.path.join(HERE, "plugin", "build", "release", "HunterbornNative.dll")
 NEW = r"E:\WorkSpace\ng-build\build\release\out\HunterbornNative\HunterbornNative.dll"
 SEMCM = os.path.join(HERE, "reference", "semcm-mod")
-PATCHES = r"H:\Modlists\Tabula\mods\Hunterborn 2026 Patches"
+PATCHES = os.path.join(HERE, "assets_local", "patches")  # the REGULAR originals of the four patches (not in git: copy them here from the installed mod, before they are remapped)
 ANIM_BUILD = os.path.join(HERE, "patches", "Animations", "build")  # tools/build_animations_patch.py
 ANIM_SRC = os.path.join(HERE, "patches", "Animations", "src")
 ANIM_SCRIPTS = ["_DS_HB_Actions", "_DS_HB_MAIN", "_DS_HB_mgef_Forage", "_DS_HB_mgef_Hotkey", "_DS_HB_mgef_Track", "_GP_HB_AnimCooking", "_GP_HB_AnimFunctions"]
@@ -84,18 +88,33 @@ for f in ["Hunterborn.esp", "Hunterborn2026.esp"]:
     put(os.path.join(ESL_OUT, f), os.path.join(dest, "esl", f))
 for f, _, _ in PATCH_FILES:
     put(os.path.join(ESL_OUT, "patches", f), os.path.join(dest, "esl", "patches", f))
+BS = chr(92)
+for folder, _, _, files in GROUPS:
+    for rel in files:
+        src = os.path.join(ESL_OUT, "third-party", folder, *rel.split("/"))
+        assert os.path.exists(src), "run tools/make_esl.py personal first: " + src
+        put(src, os.path.join(dest, "esl", "third-party", folder, *rel.split("/")))
 ESL_WARNING = ("ESL edition of Hunterborn.esp: its 2,965 records are renumbered into the light range, which frees one plugin slot. READ THIS FIRST. "
                "(1) Every other mod that was made for the regular Hunterborn.esp stops working with it, because they point at the old record numbers: "
-               "patches, IED profiles, animation and carry mods. This installer's own patches are included in their ESL form; anything else needs the regular edition "
+               "patches, IED profiles, animation and carry mods. This installer's own patches are included in their ESL form, and the next step offers the same renumbered files for the popular mods built on Hunterborn "
+               "(Animations, Carry Your Carcasses, Immersive Carcass Carrying, Eating Animations, Extender, Last Seed, SOTW/CACO, SHO, Bathing soaps, Descriptions); anything else needs the regular edition "
                "or must be remade. (2) A save made with the regular edition cannot be loaded with this one, and the reverse: start a new game. "
                "(3) Needs Skyrim 1.6.1130 or newer (not VR): the new build of HunterbornNative.dll. "
                "(4) Last Seed: use the ESL build of Last Seed 2026 1.4.1 or newer, whose food lists find the ESL edition's foods; the regular build and older versions ask about every Hunterborn food. "
                "Do not install it on top of a game you are playing, and do not mix it with patches downloaded for the regular Hunterborn.esp. If in doubt, choose Regular.")
+def type_for(plugin_file):
+    """Optional, but Recommended (pre-ticked) when that plugin is Active in the load order."""
+    if not plugin_file:
+        return '<typeDescriptor><type name="Optional"/></typeDescriptor>'
+    return ('<typeDescriptor><dependencyType><defaultType name="Optional"/><patterns><pattern><dependencies>'
+            f'<fileDependency file="{escape(plugin_file)}" state="Active"/></dependencies><type name="Recommended"/></pattern></patterns></dependencyType></typeDescriptor>')
+
+
 patch_plugins = "".join(
     f"""            <plugin name="{label}">
               <description>{desc}</description>
               <conditionFlags><flag name="patch{i}">On</flag></conditionFlags>
-              <typeDescriptor><type name="Optional"/></typeDescriptor>
+              {type_for(f)}
             </plugin>
 """
     for i, (f, label, desc) in enumerate(PATCH_FILES))
@@ -106,6 +125,21 @@ patch_installs = "".join(
     </pattern>
 """
     for i, (f, _, _) in enumerate(PATCH_FILES) for ed in ("Regular", "ESL"))
+tp_plugins = "".join(
+    f"""            <plugin name="{escape(label)}">
+              <description>{escape(desc)} Install it only if you use that mod.</description>
+              <conditionFlags><flag name="tp{i}">On</flag></conditionFlags>
+              {type_for(DETECT.get(folder))}
+            </plugin>
+"""
+    for i, (folder, label, desc, files) in enumerate(GROUPS))
+tp_installs = "".join(
+    f"""    <pattern>
+      <dependencies operator="And"><flagDependency flag="edition" value="ESL"/><flagDependency flag="tp{i}" value="On"/></dependencies>
+      <files><folder source="esl{BS}third-party{BS}{folder}" destination=""/></files>
+    </pattern>
+"""
+    for i, (folder, label, desc, files) in enumerate(GROUPS))
 esl_core_install = """    <pattern>
       <dependencies operator="And"><flagDependency flag="edition" value="ESL"/></dependencies>
       <files><file source="esl\\Hunterborn.esp" destination="Hunterborn.esp"/><file source="esl\\Hunterborn2026.esp" destination="Hunterborn2026.esp"/></files>
@@ -113,6 +147,7 @@ esl_core_install = """    <pattern>
 """
 config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
   <moduleName>{NAME}</moduleName>
+  <moduleImage path="fomod/hunterborn_logo.png" showImage="true" showFade="true" height="-1"/>
   <requiredInstallFiles>
     <folder source="core" destination=""/>
     <file source="README.txt" destination="{NAME} README.txt"/>
@@ -167,6 +202,15 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
         </group>
       </optionalFileGroups>
     </installStep>
+    <installStep name="Other mods (ESL edition)">
+      <visible><dependencies operator="And"><flagDependency flag="edition" value="ESL"/></dependencies></visible>
+      <optionalFileGroups order="Explicit">
+        <group name="Files of other mods, renumbered for the ESL edition (tick the mods you use)" type="SelectAny">
+          <plugins order="Explicit">
+{tp_plugins}          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
     <installStep name="Animations and extras">
       <optionalFileGroups order="Explicit">
         <group name="Animations and extras" type="SelectAny">
@@ -174,7 +218,7 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
             <plugin name="Hunterborn Animations integration">
               <description>One click on a fresh kill kneels, field dresses, skins, harvests and butchers it with the animations of Hunterborn - Animations, then stands up. With a hunting knife it plays the dress cut and the stab-and-pull; with bare hands the claw dress and the harvest-fail pull. Sneak-click carries the animal, with a pose by size. Needs Hunterborn - Animations (Nexus 80677) installed first; none of its files are included. Set the click action on the Tweaks page.</description>
               <files><folder source="animations" destination=""/></files>
-              <typeDescriptor><type name="Optional"/></typeDescriptor>
+              {type_for("Hunterborn - Animations.esp")}
             </plugin>
             <plugin name="Vols Cloak PBR (Community Shaders only)">
               <description>PBR textures (with PGPatcher json files) for the Vols fur cloaks of Hunterborn - Animations / Immersive Hunting Animations: the cloak, black, brown, snow sabre and vale sabre variants. Needs Community Shaders and PGPatcher, and the cloak mesh and textures from Hunterborn - Animations. Conversions by CageTV (Nexus 175588) of the original textures, with credit to their authors.</description>
@@ -188,16 +232,19 @@ config = f"""<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:n
   </installSteps>
   <conditionalFileInstalls>
     <patterns>
-{esl_core_install}{patch_installs}    </patterns>
+{esl_core_install}{patch_installs}{tp_installs}    </patterns>
   </conditionalFileInstalls>
 </config>
 """
 info = (f"<fomod>\n  <Name>{NAME}</Name>\n  <Author>CageTV (Hunterborn by unuroboros, Hunterborn SE MCM by Hazado, Process Hotkey Fix by Gasil)</Author>\n"
         f"  <Version>{VERSION}</Version>\n  <Website>https://github.com/CageTV/Hunterborn-2026</Website>\n"
         "  <Description>Hunterborn SE MCM with its menu in SKSE Menu Framework, a native plugin that applies the settings, and fixes. Replaces Hunterborn SE MCM and the Process Hotkey Fix.</Description>\n</fomod>\n")
+# MO2 ignores <moduleImage> and shows the image of the option that is highlighted, so every option gets the logo
+config = config.replace("</description>", "</description>" + chr(10) + '              <image path="fomod/hunterborn_logo.png"/>')
 xml.dom.minidom.parseString(config)
 xml.dom.minidom.parseString(info)
 os.makedirs(os.path.join(dest, "fomod"), exist_ok=True)
+shutil.copyfile(LOGO, os.path.join(dest, "fomod", "hunterborn_logo.png"))
 open(os.path.join(dest, "fomod", "ModuleConfig.xml"), "w", encoding="utf-8", newline=chr(10)).write(config)
 open(os.path.join(dest, "fomod", "info.xml"), "w", encoding="utf-8", newline=chr(10)).write(info)
 zpath = dest + ".zip"

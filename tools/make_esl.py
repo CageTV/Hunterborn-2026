@@ -18,7 +18,7 @@ TOOL = os.path.join(HERE, "tools", "eslcompact", "bin", "Release", "net9.0", "Es
 MODS = r"H:\Modlists\Tabula\mods"
 SRC_ESP = os.path.join(HERE, "reference", "semcm-mod", "Hunterborn.esp")
 CORE_ESL = os.path.join(HERE, "package", "Hunterborn2026.esp")
-PATCHES = os.path.join(MODS, "Hunterborn 2026 Patches")
+PATCHES = os.path.join(HERE, "package", "Hunterborn 2026 - Installer", "patches")  # the REGULAR originals (the installed ones are already remapped)
 PATCH_FILES = ["Hunterborn - Campfire Patch.esp", "Hunterborn - Leather Tanning.esp", "Hunterborn_CACO-SE_Patch.esp", "Hunterborn - Soups and Stews.esp"]
 WORK = os.path.join(HERE, "esl", "work")
 OUT = os.path.join(HERE, "esl", "out")
@@ -36,6 +36,7 @@ PERSONAL_PLUGINS = [
     ("Last Seed 2026 - Patches", "Hunterborn - LastSeed Patch SE.esp"),
     ("Skills of the Wild and CACO Patch", "SOTW_CACO Patch.esp"),
     ("Trading and NPC reactions for Hunterborn", "SHO for Hunterborn.esp"),
+    ("Bathing In Skyrim Soaps from Hunterborn Animal Fat", "ES_BISRSoapsForHunterborn.esp"),
 ]
 PERSONAL_JSON = [
     ("Carry Your Carcasses", r"SKSE\Plugins\IED\Profiles\Custom\Carry Your Carcasses.json"),
@@ -44,6 +45,9 @@ PERSONAL_JSON = [
     ("Hunterborn - Animations", r"SKSE\Plugins\IED\Profiles\Custom\Hunterborn - Hunting Knives.json"),
     ("Hunterborn - Animations", r"SKSE\Plugins\IED\Profiles\Custom\Hunterborn - Hunting Pelts.json"),
 ]
+PERSONAL_JSON += [("Immersive Carcass Carrying", r"SKSE\Plugins\IED\Profiles\Custom\ICC - Hunterborn.json")]
+ICC_OAR = os.path.join("Meshes", "actors", "character", "animations", "OpenAnimationReplacer", "Carry Your Carcasses")
+PERSONAL_OAR = [("Immersive Carcass Carrying", os.path.join(ICC_OAR, a, "config.json")) for a in ("Deer", "Fox", "Goat", "Wolf")]  # OAR InventoryCount conditions: "formID" is hex
 PERSONAL_INI = [("Hunterborn Descriptions", "Hunterborn_DESC.ini")]
 
 
@@ -100,6 +104,19 @@ if len(sys.argv) > 1 and sys.argv[1] == "personal":
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         open(dst, "w", encoding="utf-8", newline="").write(s2)
         print(f"{rel}: {n[0]} item references")
+    for mod, rel in PERSONAL_OAR:
+        s = open(os.path.join(MODS, mod, rel), encoding="utf-8", newline="").read()
+        n = [0]
+
+        def subo(mo):
+            old = int(mo.group(2), 16)
+            n[0] += 1
+            return f'{mo.group(1)}{m[old]:X}"' if old in m else mo.group(0)
+        s2 = re.sub(r'("pluginName"\s*:\s*"Hunterborn\.esp",\s*"formID"\s*:\s*")([0-9A-Fa-f]+)"', subo, s)
+        dst = os.path.join(pdir, rel)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        open(dst, "w", encoding="utf-8", newline="").write(s2)
+        print(f"{rel}: {n[0]} OAR conditions")
     for mod, rel in PERSONAL_INI:
         s = open(os.path.join(MODS, mod, rel), encoding="utf-8", newline="").read()
         n = [0]
@@ -111,5 +128,18 @@ if len(sys.argv) > 1 and sys.argv[1] == "personal":
         s2 = re.sub(r"0x([0-9A-Fa-f]+)~Hunterborn\.esp\|", subi, s)
         open(os.path.join(pdir, rel), "w", encoding="utf-8", newline="").write(s2)
         print(f"{rel}: {n[0]} lines")
+    # grouped copy for the installer (tools/package.py): esl/out/third-party/<mod>/<path>
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from esl_thirdparty import GROUPS
+    tp = os.path.join(OUT, "third-party")
+    shutil.rmtree(tp, ignore_errors=True)
+    for folder, _, _, files in GROUPS:
+        for rel in files:
+            src = os.path.join(pdir, *rel.split("/"))
+            assert os.path.isfile(src), "not remapped: " + rel
+            dst = os.path.join(tp, folder, *rel.split("/"))
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            shutil.copyfile(src, dst)
+    print("installer copies in", tp)
     print("personal copies in", pdir)
 print("done")
