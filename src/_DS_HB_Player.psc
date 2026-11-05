@@ -75,7 +75,11 @@ EndEvent
 ; - It doesn't handle dropping a stack correctly.
 ; - It won't have the object reference on a container change (only if the object is dropped).
 ;
-Event OnItemRemoved(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akDestContainer)
+; Hunterborn 2026: no OnItemRemoved / OnItemAdded events any more. The game sends those for EVERY item the player gets or
+; loses (one script call each), so a big Take All / Store All froze the script VM. HunterbornNative.dll (ItemEvents.cpp)
+; watches the game's container changes in C++ and calls these two functions only for the items they handle: carcasses,
+; hunting knives, the Bone Divining Knife, pets, pet lures and soup. Same parameters, same bodies as the events had.
+Function HB_ItemRemoved(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akDestContainer)
 
 	; Carcasses
 	;
@@ -225,11 +229,11 @@ Event OnItemRemoved(Form akBaseItem, int aiItemCount, ObjectReference akItemRefe
 		
 	EndIf
 
-EndEvent
+EndFunction
 
 ; -- OnItemAdded
 ;
-Event OnItemAdded(Form akBaseItem, Int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
+Function HB_ItemAdded(Form akBaseItem, Int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
 
 	; Hunting knives
 	;
@@ -243,7 +247,7 @@ Event OnItemAdded(Form akBaseItem, Int aiItemCount, ObjectReference akItemRefere
 
 	EndIf
 
-EndEvent
+EndFunction
 
 ; -- OnObjectEquipped
 ;
