@@ -101,7 +101,9 @@ Function HB_ItemRemoved(Form akBaseItem, int aiItemCount, ObjectReference akItem
 		; Allowed for smaller corpses, though it gets "wiped" as above. [Optionally] Not allowed for bigger corpses because... cmon. A bear in a barrel?
 		Else
 
-			If (akItemReference.GetWeight() > 50.0 && dsGlobals.gPreventBearStash)
+			; Hunterborn 2026: the base item's weight. akItemReference is only set for an item dropped into the world - for a
+			; container it is None, so the old akItemReference.GetWeight() always failed here and bears went into barrels.
+			If (akBaseItem.GetWeight() > 50.0 && dsGlobals.gPreventBearStash)
 				MsgErrorNostashing.Show()
 				akDestContainer.RemoveItem(akBaseItem, aiItemCount, True, PlayerRef)
 			Else
