@@ -108,7 +108,7 @@ namespace ItemEvents
 			if (auto* k = HB<RE::BGSKeyword>(id)) g_watch.keywords.push_back(k);
 		for (unsigned id : { 0x006EB9u, 0x027771u })   // _DS_FL_CarcassObjects, _DS_FL_CarcassObjects_Monsters
 			if (auto* l = HB<RE::BGSListForm>(id)) g_watch.lists.push_back(l);
-		g_watch.divining = HB<RE::TESForm>(0x0D925A);   // _DS_Misc_BoneDiviningKnife
+		g_watch.divining = HB<RE::TESObjectWEAP>(0x0D925A);   // _DS_Misc_BoneDiviningKnife (a WEAP: the typed lookup returns nothing for plain TESForm)
 		if (auto* src = RE::ScriptEventSourceHolder::GetSingleton()) src->AddEventSink<RE::TESContainerChangedEvent>(Sink::Get());
 		SKSE::log::info("ItemEvents: watching {} keywords, {} carcass lists{}{} (quest {})", g_watch.keywords.size(), g_watch.lists.size(),
 			g_watch.divining ? ", the Bone Divining Knife" : "", HbIds::LightEdition() ? " - ESL edition ids" : "", g_quest ? "found" : "NOT FOUND");
