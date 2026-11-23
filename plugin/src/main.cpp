@@ -8,6 +8,7 @@
 #include "Actions.h"
 #include "Animallica.h"
 #include "AutoPatch.h"
+#include "ItemEvents.h"
 #include "Menu.h"
 #include "Settings.h"
 
@@ -36,6 +37,7 @@ namespace
 		case SKSE::MessagingInterface::kDataLoaded:
 			Settings::OnDataLoaded();
 			AutoPatch::OnDataLoaded();  // the animals other mods add: a report only, nothing is changed yet
+			ItemEvents::OnDataLoaded();  // _DS_HB_Player's item events, only for the items it handles (see ItemEvents.h)
 			break;
 		case SKSE::MessagingInterface::kPostLoadGame:
 		case SKSE::MessagingInterface::kNewGame:
