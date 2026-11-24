@@ -61,7 +61,8 @@ namespace Settings
 			  "Hunterborn's menus: the original prompts (field dress, skin, harvest, butcher).\n"
 			  "Simple Hunting Overhaul loot window: the click opens the loot window and Simple Hunting Overhaul skins when you take the pelt (needs Simple Hunting "
 			  "Overhaul and Simple Hunterborn).\n"
-			  "One click and the loot window set \"Click on fresh kill\" and \"Click fresh kill (sneaking)\" on every game load.",
+			  "One click and the loot window set the four \"Click on ...\" settings on every game load. Changing one of those by hand on the Tweaks page switches this to "
+			  "Hunterborn's menus, so your choice is kept; picking Hunterborn's menus here puts them back to the original prompts.",
 			  Kind::Combo, 0, 1, 0, 0, 1, "", kHuntModes, 3, 0, 0 },
 			{ nullptr, "Animallica", "", Kind::Slider, 0, 0, 0, 0, 0, "", nullptr, 0, 0, 0 },
 			{ "animallica_lore", "Animallica creatures",
@@ -248,6 +249,29 @@ namespace Settings
 			return false;
 		}
 
+		// The "How a click on a kill works" setting and the four "Click on ..." settings must agree, or the menu choice is silently undone:
+		// the mode rewrites the four on every game load. So a choice made by hand on the Tweaks page switches the mode to Hunterborn's menus (0),
+		// and switching the mode to Hunterborn's menus puts the four back to Hunterborn's own defaults (the prompts). Callers hold mu.
+		bool IsClickAction(std::string_view a_id)
+		{
+			return a_id == "gActionFreshCarcass" || a_id == "gActionFreshCarcassSneak" || a_id == "gActionCleanCarcass" || a_id == "gActionCleanCarcassSneak";
+		}
+
+		// What EnforceShoMode writes for this setting in this mode; -1 = the mode leaves it alone.
+		int EnforcedClickValue(std::string_view a_id, int a_mode)
+		{
+			if (a_id == "gActionFreshCarcass") {
+				return a_mode == 2 ? 3 : 4;
+			}
+			if (a_id == "gActionFreshCarcassSneak") {
+				return 1;
+			}
+			if (a_mode == 1) {
+				return 1;  // dressed kill and dressed kill (sneaking): process it
+			}
+			return -1;
+		}
+
 		template <class F>
 		void ForEachDef(F&& a_f)
 		{
@@ -302,15 +326,50 @@ namespace Settings
 		return Current(a_d);
 	}
 
+	// See IsClickAction. Callers hold mu.
+	static void FollowClickChoice(const Def& a_d, float a_before)
+	{
+		const std::string_view id = a_d.id;
+		const auto* modeDef = Find(kShoModeId);
+		if (!modeDef) {
+			return;
+		}
+		if (id == kShoModeId) {
+			if (static_cast<int>(Current(a_d) + 0.5f) == 0 && static_cast<int>(a_before + 0.5f) != 0) {
+				for (const char* click : { "gActionFreshCarcass", "gActionFreshCarcassSneak", "gActionCleanCarcass", "gActionCleanCarcassSneak" }) {
+					if (const auto* d = Find(click)) {
+						Apply(*d, d->def);
+						file[d->id] = Current(*d);
+					}
+				}
+				SKSE::log::info("Hunting mode set to Hunterborn's menus: the four click settings are back to Hunterborn's defaults");
+			}
+			return;
+		}
+		if (!IsClickAction(id)) {
+			return;
+		}
+		const auto it = file.find(kShoModeId);
+		const int  mode = it != file.end() ? static_cast<int>(it->second + 0.5f) : 1;
+		const int  enforced = EnforcedClickValue(id, mode);
+		if (mode != 0 && enforced >= 0 && static_cast<int>(Current(a_d) + 0.5f) != enforced) {
+			Apply(*modeDef, 0.0f);
+			file[kShoModeId] = 0.0f;
+			SKSE::log::info("{} changed by hand: 'How a click on a kill works' is now Hunterborn's menus so the choice is kept", id);
+		}
+	}
+
 	void Set(const Def& a_d, float a_value)
 	{
 		a_value = Clamp(a_d, a_value);
 		std::lock_guard lock(mu);
 		ReadFile();
+		const float before = a_d.id ? Current(a_d) : 0.0f;
 		Apply(a_d, a_value);
 		if (a_d.id) {
 			file[a_d.id] = Current(a_d);
 			Touch();
+			FollowClickChoice(a_d, before);
 		}
 	}
 

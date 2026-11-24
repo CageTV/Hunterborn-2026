@@ -95,6 +95,7 @@ Three choices, saved with your settings and applied on every game load:
   Simple Hunting Overhaul loot window   the click opens the loot window and Simple Hunting Overhaul skins when you take the pelt (needs Simple Hunting
                                     Overhaul and Simple Hunterborn).
 The "Click on fresh kill" and "Click on dressed kill" options on the Tweaks page show what is set; "Field dress and process" is the new fresh-kill action.
+Change one of those by hand and this choice switches to Hunterborn's menus, so your pick is kept; choose Hunterborn's menus here and they go back to the original prompts.
 
 HUNTERBORN ANIMATIONS (optional)
 --------------------------------
